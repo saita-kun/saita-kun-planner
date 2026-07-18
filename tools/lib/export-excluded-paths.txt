@@ -1,0 +1,9 @@
+# Shared export exclusion paths.
+# A single trailing slash is allowed for readability; entries and descendants are excluded.
+.ralph/
+docs/strategy/
+docs/design/pivot-decision.md
+docs/design/wave-plans.md
+docs/design/harness-backlog.md
+docs/plans/
+tools/release/

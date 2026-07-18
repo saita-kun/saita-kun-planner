@@ -1,0 +1,42 @@
+{
+  "spec_path": "tools/fixtures/spec/confirmation-invalid-fixed-fields.json",
+  "spec_version": 1,
+  "spec_sha256": "not-a-sha",
+  "confirmed_by": "robot",
+  "confirmed_at": "20260705",
+  "items": [
+    {
+      "field_path": "schedule.application-deadline",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Draft fixture schedule item confirmed."
+    },
+    {
+      "field_path": "eligibility.rules.rule-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Draft fixture mandatory rule encoded.",
+      "predicate_state": "encoded"
+    },
+    {
+      "field_path": "funding.base_award",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Draft fixture funding confirmed."
+    },
+    {
+      "field_path": "deliverables.deliverable-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Draft fixture deliverable confirmed."
+    }
+  ]
+}

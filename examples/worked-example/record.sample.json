@@ -1,0 +1,38 @@
+{
+  "record_id": "worked-sample-2026-sample",
+  "subsidy_id": "worked-sample",
+  "spec_version": 1,
+  "round": "2026-sample",
+  "chosen_addons": [
+    "wage-up"
+  ],
+  "submitted_at": null,
+  "result": "pending",
+  "score": null,
+  "feedback_text": null,
+  "lessons": [
+    {
+      "lesson_id": "lesson-fit-1",
+      "phase": "fit",
+      "text": "賃上げ加点を選ぶ場合は、/subsidy-fit の段階で証憑候補を先に確認する。",
+      "applies_to": "rule-wage-plan"
+    },
+    {
+      "lesson_id": "lesson-verify-1",
+      "phase": "verify",
+      "text": "30 字制限の短文要約は、/verify 前に独立した draft として切り出すと確認しやすい。",
+      "applies_to": "short-summary"
+    },
+    {
+      "lesson_id": "lesson-finalize-1",
+      "phase": "finalize",
+      "text": "添付書類は AI draft ではないため、見積書と支援機関確認書を人の作業として別管理する。",
+      "applies_to": "estimate-attachment"
+    }
+  ],
+  "next_actions": [
+    "実際の申請では公式募集要項と見積書で対象経費を確認する。",
+    "draft を修正したら /verify を再実行し、draft_bodies_sha256 を更新する。"
+  ],
+  "created_at": "2026-07-02T12:34:56+09:00"
+}

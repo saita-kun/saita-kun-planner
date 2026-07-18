@@ -1,0 +1,60 @@
+{
+  "subsidy_id": "verbatim-mismatch",
+  "schema_version": "2.0",
+  "spec_version": 1,
+  "status": "draft",
+  "source_documents": [
+    {
+      "document_id": "doc-1",
+      "title": "Fixture extract",
+      "url_or_path": "fixture-source.pdf",
+      "sha256": null,
+      "extract_path": "tools/fixtures/spec/verbatim-mismatch.extract.md"
+    }
+  ],
+  "schedule": [
+    {
+      "event_id": "application-deadline",
+      "event_kind": "application_deadline",
+      "source_clauses": [
+        "clause-1"
+      ]
+    }
+  ],
+  "eligibility": {
+    "rules": [
+      {
+        "rule_id": "rule-1",
+        "kind": "mandatory",
+        "predicate": null,
+        "source_clauses": [
+          "clause-1"
+        ]
+      }
+    ]
+  },
+  "funding": {
+    "base_award": {
+      "source_clauses": [
+        "clause-1"
+      ]
+    }
+  },
+  "deliverables": [
+    {
+      "deliverable_id": "deliverable-1",
+      "produced_by": "human_only",
+      "source_clauses": [
+        "clause-1"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "clause_id": "clause-1",
+      "text": "対象者は申請締切までに必要書類を提出すること。",
+      "raw_text": "対象者は紙の申請書を窓口に提出すること。",
+      "source_document_id": "doc-1"
+    }
+  ]
+}
