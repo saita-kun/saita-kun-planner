@@ -1,0 +1,1 @@
+{"spec_path":"tools/fixtures/spec/stale-sha.json","spec_version":1,"spec_sha256":"0000000000000000000000000000000000000000000000000000000000000000","confirmed_by":"provider","confirmed_at":"2026-07-02","items":[{"field_path":"fixture.stale-sha","source_clauses":["clause-1"],"state":"confirmed","note":"This fixture intentionally uses a stale spec_sha256."}]}

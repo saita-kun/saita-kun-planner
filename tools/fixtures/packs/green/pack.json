@@ -1,0 +1,35 @@
+{
+  "pack_version": 1,
+  "subsidy_id": "pack-fixture",
+  "spec_version": 1,
+  "built_at": "2026-07-05T00:00:00+09:00",
+  "built_by": "provider",
+  "spec": {
+    "path": "pack-fixture.json",
+    "sha256": "abe89f59b5b5cf751e99209be00768d7b79a24976278d620fc18bb590358d26d"
+  },
+  "confirmation": {
+    "path": "pack-fixture.confirmation.json",
+    "sha256": "0f5adac6ffb99475d34149c462e52b4d284b9c7897fcb1592d3de5f03e15046b"
+  },
+  "notes": [
+    {
+      "path": "notes/review-lens.md",
+      "kind": "review-lens",
+      "sha256": "87c6d20e470139c4864ab7832935e5ac5c1ea4fdcae22d1d782974d5f779d66e",
+      "derived_from_spec_sha256": "abe89f59b5b5cf751e99209be00768d7b79a24976278d620fc18bb590358d26d"
+    },
+    {
+      "path": "notes/scoring-strategy.md",
+      "kind": "scoring-strategy",
+      "sha256": "53ba95397fee205ac10faf10f6439e73d15ed4aa89672d3791c733c38972ceee",
+      "derived_from_spec_sha256": "abe89f59b5b5cf751e99209be00768d7b79a24976278d620fc18bb590358d26d"
+    },
+    {
+      "path": "notes/sections/plan--overview.md",
+      "kind": "section-note",
+      "sha256": "28132f9f475d2318abfb3c375f89dc055f1a9104ee656dd22653065cb112d67c",
+      "derived_from_spec_sha256": "abe89f59b5b5cf751e99209be00768d7b79a24976278d620fc18bb590358d26d"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "subsidy_id": "provider-missing-item-confirmed-at",
+  "schema_version": "2.0",
+  "spec_version": 1,
+  "round": "Fixture round",
+  "portal_url": "https://example.invalid/provider-missing-item-confirmed-at",
+  "status": "confirmed",
+  "registry": {
+    "origin": "bundled",
+    "fetched_at": "2026-07-17",
+    "revision": "fixture-1"
+  },
+  "source_documents": [
+    {
+      "document_id": "doc-1",
+      "title": "Provider fixture source",
+      "url_or_path": "fixture-source.pdf",
+      "sha256": null
+    }
+  ],
+  "schedule": [
+    {
+      "event_id": "application-deadline",
+      "event_kind": "application_deadline",
+      "date": "2027-12-31",
+      "time": null,
+      "source_clauses": ["clause-1"]
+    }
+  ],
+  "eligibility": {
+    "rules": [
+      {
+        "rule_id": "rule-1",
+        "kind": "mandatory",
+        "predicate": null,
+        "source_clauses": ["clause-1"]
+      }
+    ]
+  },
+  "funding": {
+    "base_award": {
+      "source_clauses": ["clause-1"]
+    }
+  },
+  "deliverables": [
+    {
+      "deliverable_id": "deliverable-1",
+      "produced_by": "ai_draftable",
+      "due_event_id": "application-deadline",
+      "sections": [],
+      "source_clauses": ["clause-1"]
+    }
+  ],
+  "clauses": [
+    {
+      "clause_id": "clause-1",
+      "source_document_id": "doc-1"
+    }
+  ]
+}

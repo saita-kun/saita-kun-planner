@@ -1,0 +1,18 @@
+{
+  "spec_path": "tools/fixtures/trust-freshness/stale-spec-sha/freshness-stale-sha/freshness-stale-sha.json",
+  "spec_version": 1,
+  "spec_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "confirmed_by": "provider",
+  "confirmed_at": "2026-07-17T12:00:00+09:00",
+  "items": [
+    {
+      "field_path": "fixture.binding",
+      "source_clauses": [
+        "fixture-clause"
+      ],
+      "state": "confirmed",
+      "note": "鮮度表へ採用する前の結合検証用データ。",
+      "confirmed_at": "2026-07-17"
+    }
+  ]
+}

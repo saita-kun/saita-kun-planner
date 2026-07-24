@@ -1,0 +1,15 @@
+title = "saita-kun-planner gitleaks config"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Allow the subsidy spec predicate key taxable_income_avg_3y in specs/jizokuka-20/jizokuka-20.json."
+condition = "AND"
+paths = [
+  '''^specs/jizokuka-20/jizokuka-20\.json$''',
+]
+regexes = [
+  '''taxable_income_avg_3y''',
+]
+# 理由: taxable_income_avg_3y は補助金 spec の predicate フィールド名です。entropy誤検知であり秘密情報ではないため許可します。

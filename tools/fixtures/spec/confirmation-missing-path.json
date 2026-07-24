@@ -1,0 +1,141 @@
+{
+  "subsidy_id": "fixture-confirmation-missing-path",
+  "schema_version": "2.0",
+  "spec_version": 1,
+  "name": "Fixture missing confirmation path",
+  "round": "fixture",
+  "portal_url": null,
+  "category_tags": [
+    "sales_marketing"
+  ],
+  "status": "confirmed",
+  "registry": null,
+  "source_documents": [
+    {
+      "document_id": "doc-1",
+      "title": "Fixture source",
+      "url_or_path": "fixture-source.pdf",
+      "sha256": null,
+      "pages": 1
+    }
+  ],
+  "schedule": [
+    {
+      "event_id": "application-deadline",
+      "name": "申請締切",
+      "event_kind": "application_deadline",
+      "date": "2026-12-31",
+      "starts_at": null,
+      "ends_at": null,
+      "relative": null,
+      "time": null,
+      "timezone": "Asia/Tokyo",
+      "hard": true,
+      "phase": "application",
+      "source_clauses": [
+        "clause-1"
+      ]
+    }
+  ],
+  "eligibility": {
+    "rules": [
+      {
+        "rule_id": "rule-1",
+        "kind": "mandatory",
+        "text": "Fixture mandatory rule.",
+        "predicate": null,
+        "verification": "Fixture verification.",
+        "source_clauses": [
+          "clause-1"
+        ]
+      }
+    ]
+  },
+  "funding": {
+    "base_award": {
+      "name": "Base award",
+      "max_amount": 50,
+      "subsidy_rate": 0.6667,
+      "source_clauses": [
+        "clause-1"
+      ]
+    },
+    "add_ons": [],
+    "combinations": [],
+    "eligible_expenses": [
+      {
+        "category": "広報費",
+        "notes": null,
+        "cap_amount": null,
+        "source_clauses": [
+          "clause-1"
+        ]
+      }
+    ]
+  },
+  "bonus_items": [],
+  "deliverables": [
+    {
+      "deliverable_id": "deliverable-1",
+      "name": "事業計画書",
+      "type": "document",
+      "phase": "application",
+      "produced_by": "ai_draftable",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "format": null,
+      "upload_target": null,
+      "due_event_id": "application-deadline",
+      "sections": [
+        {
+          "section_id": "section-1",
+          "name": "事業概要",
+          "kind": "prose",
+          "max_chars": 400,
+          "max_pages": null,
+          "guidance": "Fixture guidance.",
+          "review_criteria": [
+            "Fixture criterion."
+          ],
+          "source_clauses": [
+            "clause-1"
+          ]
+        },
+        {
+          "section_id": "section-2",
+          "name": "短文要約",
+          "kind": "prose",
+          "max_chars": 30,
+          "max_pages": null,
+          "guidance": "30 字以内で投資内容の要点を示す fixture section.",
+          "review_criteria": [
+            "Body stays within the max_chars fixture limit."
+          ],
+          "source_clauses": [
+            "clause-1"
+          ]
+        }
+      ],
+      "evidence_needed": null,
+      "depends_on": [],
+      "source_clauses": [
+        "clause-1"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "clause_id": "clause-1",
+      "section": "fixture",
+      "text": "Fixture clause text.",
+      "raw_text": "Fixture clause text.",
+      "source_document_id": "doc-1",
+      "page": 1,
+      "source_offset": null,
+      "topic_tags": []
+    }
+  ],
+  "parsed_at": "2026-07-02",
+  "parsed_by": "human"
+}

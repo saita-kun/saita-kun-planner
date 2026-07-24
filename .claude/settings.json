@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 --version)",
+      "Bash(command -v pdftotext)",
+      "Bash(bash tools/check-spec.sh:*)",
+      "Bash(bash tools/check-drafts.sh:*)",
+      "Bash(bash tools/check-pack.sh:*)",
+      "Bash(bash tools/draft-hash.sh:*)",
+      "Bash(python3 tools/lib/predicate.py:*)"
+    ]
+  }
+}

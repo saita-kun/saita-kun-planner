@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Company Profile (machine-matchable)",
+  "description": "input/company-profile.json のスキーマ。機械照合（eligibility.rules[].predicate の scope=profile 参照先）の正本。人間可読ビューは input/company-profile.md（/intake が両方を生成・同期）。値が不明な項目は null（predicate 評価では unknown になる）とし、md 側に [要確認] を残す。",
+  "type": "object",
+  "required": ["entity_type", "industry_class", "employees"],
+  "additionalProperties": true,
+  "properties": {
+    "entity_type": { "type": ["string", "null"], "description": "法人格（株式会社・合同会社・個人事業主・特定非営利活動法人 等）" },
+    "industry_class": {
+      "type": ["string", "null"],
+      "enum": ["商業・サービス業", "宿泊・娯楽", "製造業その他", null],
+      "description": "小規模事業者判定の業種区分"
+    },
+    "chusho_kihonho_class": {
+      "type": ["string", "null"],
+      "enum": ["製造業その他", "卸売業", "小売業", "サービス業", null],
+      "description": "中小企業基本法系の事業規模判定に使う業種区分。industry_class とは用途が異なるため、spec が参照する場合のみ確認する"
+    },
+    "employees": { "type": ["integer", "null"], "description": "常時使用する従業員数" },
+    "capital": { "type": ["number", "null"], "description": "資本金（万円）" },
+    "region": { "type": ["string", "null"], "description": "所在地（都道府県・市区町村）" },
+    "founded_year": { "type": ["integer", "null"] },
+    "taxable_income_avg_3y": { "type": ["number", "null"], "description": "直近3年の課税所得年平均（億円）" },
+    "is_subsidized_before": { "type": ["boolean", "null"], "description": "同種補助金の過去採択歴" },
+    "past_adoption_unreported": { "type": ["boolean", "null"], "description": "過去採択で報告書（様式14 等）未提出のものがあるか" },
+    "concurrent_applications": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "申請中・実施中の他補助金（重複申請判定の材料）。不明な場合は null、該当なし確認済みの場合は []"
+    },
+    "certifications": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "取得済み認定（経営力向上計画・事業継続力強化計画・くるみん・えるぼし・健康経営優良法人 等。加点評価の材料）。不明な場合は null、該当なし確認済みの場合は []"
+    },
+    "plans": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "予定・計画（賃金引き上げ予定・インボイス登録 等。特例・加点評価の材料）。不明な場合は null、該当なし確認済みの場合は []"
+    },
+    "business_summary": { "type": ["string", "null"], "description": "事業内容の一行要約（詳細は md 側）" },
+    "updated_at": { "type": ["string", "null"] }
+  }
+}

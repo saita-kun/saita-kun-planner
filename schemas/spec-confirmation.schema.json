@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/saita-kun-planner/spec-confirmation.schema.json",
+  "title": "Subsidy spec confirmation",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "spec_path",
+    "spec_version",
+    "spec_sha256",
+    "confirmed_by",
+    "confirmed_at",
+    "items"
+  ],
+  "properties": {
+    "spec_path": {
+      "type": "string"
+    },
+    "spec_version": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "spec_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confirmed_by": {
+      "enum": [
+        "applicant",
+        "provider",
+        null
+      ]
+    },
+    "confirmed_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "field_path",
+          "source_clauses",
+          "state",
+          "note"
+        ],
+        "properties": {
+          "field_path": {
+            "type": "string"
+          },
+          "source_clauses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "state": {
+            "enum": [
+              "confirmed",
+              "open",
+              "na"
+            ]
+          },
+          "note": {
+            "type": "string"
+          },
+          "predicate_state": {
+            "enum": [
+              "encoded",
+              "not_encodable",
+              "pending"
+            ]
+          },
+          "confirmed_at": {
+            "type": "string"
+          },
+          "confirmed_via": {
+            "enum": [
+              "group-table",
+              "individual"
+            ]
+          },
+          "shown_page": {
+            "type": [
+              "integer",
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

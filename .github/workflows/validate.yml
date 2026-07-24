@@ -1,0 +1,16 @@
+# CI の実走検証は GitHub 上（private repo push 後、設計書 §4.2 手順4）でのみ可能です。
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Run structural validation
+        run: bash tools/validate.sh
