@@ -1,0 +1,18 @@
+title = "saita-kun-planner gitleaks config"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Allow the subsidy spec predicate key taxable_income_avg_3y in jizokuka-20 spec (current path and pre-pack history path)."
+condition = "AND"
+paths = [
+  '''^specs/(jizokuka-20/)?jizokuka-20\.json$''',
+]
+regexes = [
+  '''taxable_income_avg_3y''',
+]
+# 理由: taxable_income_avg_3y は補助金 spec の predicate フィールド名（"key": "taxable_income_avg_3y"）で、
+# generic-api-key ルールの entropy誤検知であり秘密情報ではない。
+# gitleaks git は全履歴を走査するため、efa2681 のディレクトリパック移行前の旧パス
+# specs/jizokuka-20.json（d5b7264 で追加）も許可対象に含める必要がある。

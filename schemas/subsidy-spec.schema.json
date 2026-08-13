@@ -1,0 +1,316 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Subsidy Spec v2",
+  "description": "補助金 spec（制度定義）の正本スキーマ。設計 SSoT: docs/design/harness-ingest-loop.md §3。clauses[] を条文単位の真実源とし、制度事実を運ぶフィールドは source_clauses[] で条文へ、条文は source_documents[] で原本へ遡れる。申請イベント（採否・学び）は application-record 側であり本スキーマには含めない。",
+  "type": "object",
+  "required": ["subsidy_id", "schema_version", "spec_version", "name", "status", "source_documents", "schedule", "eligibility", "funding", "deliverables", "clauses", "parsed_at", "parsed_by"],
+  "additionalProperties": false,
+  "definitions": {
+    "sourceClauses": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "pattern": "^[A-Za-z0-9_.-]+$" },
+      "description": "clauses[].clause_id への参照。制度事実の出所"
+    },
+    "predicate": {
+      "description": "三値評価（true/false/unknown）の述語 AST。参照値欠損・null は unknown",
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["all"],
+          "additionalProperties": false,
+          "properties": { "all": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/predicate" } } }
+        },
+        {
+          "type": "object",
+          "required": ["any"],
+          "additionalProperties": false,
+          "properties": { "any": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/predicate" } } }
+        },
+        {
+          "type": "object",
+          "required": ["not"],
+          "additionalProperties": false,
+          "properties": { "not": { "$ref": "#/definitions/predicate" } }
+        },
+        {
+          "type": "object",
+          "required": ["scope", "key", "op"],
+          "additionalProperties": false,
+          "properties": {
+            "scope": { "type": "string", "enum": ["profile", "application"], "description": "profile=company-profile.json / application=current-application.json のキーを参照" },
+            "key": { "type": "string", "description": "参照キー（ドット区切りでネスト可。例 chosen_funding.addon_ids）" },
+            "op": { "type": "string", "enum": ["eq", "ne", "lt", "lte", "gt", "gte", "in", "contains", "exists"] },
+            "value": { "description": "比較値。op=exists のとき省略可" }
+          }
+        }
+      ]
+    }
+  },
+  "properties": {
+    "subsidy_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "schema_version": { "type": "string", "const": "2.0" },
+    "spec_version": { "type": "integer", "minimum": 1, "description": "spec 自体の版。公募回内の改定で increment" },
+    "name": { "type": "string" },
+    "round": { "type": ["string", "null"], "description": "公募回（例: 第20回公募）" },
+    "portal_url": { "type": ["string", "null"] },
+    "category_tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "schemas/taxonomy-v1.json の categories[].id のみ。一致は check-spec.sh が検証"
+    },
+    "status": { "type": "string", "enum": ["draft", "confirmed"], "description": "confirmed の条件: confirmation report が存在し spec_sha256 一致かつ必須 items 全 confirmed/na" },
+    "registry": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["origin", "fetched_at", "revision"],
+          "additionalProperties": false,
+          "properties": {
+            "origin": { "type": "string", "description": "取得元（レジストリ URL / bundled）" },
+            "fetched_at": { "type": "string" },
+            "revision": { "type": "string" },
+            "supersedes": { "type": ["string", "null"], "description": "置き換える旧 revision" }
+          }
+        }
+      ],
+      "description": "spec レジストリ対応メタ（次フェーズ。同梱 spec は origin=bundled）"
+    },
+    "source_documents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["document_id", "title", "url_or_path"],
+        "additionalProperties": false,
+        "properties": {
+          "document_id": { "type": "string", "pattern": "^[A-Za-z0-9_.-]+$" },
+          "title": { "type": "string" },
+          "url_or_path": { "type": "string" },
+          "sha256": { "type": ["string", "null"] },
+          "extract_path": { "type": ["string", "null"], "description": "PDF 抽出または Web 貼り付け md の保存パス。clauses[].text の verbatim 照合に使う任意フィールド" },
+          "pages": { "type": ["integer", "null"] }
+        }
+      }
+    },
+    "schedule": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["event_id", "name", "event_kind", "hard", "source_clauses"],
+        "additionalProperties": false,
+        "properties": {
+          "event_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string" },
+          "event_kind": { "type": "string", "enum": ["application_deadline", "support_letter_deadline", "estimate_deadline", "project_period", "report_deadline", "other"] },
+          "date": { "type": ["string", "null"], "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+          "starts_at": { "type": ["string", "null"], "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+          "ends_at": { "type": ["string", "null"], "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+          "relative": {
+            "oneOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "required": ["anchor"],
+                "additionalProperties": false,
+                "properties": {
+                  "anchor": { "type": "string", "description": "起点（例: 交付決定日）" },
+                  "offset_days": { "type": ["integer", "null"] },
+                  "direction": { "type": ["string", "null"], "enum": ["within_after", "before", null] }
+                }
+              }
+            ]
+          },
+          "time": { "type": ["string", "null"], "description": "締切時刻（例: 17:00）" },
+          "timezone": { "type": ["string", "null"] },
+          "hard": { "type": "boolean", "description": "true=過ぎたら失権" },
+          "phase": { "type": "string", "enum": ["application", "post_adoption"], "default": "application" },
+          "source_clauses": { "$ref": "#/definitions/sourceClauses" }
+        }
+      }
+    },
+    "eligibility": {
+      "type": "object",
+      "required": ["rules"],
+      "additionalProperties": false,
+      "properties": {
+        "rules": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["rule_id", "kind", "text", "predicate", "verification", "source_clauses"],
+            "additionalProperties": false,
+            "properties": {
+              "rule_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+              "kind": { "type": "string", "enum": ["exclude", "mandatory", "scoring"] },
+              "text": { "type": "string", "description": "要件の平易な一文（原文でなくてよい。原文は source_clauses 先）" },
+              "predicate": { "$ref": "#/definitions/predicate" },
+              "verification": { "type": "string", "description": "充足をどう確認するか（書類名・手続き）" },
+              "source_clauses": { "$ref": "#/definitions/sourceClauses" }
+            }
+          }
+        }
+      }
+    },
+    "funding": {
+      "type": "object",
+      "required": ["base_award", "eligible_expenses"],
+      "additionalProperties": false,
+      "properties": {
+        "base_award": {
+          "type": "object",
+          "required": ["name", "max_amount", "subsidy_rate", "source_clauses"],
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": "string" },
+            "max_amount": { "type": "number", "description": "上限額（万円）" },
+            "subsidy_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+            "source_clauses": { "$ref": "#/definitions/sourceClauses" }
+          }
+        },
+        "add_ons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["addon_id", "name", "max_amount_delta", "required_rules", "source_clauses"],
+            "additionalProperties": false,
+            "properties": {
+              "addon_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+              "name": { "type": "string" },
+              "max_amount_delta": { "type": "number", "description": "上乗せ額（万円）" },
+              "required_rules": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" }, "description": "適用条件（eligibility.rules[].rule_id 参照）" },
+              "rate_override": { "type": ["number", "null"], "minimum": 0, "maximum": 1, "description": "補助率の置き換え（例: 赤字事業者 3/4）" },
+              "source_clauses": { "$ref": "#/definitions/sourceClauses" }
+            }
+          }
+        },
+        "combinations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["addon_ids", "max_amount_total", "source_clauses"],
+            "additionalProperties": false,
+            "properties": {
+              "addon_ids": { "type": "array", "minItems": 2, "items": { "type": "string" } },
+              "max_amount_total": { "type": "number", "description": "併用時の上限総額（万円）" },
+              "source_clauses": { "$ref": "#/definitions/sourceClauses" }
+            }
+          }
+        },
+        "eligible_expenses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["category", "source_clauses"],
+            "additionalProperties": false,
+            "properties": {
+              "category": { "type": "string" },
+              "notes": { "type": ["string", "null"] },
+              "cap_amount": { "type": ["number", "null"], "description": "経費区分ごとの上限（万円）" },
+              "source_clauses": { "$ref": "#/definitions/sourceClauses" }
+            }
+          }
+        }
+      }
+    },
+    "bonus_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["bonus_id", "name", "source_clauses"],
+        "additionalProperties": false,
+        "properties": {
+          "bonus_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string" },
+          "description": { "type": ["string", "null"] },
+          "evidence_needed": { "type": ["string", "null"] },
+          "source_clauses": { "$ref": "#/definitions/sourceClauses" }
+        }
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["deliverable_id", "name", "type", "phase", "produced_by", "required", "source_clauses"],
+        "additionalProperties": false,
+        "properties": {
+          "deliverable_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string" },
+          "type": { "type": "string", "enum": ["form_input", "document", "attachment", "procedure"] },
+          "phase": { "type": "string", "enum": ["application", "post_adoption"] },
+          "produced_by": { "type": "string", "enum": ["ai_draftable", "human_only", "external"] },
+          "issuer": { "type": ["string", "null"], "description": "external のときの発行主体（例: 商工会議所）" },
+          "required": { "type": "boolean" },
+          "required_if": { "$ref": "#/definitions/predicate" },
+          "format": { "type": ["string", "null"], "description": "様式・ファイル形式の注記" },
+          "upload_target": { "type": ["string", "null"], "description": "提出先（例: 電子申請システムの入力欄）" },
+          "due_event_id": { "type": ["string", "null"], "description": "この成果物固有の期限（schedule.event_id 参照）" },
+          "sections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["section_id", "name", "kind"],
+              "additionalProperties": false,
+              "properties": {
+                "section_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+                "name": { "type": "string" },
+                "kind": { "type": "string", "enum": ["prose", "table", "field"] },
+                "optional": { "type": "boolean", "default": false, "description": "true の section は draft coverage WARN の必須対象から外す。未指定時は false" },
+                "max_chars": { "type": ["integer", "null"] },
+                "max_pages": { "type": ["number", "null"] },
+                "guidance": { "type": ["string", "null"] },
+                "review_criteria": { "type": "array", "items": { "type": "string" }, "description": "審査観点。draft と verify の両方が使う" },
+                "source_clauses": { "$ref": "#/definitions/sourceClauses" }
+              }
+            }
+          },
+          "evidence_needed": { "type": ["string", "null"] },
+          "depends_on": { "type": "array", "items": { "type": "string" }, "description": "deliverable_id 参照" },
+          "source_clauses": { "$ref": "#/definitions/sourceClauses" }
+        }
+      }
+    },
+    "clauses": {
+      "type": "array",
+      "minItems": 1,
+      "description": "真実源: 要項を 1 clause = 1 論点で正規化。source_clauses / judgment_basis の参照先は必ずここに実在",
+      "items": {
+        "type": "object",
+        "required": ["clause_id", "section", "text", "source_document_id"],
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": { "type": "string", "pattern": "^[A-Za-z0-9_.-]+$" },
+          "section": { "type": "string", "description": "公募要項上の所属節" },
+          "text": { "type": "string", "description": "真実源: NFKC 正規化済み verbatim" },
+          "raw_text": { "type": ["string", "null"], "description": "監査用の原文（改行・空白そのまま）" },
+          "source_document_id": { "type": "string", "description": "source_documents[].document_id 参照" },
+          "page": { "type": ["integer", "null"] },
+          "source_offset": {
+            "oneOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "required": ["start", "end"],
+                "additionalProperties": false,
+                "properties": {
+                  "start": { "type": "integer", "minimum": 0 },
+                  "end": { "type": "integer", "minimum": 0 }
+                }
+              }
+            ]
+          },
+          "topic_tags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "parsed_at": { "type": "string" },
+    "parsed_by": { "type": "string", "enum": ["ai", "human"] }
+  }
+}

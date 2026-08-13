@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "journey-flow.schema.json",
+  "title": "journey flow v1",
+  "description": "補助金固有の申請工程フローチャートの中間表現。tools/lib/journey_map.py derive が confirmed spec と templates/journey/base-flow.json から生成し、render が本スキーマ適合と出典整合（origin=kit は base step 実在 / origin=derived は deliverable_ids・event_ids の spec 実在 / origin=ai は clause_ids の spec 実在）を検証してから HTML を描画する。検証は journey_map.py 内の最小 JSON Schema 解釈器（type / required / properties / additionalProperties / items / enum / minItems のみ）で行うため、本スキーマはそのサブセットだけで記述する。origin 別の条件付き必須と参照整合はスキーマでは表現せず、journey_map.py のコード検証が担う。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "flow_version",
+    "subsidy_id",
+    "subsidy_name",
+    "round",
+    "spec_path",
+    "spec_version",
+    "lanes",
+    "steps"
+  ],
+  "properties": {
+    "flow_version": { "type": "integer", "enum": [1] },
+    "subsidy_id": { "type": "string" },
+    "subsidy_name": { "type": "string" },
+    "round": { "type": ["string", "null"] },
+    "spec_path": { "type": "string" },
+    "spec_version": { "type": "integer" },
+    "lanes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["lane_id", "label"],
+        "properties": {
+          "lane_id": { "type": "string", "enum": ["owner", "claude", "external"] },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "step_id",
+          "origin",
+          "base_step_id",
+          "label",
+          "description",
+          "lane",
+          "zone",
+          "kind",
+          "human_gate",
+          "deliverable_ids",
+          "event_ids",
+          "clause_ids",
+          "deadline",
+          "deadline_time",
+          "issuer",
+          "next",
+          "branches"
+        ],
+        "properties": {
+          "step_id": { "type": "string" },
+          "origin": { "type": "string", "enum": ["kit", "derived", "ai"] },
+          "base_step_id": { "type": ["string", "null"] },
+          "label": { "type": "string" },
+          "description": { "type": ["string", "null"] },
+          "lane": { "type": "string", "enum": ["owner", "claude", "external"] },
+          "zone": { "type": "string", "enum": ["application", "post_adoption"] },
+          "kind": { "type": "string", "enum": ["process", "decision", "milestone", "terminal"] },
+          "human_gate": { "type": "boolean" },
+          "deliverable_ids": { "type": "array", "items": { "type": "string" } },
+          "event_ids": { "type": "array", "items": { "type": "string" } },
+          "clause_ids": { "type": "array", "items": { "type": "string" } },
+          "deadline": { "type": ["string", "null"] },
+          "deadline_time": { "type": ["string", "null"] },
+          "issuer": { "type": ["string", "null"] },
+          "next": { "type": "array", "items": { "type": "string" } },
+          "branches": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["label", "next"],
+              "properties": {
+                "label": { "type": "string" },
+                "next": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

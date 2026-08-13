@@ -1,0 +1,13 @@
+{
+  "subsidy_id": "freshness-stale-sha",
+  "spec_version": 1,
+  "status": "confirmed",
+  "round": "鮮度検証用公募回",
+  "portal_url": "https://example.invalid/freshness-stale-sha",
+  "source_documents": [
+    {
+      "document_id": "fixture-source",
+      "sha256": null
+    }
+  ]
+}
