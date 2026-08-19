@@ -1,0 +1,390 @@
+{
+  "subsidy_id": "worked-sample",
+  "schema_version": "2.0",
+  "spec_version": 1,
+  "name": "架空設備導入補助金サンプル",
+  "round": "2026-sample",
+  "portal_url": null,
+  "category_tags": [
+    "equipment_investment",
+    "service_industry"
+  ],
+  "status": "confirmed",
+  "registry": {
+    "origin": "examples/worked-example",
+    "fetched_at": "2026-07-02",
+    "revision": "sample-v1",
+    "supersedes": null
+  },
+  "source_documents": [
+    {
+      "document_id": "sample-guideline",
+      "title": "架空設備導入補助金サンプル募集要項",
+      "url_or_path": "examples/worked-example/source-guideline.sample.md",
+      "sha256": null,
+      "pages": 3
+    }
+  ],
+  "schedule": [
+    {
+      "event_id": "application-deadline",
+      "name": "申請締切",
+      "event_kind": "application_deadline",
+      "date": "2026-09-30",
+      "starts_at": null,
+      "ends_at": null,
+      "relative": null,
+      "time": "17:00",
+      "timezone": "Asia/Tokyo",
+      "hard": true,
+      "phase": "application",
+      "source_clauses": [
+        "clause-deadline"
+      ]
+    },
+    {
+      "event_id": "project-period",
+      "name": "補助事業実施期間",
+      "event_kind": "project_period",
+      "date": null,
+      "starts_at": "2026-11-01",
+      "ends_at": "2027-02-28",
+      "relative": null,
+      "time": null,
+      "timezone": "Asia/Tokyo",
+      "hard": true,
+      "phase": "post_adoption",
+      "source_clauses": [
+        "clause-period"
+      ]
+    }
+  ],
+  "eligibility": {
+    "rules": [
+      {
+        "rule_id": "rule-small-business",
+        "kind": "mandatory",
+        "text": "商業・サービス業の小規模事業者は常時使用する従業員数が 5 名以下であること。",
+        "predicate": {
+          "all": [
+            {
+              "scope": "profile",
+              "key": "industry_class",
+              "op": "eq",
+              "value": "商業・サービス業"
+            },
+            {
+              "scope": "profile",
+              "key": "employees",
+              "op": "lte",
+              "value": 5
+            }
+          ]
+        },
+        "verification": "input/company-profile.json の industry_class と employees を確認し、従業員数資料で裏付ける。",
+        "source_clauses": [
+          "clause-eligibility"
+        ]
+      },
+      {
+        "rule_id": "rule-no-prior-contract",
+        "kind": "exclude",
+        "text": "交付決定前に契約、発注、支払を行った経費は対象外とする。",
+        "predicate": null,
+        "verification": "見積書、発注予定日、契約予定日、支払予定日を顧客本人が確認する。",
+        "source_clauses": [
+          "clause-prior-contract"
+        ]
+      },
+      {
+        "rule_id": "rule-wage-plan",
+        "kind": "scoring",
+        "text": "賃上げ計画を示す場合は加点対象とする。",
+        "predicate": {
+          "scope": "profile",
+          "key": "plans",
+          "op": "contains",
+          "value": "賃上げ予定"
+        },
+        "verification": "賃上げ計画の社内資料または根拠メモを確認する。",
+        "source_clauses": [
+          "clause-wage"
+        ]
+      }
+    ]
+  },
+  "funding": {
+    "base_award": {
+      "name": "通常枠",
+      "max_amount": 100,
+      "subsidy_rate": 0.5,
+      "source_clauses": [
+        "clause-funding"
+      ]
+    },
+    "add_ons": [
+      {
+        "addon_id": "wage-up",
+        "name": "賃上げ加点サンプル",
+        "max_amount_delta": 20,
+        "required_rules": [
+          "rule-wage-plan"
+        ],
+        "rate_override": null,
+        "source_clauses": [
+          "clause-wage"
+        ]
+      }
+    ],
+    "combinations": [],
+    "eligible_expenses": [
+      {
+        "category": "機械装置費",
+        "notes": "小型 CNC 加工機を想定する架空例。",
+        "cap_amount": null,
+        "source_clauses": [
+          "clause-expenses"
+        ]
+      },
+      {
+        "category": "ソフトウェア利用料",
+        "notes": "設計ソフトの利用料を想定する架空例。",
+        "cap_amount": null,
+        "source_clauses": [
+          "clause-expenses"
+        ]
+      }
+    ]
+  },
+  "bonus_items": [
+    {
+      "bonus_id": "bonus-effect-measurement",
+      "name": "効果測定体制",
+      "description": "導入前後の作業時間を測定する体制を示す。",
+      "evidence_needed": "作業日報または工程管理表",
+      "source_clauses": [
+        "clause-review"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "deliverable_id": "plan-doc",
+      "name": "事業計画書",
+      "type": "document",
+      "phase": "application",
+      "produced_by": "ai_draftable",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "format": "Markdown draft then official form",
+      "upload_target": "電子申請フォーム",
+      "due_event_id": "application-deadline",
+      "sections": [
+        {
+          "section_id": "current-challenge",
+          "name": "現状課題",
+          "kind": "prose",
+          "max_chars": 260,
+          "max_pages": null,
+          "guidance": "現在の手作業工程、短納期対応の制約、設備導入の必要性を根拠と分けて書く。",
+          "review_criteria": [
+            "課題と補助事業の必要性がつながっている",
+            "根拠がない数値を断定していない"
+          ],
+          "source_clauses": [
+            "clause-plan"
+          ]
+        },
+        {
+          "section_id": "short-summary",
+          "name": "短文要約",
+          "kind": "prose",
+          "max_chars": 30,
+          "max_pages": null,
+          "guidance": "補助事業の要点を 30 字以内で書く。",
+          "review_criteria": [
+            "30 字以内で投資内容と効果の方向性が分かる"
+          ],
+          "source_clauses": [
+            "clause-plan"
+          ]
+        }
+      ],
+      "evidence_needed": "会社プロフィール、見積書、作業時間記録",
+      "depends_on": [],
+      "source_clauses": [
+        "clause-plan"
+      ]
+    },
+    {
+      "deliverable_id": "estimate-attachment",
+      "name": "設備見積書",
+      "type": "attachment",
+      "phase": "application",
+      "produced_by": "human_only",
+      "issuer": "設備販売会社",
+      "required": true,
+      "required_if": null,
+      "format": "PDF",
+      "upload_target": "電子申請フォームの添付欄",
+      "due_event_id": "application-deadline",
+      "sections": [],
+      "evidence_needed": "正式見積書",
+      "depends_on": [],
+      "source_clauses": [
+        "clause-attachments"
+      ]
+    },
+    {
+      "deliverable_id": "support-letter",
+      "name": "支援機関確認書",
+      "type": "attachment",
+      "phase": "application",
+      "produced_by": "external",
+      "issuer": "支援機関",
+      "required": false,
+      "required_if": {
+        "scope": "application",
+        "key": "chosen_funding.addon_ids",
+        "op": "contains",
+        "value": "wage-up"
+      },
+      "format": "PDF",
+      "upload_target": "電子申請フォームの添付欄",
+      "due_event_id": "application-deadline",
+      "sections": [],
+      "evidence_needed": "支援機関へ依頼して取得する確認書",
+      "depends_on": [
+        "plan-doc"
+      ],
+      "source_clauses": [
+        "clause-attachments"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "clause_id": "clause-deadline",
+      "section": "第1章 申請受付",
+      "text": "申請締切は 2026 年 9 月 30 日 17 時とする。",
+      "raw_text": "申請締切は 2026 年 9 月 30 日 17 時とする。",
+      "source_document_id": "sample-guideline",
+      "page": 1,
+      "source_offset": null,
+      "topic_tags": [
+        "schedule"
+      ]
+    },
+    {
+      "clause_id": "clause-period",
+      "section": "第1章 事業期間",
+      "text": "補助事業実施期間は 2026 年 11 月 1 日から 2027 年 2 月 28 日までとする。",
+      "raw_text": "補助事業実施期間は 2026 年 11 月 1 日から 2027 年 2 月 28 日までとする。",
+      "source_document_id": "sample-guideline",
+      "page": 1,
+      "source_offset": null,
+      "topic_tags": [
+        "schedule"
+      ]
+    },
+    {
+      "clause_id": "clause-eligibility",
+      "section": "第2章 対象者",
+      "text": "商業・サービス業の小規模事業者は常時使用する従業員数が 5 名以下であること。",
+      "raw_text": "商業・サービス業の小規模事業者は常時使用する従業員数が 5 名以下であること。",
+      "source_document_id": "sample-guideline",
+      "page": 1,
+      "source_offset": null,
+      "topic_tags": [
+        "eligibility"
+      ]
+    },
+    {
+      "clause_id": "clause-prior-contract",
+      "section": "第2章 対象外経費",
+      "text": "交付決定前に契約、発注、支払を行った経費は対象外とする。",
+      "raw_text": "交付決定前に契約、発注、支払を行った経費は対象外とする。",
+      "source_document_id": "sample-guideline",
+      "page": 2,
+      "source_offset": null,
+      "topic_tags": [
+        "eligibility"
+      ]
+    },
+    {
+      "clause_id": "clause-wage",
+      "section": "第3章 加点",
+      "text": "賃上げ計画を示す場合は加点対象とする。",
+      "raw_text": "賃上げ計画を示す場合は加点対象とする。",
+      "source_document_id": "sample-guideline",
+      "page": 2,
+      "source_offset": null,
+      "topic_tags": [
+        "scoring"
+      ]
+    },
+    {
+      "clause_id": "clause-funding",
+      "section": "第4章 補助内容",
+      "text": "通常枠の補助上限は 100 万円、補助率は 2 分の 1 とする。",
+      "raw_text": "通常枠の補助上限は 100 万円、補助率は 2 分の 1 とする。",
+      "source_document_id": "sample-guideline",
+      "page": 2,
+      "source_offset": null,
+      "topic_tags": [
+        "funding"
+      ]
+    },
+    {
+      "clause_id": "clause-expenses",
+      "section": "第4章 対象経費",
+      "text": "対象経費は機械装置費、ソフトウェア利用料、導入研修費とする。",
+      "raw_text": "対象経費は機械装置費、ソフトウェア利用料、導入研修費とする。",
+      "source_document_id": "sample-guideline",
+      "page": 2,
+      "source_offset": null,
+      "topic_tags": [
+        "expense"
+      ]
+    },
+    {
+      "clause_id": "clause-plan",
+      "section": "第5章 提出書類",
+      "text": "事業計画書には現状課題、補助事業の内容、効果、短文要約を記載する。",
+      "raw_text": "事業計画書には現状課題、補助事業の内容、効果、短文要約を記載する。",
+      "source_document_id": "sample-guideline",
+      "page": 3,
+      "source_offset": null,
+      "topic_tags": [
+        "deliverable"
+      ]
+    },
+    {
+      "clause_id": "clause-attachments",
+      "section": "第5章 添付書類",
+      "text": "設備見積書および必要に応じて支援機関確認書を添付する。",
+      "raw_text": "設備見積書および必要に応じて支援機関確認書を添付する。",
+      "source_document_id": "sample-guideline",
+      "page": 3,
+      "source_offset": null,
+      "topic_tags": [
+        "attachment"
+      ]
+    },
+    {
+      "clause_id": "clause-review",
+      "section": "第6章 審査観点",
+      "text": "補助事業の必要性、実現可能性、効果測定体制を審査する。",
+      "raw_text": "補助事業の必要性、実現可能性、効果測定体制を審査する。",
+      "source_document_id": "sample-guideline",
+      "page": 3,
+      "source_offset": null,
+      "topic_tags": [
+        "review"
+      ]
+    }
+  ],
+  "parsed_at": "2026-07-02",
+  "parsed_by": "human"
+}

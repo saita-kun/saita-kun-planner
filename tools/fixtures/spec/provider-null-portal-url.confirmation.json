@@ -1,0 +1,38 @@
+{
+  "spec_path": "tools/fixtures/spec/provider-null-portal-url.json",
+  "spec_version": 1,
+  "spec_sha256": "91f5f341fdf575777a67347c4ac2632eac9f6e84bfc55affafa708891a3a01e0",
+  "confirmed_by": "provider",
+  "confirmed_at": "2026-07-17T12:00:00+09:00",
+  "items": [
+    {
+      "field_path": "schedule.application-deadline",
+      "state": "confirmed",
+      "source_clauses": ["clause-1"],
+      "note": "Fixture confirmation.",
+      "confirmed_at": "2026-07-17"
+    },
+    {
+      "field_path": "eligibility.rules.rule-1",
+      "state": "confirmed",
+      "source_clauses": ["clause-1"],
+      "note": "Fixture confirmation.",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-17"
+    },
+    {
+      "field_path": "funding.base_award",
+      "state": "confirmed",
+      "source_clauses": ["clause-1"],
+      "note": "Fixture confirmation.",
+      "confirmed_at": "2026-07-17"
+    },
+    {
+      "field_path": "deliverables.deliverable-1",
+      "state": "confirmed",
+      "source_clauses": ["clause-1"],
+      "note": "Fixture confirmation.",
+      "confirmed_at": "2026-07-17"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "allowlist_version": 1,
+  "entries": [
+    {
+      "path": ".claude/commands/finalize.md",
+      "sentence": "- 申請代行、代理提出、本人に代わる完成判断、官公署への提出代行を示唆する表現を避けてください",
+      "reason": "This checklist explicitly tells the AI to avoid agency claims."
+    },
+    {
+      "path": ".claude/commands/review.md",
+      "sentence": "- 高: 募集要項引用の捏造リスク、`quoted_text` が clauses[].text に見つからない、対象外経費の可能性、提出可否に関わる不明点、作成代行と読める表現",
+      "reason": "This review-risk example flags wording that could be read as drafting agency."
+    },
+    {
+      "path": "AGENTS.md",
+      "sentence": "行政書士法に抵触する「申請代行・代理提出」",
+      "reason": "The following wrapped line prohibits both activities; the newline is a sentence boundary for the checker."
+    },
+    {
+      "path": "docs/faq.md",
+      "sentence": "- 官公署や補助金事務局へ代理提出すること",
+      "reason": "This bullet is inside the FAQ list of activities the kit cannot do."
+    },
+    {
+      "path": "docs/governance/data-charter.md",
+      "sentence": "- **士業・支援者による代理提出**: 顧客本人/法人を代表して consent する権限を代理者が取得済みである旨の**表明**を要求する（守秘義務・利益相反の配慮",
+      "reason": "This governance rule requires proof of authority when a professional submits a voluntary report for a client."
+    },
+    {
+      "path": "docs/ハーネスの育て方.md",
+      "sentence": "- 申請代行、代理提出、本人に代わる完成判断を促さない",
+      "reason": "This command-authoring checklist prohibits generated commands from encouraging agency or proxy submission."
+    },
+    {
+      "path": "docs/sponsorship.md",
+      "sentence": "- 個別申請支援、申請書作成代行、代理提出",
+      "reason": "This bullet lists services that sponsorship does not include."
+    },
+    {
+      "path": ".claude/commands/select-subsidy.md",
+      "sentence": "候補の列挙には、次の機械列挙を使ってください（パック優先・重複 ID 検出を機械側で保証します）",
+      "reason": "This describes deterministic resolver behavior, not a subsidy outcome guarantee."
+    }
+  ]
+}

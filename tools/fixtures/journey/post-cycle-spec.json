@@ -1,0 +1,59 @@
+{
+  "subsidy_id": "post-cycle",
+  "schema_version": "2.0",
+  "spec_version": 1,
+  "name": "採択後循環 fixture",
+  "round": null,
+  "status": "confirmed",
+  "schedule": [
+    {
+      "event_id": "application-deadline",
+      "name": "申請締切",
+      "event_kind": "application_deadline",
+      "date": "2026-12-31",
+      "time": null,
+      "hard": true,
+      "phase": "application",
+      "source_clauses": ["clause-1"]
+    }
+  ],
+  "deliverables": [
+    {
+      "deliverable_id": "post-a",
+      "name": "採択後提出物A",
+      "type": "document",
+      "phase": "post_adoption",
+      "produced_by": "human_only",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "due_event_id": null,
+      "sections": [],
+      "depends_on": ["post-b"],
+      "source_clauses": ["clause-1"]
+    },
+    {
+      "deliverable_id": "post-b",
+      "name": "採択後提出物B",
+      "type": "document",
+      "phase": "post_adoption",
+      "produced_by": "human_only",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "due_event_id": null,
+      "sections": [],
+      "depends_on": ["post-a"],
+      "source_clauses": ["clause-1"]
+    }
+  ],
+  "clauses": [
+    {
+      "clause_id": "clause-1",
+      "section": "fixture",
+      "text": "採択後提出物の依存関係 fixture",
+      "source_document_id": "doc-1",
+      "page": 1
+    }
+  ]
+}

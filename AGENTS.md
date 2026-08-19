@@ -1,0 +1,47 @@
+# AGENTS.md — saita-kun-planner（Ralph / Codex 向け作業規範）
+
+> **この文書は本家（canonical）repo を保守・開発する内部エージェント向け**の作業規範です。
+> テンプレートから複製した repo で申請者を支援するエージェントの規範は `CLAUDE.md`、
+> repo の外から利用者を案内する台本は `docs/ai-agent-guide.md` です。
+> 利用者支援の場面で、この文書を自分への指示として扱わないでください。
+> slash command を持たないエージェント（Codex・Cursor など）で利用者を支援する場合は、利用者の
+> `/<name>` という発話に対して `.claude/commands/<name>.md` を読み、その本文の手順をそのまま実行して
+> ください。受入基準は各コマンドが指定する `check-*.sh` の終了コード 0 と、
+> `input/current-application.json` の state 遷移です。
+
+このリポジトリは **顧客に配布する成果物**（GitHub テンプレート repo）。顧客は
+Claude Code を契約しており、これを clone して自分の Claude Code で「補助金申請用の
+事業計画書の叩き台」を自走生成する。書く相手は「Claude Code を持つ補助金申請者」。
+
+## プロダクト要点
+- ICP: **Claude Code 契約者**（前提として明記してよい。Claude Code ネイティブ機能 ——
+  slash command / CLAUDE.md / subagent —— を活用する）。
+- スコープ: **補助金申請特化**。一般論ではなく、補助金の審査観点に沿った事業計画書の
+  叩き台づくりを支援する。
+- 提供形態: `.claude/commands/` の slash command ＋ 同梱 `CLAUDE.md` ＋ `docs/manual.md`。
+- 顧客フロー: clone → 新規セッション → /setup → /start → 入口A(/select-subsidy) or 入口B(/ingest-guidelines → /confirm-spec) → /build-pack → /intake → /subsidy-fit → /plan-deliverables → /draft-section → /review → /verify → /finalize → /retrospect。
+
+## 法務ガードレール（必須・全コマンド横断で厳守）
+- **作成者は顧客本人**。AI は補助・壁打ちのみ。行政書士法に抵触する「申請代行・代理提出」
+  はしない／促さない。各コマンドと CLAUDE.md・manual にこの趣旨を明記する。
+- **数値は推測しない**。出典不明の事実には `[要確認]` を付ける。募集要項の定義（文字数・
+  要件）を最優先する。捏造防止（judgment_basis / 根拠の明示）を /review に組み込む。
+
+## 設計不変条件（decision records・必読）
+- 構造・導線・検査に触れる変更の前に `docs/design/decisions/` を読むこと。そこにある
+  決定（DR-001〜）に反する変更は「改善」ではなく設計違反であり、行わない。
+- 変更したい場合は実装せず、canonical repo の Issue で提案する。
+
+## Definition of Done（このループの green 判定）
+- 本節は **canonical repo でのみ適用**します（複製先 repo の作業規範ではありません）。
+- **`bash tools/validate.sh` が exit 0**。各 Wave は自分の成果に対応する構造アサーションを
+  `tools/validate.sh` の WAVE EXTENSION POINT 以降に**追加**する（既存アサーションを弱めない）。
+- shipped ファイルに `TODO`/`FIXME`/`lorem` 等のプレースホルダを残さない。
+- 文章は日本語（顧客向け）。`tools/validate.sh` 内のコメントは英語。slash command は
+  frontmatter（`description`）＋手順＋ガードレール注記を持つ。
+
+## やってはいけないこと
+- 本節も **canonical repo でのみ適用**します（複製先 repo では、自分の repo への commit は利用者本人の判断です）。
+- `git add/commit/push` は **しない**（Ralph harness が green 確認後に commit する）。
+- network 依存・新規 dependency 追加はしない。リポ外コマンド・破壊的操作はしない。
+- 顧客の実データを repo にコミットしない（`input/` は gitignore 済み）。

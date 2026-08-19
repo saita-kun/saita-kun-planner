@@ -1,0 +1,57 @@
+{
+  "spec_path": "tools/fixtures/spec/confirmation-missing-path.json",
+  "spec_version": 1,
+  "spec_sha256": "f6b91dd4e2b3140b526a4e4f1ee2c8663e7e7c64e56e81b7fac615f33551b573",
+  "confirmed_by": "provider",
+  "confirmed_at": "2026-07-02",
+  "items": [
+    {
+      "field_path": "eligibility.rules.rule-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for eligibility.rules.rule-1."
+    },
+    {
+      "field_path": "funding.base_award",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for funding.base_award."
+    },
+    {
+      "field_path": "funding.eligible_expenses.広報費",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for funding.eligible_expenses.広報費."
+    },
+    {
+      "field_path": "deliverables.deliverable-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.deliverable-1."
+    },
+    {
+      "field_path": "deliverables.deliverable-1.sections.section-1.max_chars",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.deliverable-1.sections.section-1.max_chars."
+    },
+    {
+      "field_path": "deliverables.deliverable-1.sections.section-2.max_chars",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.deliverable-1.sections.section-2.max_chars."
+    }
+  ]
+}

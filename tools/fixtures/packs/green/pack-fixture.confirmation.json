@@ -1,0 +1,58 @@
+{
+  "spec_path": "tools/fixtures/packs/green/pack-fixture.json",
+  "spec_version": 1,
+  "spec_sha256": "abe89f59b5b5cf751e99209be00768d7b79a24976278d620fc18bb590358d26d",
+  "confirmed_by": "provider",
+  "confirmed_at": "2026-07-05T00:00:00+09:00",
+  "items": [
+    {
+      "field_path": "schedule.application-deadline",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "申請締切を合成原文で確認。"
+    },
+    {
+      "field_path": "eligibility.rules.rule-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "対象者要件を合成原文で確認。",
+      "predicate_state": "not_encodable"
+    },
+    {
+      "field_path": "funding.base_award",
+      "source_clauses": [
+        "clause-2"
+      ],
+      "state": "confirmed",
+      "note": "補助上限と補助率を合成原文で確認。"
+    },
+    {
+      "field_path": "funding.eligible_expenses.広報費",
+      "source_clauses": [
+        "clause-2"
+      ],
+      "state": "confirmed",
+      "note": "対象経費区分を合成原文で確認。"
+    },
+    {
+      "field_path": "deliverables.plan",
+      "source_clauses": [
+        "clause-3"
+      ],
+      "state": "confirmed",
+      "note": "成果物を合成原文で確認。"
+    },
+    {
+      "field_path": "deliverables.plan.sections.overview.max_chars",
+      "source_clauses": [
+        "clause-3"
+      ],
+      "state": "confirmed",
+      "note": "文字数上限を合成 fixture の検証用フィールドとして確認。"
+    }
+  ]
+}

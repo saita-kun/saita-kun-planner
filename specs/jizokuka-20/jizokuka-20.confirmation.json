@@ -1,0 +1,800 @@
+{
+  "spec_path": "specs/jizokuka-20/jizokuka-20.json",
+  "spec_version": 3,
+  "spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8",
+  "confirmed_by": "provider",
+  "confirmed_at": "2026-07-10T18:01:28+09:00",
+  "notes": "provider reconfirmed after directory-pack migration; spec_version=2 adds schedule.application-start from schedule-001 and keeps prior provider confirmation basis including mirasapo-guide. 変更は portal_url 追加のみ（構造化値・条文は不変）につき items 再確認は不要と判断（D4 / 2026-07-10 DRI 承認）。",
+  "items": [
+    {
+      "field_path": "schedule.application-start",
+      "source_clauses": [
+        "schedule-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.23（8.申請手続）「申請受付開始: 2026年11月5日(木)」で確認。時刻の記載はないため time=null。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 23
+    },
+    {
+      "field_path": "schedule.application-deadline",
+      "source_clauses": [
+        "schedule-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.4（事業概要）「申請受付締切：2026年12月15日（火）17:00」およびp.23（8.申請手続）で日付・時刻を確認。p.23の曜日表記は「（木）」だが2026-12-15の実際の曜日は火曜（p.4の表記が正）。日付自体は両ページで一致。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 23
+    },
+    {
+      "field_path": "schedule.yoshiki4-deadline",
+      "source_clauses": [
+        "mandatory-002",
+        "schedule-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.4「事業支援計画書（様式4）発行の受付締切：2026年12月4日（金）」およびp.23で確認。受付締切以降の発行依頼は不可（p.4・p.7）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 4
+    },
+    {
+      "field_path": "schedule.project-period",
+      "source_clauses": [
+        "target-business-003",
+        "schedule-002"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.8「補助事業実施期間：交付決定日から事業実施期限（2028年3月31日（金）まで）」およびp.25の第20回受付締切分の表で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 8
+    },
+    {
+      "field_path": "schedule.estimate-deadline",
+      "source_clauses": [
+        "mandatory-003"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.25（10.補助事業者の義務(1)）「見積書の提出期限は2028年2月29日（火）です。提出期限までに見積書等の提出がなされていない場合は、採択取消しとします」で確認。p.4（注1）にも同旨。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 25
+    },
+    {
+      "field_path": "schedule.jisseki-report-deadline",
+      "source_clauses": [
+        "schedule-002",
+        "schedule-003"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.25（9.補助事業実施期間等）第20回受付締切分「補助事業実績報告書提出期限 2028年4月10日（月）」で確認。実施期間途中で事業終了した場合は終了日から起算して30日を経過した日と本期限のいずれか早い日まで（同ページ※）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 25
+    },
+    {
+      "field_path": "eligibility.rules.size-limit",
+      "source_clauses": [
+        "eligibility-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.5（2.補助対象者(1)）の従業員数基準表（5人/20人/20人）で確認。predicateのindustry_class値はcompany-profileスキーマ（設計doc§3.4）の区分に対応。",
+      "predicate_state": "encoded",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 5
+    },
+    {
+      "field_path": "eligibility.rules.entity-type",
+      "source_clauses": [
+        "eligibility-002"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.5「補助対象者の範囲」表（補助対象となりうる者）で確認。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 5
+    },
+    {
+      "field_path": "eligibility.rules.gbiz-id",
+      "source_clauses": [
+        "mandatory-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.24（8.申請手続(3)）およびp.2（注意事項）で確認。暫定GビズIDプライム不可はp.24。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 24
+    },
+    {
+      "field_path": "eligibility.rules.yoshiki4-issuance",
+      "source_clauses": [
+        "target-business-002",
+        "mandatory-002"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.7（4.補助対象事業(2)）およびp.4（受付締切2026年12月4日）で確認。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 7
+    },
+    {
+      "field_path": "eligibility.rules.sales-channel-development",
+      "source_clauses": [
+        "target-business-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.7（4.補助対象事業(1)）で確認。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 7
+    },
+    {
+      "field_path": "eligibility.rules.period-completion",
+      "source_clauses": [
+        "target-business-003"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.8（4.補助対象事業(3)）「補助事業実施期間：交付決定日から事業実施期限（2028年3月31日（金）まで）」で確認。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 8
+    },
+    {
+      "field_path": "eligibility.rules.sales-increase-prospect",
+      "source_clauses": [
+        "target-business-004"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.8（4.補助対象事業(4)）で確認。申請時に様式2へ定量的な成果の記載が必要である旨も同ページ。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 8
+    },
+    {
+      "field_path": "eligibility.rules.estimate-submission",
+      "source_clauses": [
+        "mandatory-003"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.25（10.義務(1)）で確認（期限2028年2月29日・未提出は採択取消し）。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 25
+    },
+    {
+      "field_path": "eligibility.rules.invoice-tokurei-req",
+      "source_clauses": [
+        "funding-005"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.9（6.(2)インボイス特例の適用要件）で確認（登録+①免税事業者歴または②2023年10月1日以降創業、未達時は全体が交付対象外）。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 9
+    },
+    {
+      "field_path": "eligibility.rules.wage-increase-tokurei-req",
+      "source_clauses": [
+        "funding-006"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.10（6.(3)賃金引上げ特例の適用要件）で確認（実施期限日終点の連続12か月vs前年同月12か月で1人あたり給与支給総額3.0%以上増加、終了予定日は2028年3月31日に設定）。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 10
+    },
+    {
+      "field_path": "eligibility.rules.deficit-req",
+      "source_clauses": [
+        "funding-007"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.12「業績が赤字の事業者に対する追加要件（補助率3/4を適用）」で確認（直近1期/1年の課税所得金額ゼロ以下、法人=別表一・別表四、個人=確定申告書第一表）。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 12
+    },
+    {
+      "field_path": "eligibility.rules.excluded-industries",
+      "source_clauses": [
+        "eligibility-003"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.5-6「補助対象にならない者」で確認。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 5
+    },
+    {
+      "field_path": "eligibility.rules.not-yet-opened",
+      "source_clauses": [
+        "eligibility-003"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.6（※3含む）で確認（開業届上の開業日が申請日より後の場合は対象外）。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 5
+    },
+    {
+      "field_path": "eligibility.rules.npo-ineligible",
+      "source_clauses": [
+        "eligibility-010"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.6（※1）で確認（収益事業(ア)+非認定NPO(イ)の両要件）。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 6
+    },
+    {
+      "field_path": "eligibility.rules.minashi-daikigyo",
+      "source_clauses": [
+        "eligibility-004"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.6（2.(2)）で確認（間接100%保有の事例図も同ページ）。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 6
+    },
+    {
+      "field_path": "eligibility.rules.taxable-income",
+      "source_clauses": [
+        "eligibility-005"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.6（2.(3)）で確認（直近過去3年の課税所得年平均15億円以下）。predicateはop:gtを使用（スキーマにgt/lt追加済み）。値の単位は億円。",
+      "predicate_state": "encoded",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 6
+    },
+    {
+      "field_path": "eligibility.rules.yoshiki14-unreported",
+      "source_clauses": [
+        "eligibility-006"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.6-7（3.(1)）で確認（対象4事業①〜④、共同申請参画事業者含む）。v1由来のclause eligibility-006のtextに「小規模模事業者」という誤記があるが原本は「小規模事業者」（raw確認済み、v1テキスト維持方針のため未修正）。",
+      "predicate_state": "encoded",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 6
+    },
+    {
+      "field_path": "eligibility.rules.sotsugyo-waku-past",
+      "source_clauses": [
+        "eligibility-007"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.7（3.(2)）で確認。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 7
+    },
+    {
+      "field_path": "eligibility.rules.sotsugyo-katen-past",
+      "source_clauses": [
+        "eligibility-008"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.7（3.(3)）で確認。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 7
+    },
+    {
+      "field_path": "eligibility.rules.sogyo-gata-concurrent",
+      "source_clauses": [
+        "eligibility-009"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.7（3.(4)）およびp.2（創業型との重複申請不可）で確認。",
+      "predicate_state": "encoded",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 7
+    },
+    {
+      "field_path": "eligibility.rules.excluded-business-duplicate-subsidy",
+      "source_clauses": [
+        "excluded-business-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.8（5.補助対象外となる事業）で確認。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 8
+    },
+    {
+      "field_path": "eligibility.rules.excluded-business-no-sales-prospect",
+      "source_clauses": [
+        "excluded-business-002"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.8で確認。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 8
+    },
+    {
+      "field_path": "eligibility.rules.excluded-business-public-order",
+      "source_clauses": [
+        "excluded-business-003"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.8で確認。",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 8
+    },
+    {
+      "field_path": "funding.base_award",
+      "source_clauses": [
+        "funding-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.8（6.(1)表）で確認: 補助率2/3（賃金引上げ特例のうち赤字事業者は3/4）、補助上限50万円。subsidy_rate=0.6667は2/3の小数表現（v1踏襲）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 8
+    },
+    {
+      "field_path": "funding.add_ons.invoice",
+      "source_clauses": [
+        "funding-002",
+        "funding-005"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.8表「インボイス特例 50万円上乗せ（要件を満たしている場合に限る）」およびp.9（適用要件）で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 8
+    },
+    {
+      "field_path": "funding.add_ons.wage-increase",
+      "source_clauses": [
+        "funding-003",
+        "funding-006"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.8表「賃金引上げ特例 150万円上乗せ（要件を満たしている場合に限る）」およびp.10（適用要件）で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 8
+    },
+    {
+      "field_path": "funding.add_ons.wage-increase-deficit",
+      "source_clauses": [
+        "funding-003",
+        "funding-007",
+        "funding-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.8表（補助率: 賃金引上げ特例のうち赤字事業者は3/4）およびp.12（追加要件・補助率3/4適用）で確認。上乗せ額は賃金引上げ特例と同じ150万円。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 8
+    },
+    {
+      "field_path": "funding.combinations.invoice+wage-increase",
+      "source_clauses": [
+        "funding-004"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.9表「上記特例の要件をともに満たす事業者 200万円上乗せ（両特例要件を満たしている場合に限る）」で確認。基本50万+200万=総額250万円。両特例の要件・手続をともに満たす必要（p.12(4)）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 9
+    },
+    {
+      "field_path": "funding.eligible_expenses.機械装置等費",
+      "source_clauses": [
+        "expense-cat-002",
+        "expense-cat-003",
+        "expense-cat-004"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.13で確認（上限なし・処分制限財産・50万円税込超は2者以上見積）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 13
+    },
+    {
+      "field_path": "funding.eligible_expenses.広報費",
+      "source_clauses": [
+        "expense-cat-002",
+        "expense-cat-005"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.14で確認（上限30万円税込・単独申請不可）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 13
+    },
+    {
+      "field_path": "funding.eligible_expenses.ウェブサイト関連費",
+      "source_clauses": [
+        "expense-cat-002",
+        "expense-cat-006"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.15で確認（上限30万円税込・単独申請不可）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 13
+    },
+    {
+      "field_path": "funding.eligible_expenses.展示会等出展費（オンラインによる展示会・商談会等を含む）",
+      "source_clauses": [
+        "expense-cat-002",
+        "expense-cat-007"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.16で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 13
+    },
+    {
+      "field_path": "funding.eligible_expenses.旅費",
+      "source_clauses": [
+        "expense-cat-002",
+        "expense-cat-008"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.16で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 13
+    },
+    {
+      "field_path": "funding.eligible_expenses.新商品開発費",
+      "source_clauses": [
+        "expense-cat-002",
+        "expense-cat-009"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.17で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 13
+    },
+    {
+      "field_path": "funding.eligible_expenses.借料",
+      "source_clauses": [
+        "expense-cat-002",
+        "expense-cat-010"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.17-18で確認（家賃原則対象外）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 13
+    },
+    {
+      "field_path": "funding.eligible_expenses.委託・外注費",
+      "source_clauses": [
+        "expense-cat-002",
+        "expense-cat-011"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.18で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 13
+    },
+    {
+      "field_path": "bonus_items.wage-increase-deficit-bonus",
+      "source_clauses": [
+        "bonus-002",
+        "funding-007"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.35（重点政策加点①）で確認。賃金引上げ特例（赤字事業者）希望で自動適用。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 35
+    },
+    {
+      "field_path": "bonus_items.business-environment-change-bonus",
+      "source_clauses": [
+        "bonus-003"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.35（重点政策加点②）で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 35
+    },
+    {
+      "field_path": "bonus_items.great-east-japan-earthquake-bonus",
+      "source_clauses": [
+        "bonus-004"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.35（重点政策加点③）で確認。必要書類はp.30。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 35
+    },
+    {
+      "field_path": "bonus_items.kurumin-eruboshi-bonus",
+      "source_clauses": [
+        "bonus-005"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.35-36（重点政策加点④）で確認。必要書類はp.30。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 35
+    },
+    {
+      "field_path": "bonus_items.kenko-keiei-bonus",
+      "source_clauses": [
+        "bonus-009"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.36（重点政策加点⑤）で確認（新規抽出clause bonus-009）。GビズID情報による自動判定。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 36
+    },
+    {
+      "field_path": "bonus_items.wage-increase-bonus",
+      "source_clauses": [
+        "bonus-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.36-37（政策加点①）で確認（年平均2.0%以上増加、未達時は交付決定後でも不交付）。特例の3.0%とは別基準。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 36
+    },
+    {
+      "field_path": "bonus_items.chiho-sosei-bonus",
+      "source_clauses": [
+        "bonus-010"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.37-38（政策加点②）で確認（新規抽出clause bonus-010）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 37
+    },
+    {
+      "field_path": "bonus_items.keieiryoku-kojo-bonus",
+      "source_clauses": [
+        "bonus-011"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.38（政策加点③）で確認（新規抽出clause bonus-011）。必要書類（認定書写し）はp.29。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 38
+    },
+    {
+      "field_path": "bonus_items.jigyo-shokei-bonus",
+      "source_clauses": [
+        "bonus-006"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.38（政策加点④）で確認。必要書類（様式10等）はp.29-30。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 38
+    },
+    {
+      "field_path": "bonus_items.kaso-chiiki-bonus",
+      "source_clauses": [
+        "bonus-012"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.38-39（政策加点⑤）で確認（新規抽出clause bonus-012）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 38
+    },
+    {
+      "field_path": "bonus_items.action-plan-bonus",
+      "source_clauses": [
+        "bonus-013"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.39（政策加点⑥）で確認（新規抽出clause bonus-013）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 39
+    },
+    {
+      "field_path": "bonus_items.kokeisha-shien-bonus",
+      "source_clauses": [
+        "bonus-014"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.39（政策加点⑦）で確認（新規抽出clause bonus-014）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 39
+    },
+    {
+      "field_path": "bonus_items.sotsugyo-bonus",
+      "source_clauses": [
+        "bonus-007"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.39-40（政策加点⑧）で確認（6人/21人/21人の表はp.40）。必要書類はp.30。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 39
+    },
+    {
+      "field_path": "bonus_items.bcp-bonus",
+      "source_clauses": [
+        "bonus-008"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.40（政策加点⑨）で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 40
+    },
+    {
+      "field_path": "bonus_items.noto-jishin-bonus",
+      "source_clauses": [
+        "bonus-015"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.40-41（政策加点⑩）で確認（新規抽出clause bonus-015）。必要書類はp.30-31およびp.41。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 40
+    },
+    {
+      "field_path": "bonus_items.min-wage-raise-bonus",
+      "source_clauses": [
+        "bonus-016"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.41（政策加点⑪）で確認（新規抽出clause bonus-016）。必要書類（賃金台帳3か月分等）はp.31-32およびp.42。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 41
+    },
+    {
+      "field_path": "deliverables.keiei-keikaku",
+      "source_clauses": [
+        "target-business-001",
+        "review-002",
+        "form-structure-001"
+      ],
+      "state": "confirmed",
+      "note": "経営計画の電子申請システム直接入力（様式2・添付不要）はPDF p.23・p.27で確認。ただしsections[]の項目名（企業概要/顧客ニーズと市場の動向/強み/経営方針・目標と今後のプラン）とguidanceはv1データ由来で、公募要領本文には様式2の入力項目構成の記載がなく原本未確認。review_criteriaはPDF p.34（Ⅱ.計画審査）で確認済み。様式2の実画面または様式サンプルでの突合が必要。 → 2026-07-02 中小企業庁公式サイト ミラサポplus（source_document_id: mirasapo-guide）で確認: 経営計画4項目・補助事業計画4項目の構成、および「補助事業で行う事業名（30文字以内）」の記載が一致。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 7
+    },
+    {
+      "field_path": "deliverables.hojo-jigyo-keikaku",
+      "source_clauses": [
+        "target-business-001",
+        "review-003",
+        "form-structure-001"
+      ],
+      "state": "confirmed",
+      "note": "補助事業計画の電子申請システム直接入力（様式2・様式3・添付不要）はPDF p.23・p.27で確認。ただしsections[]の項目名・guidance（事業名/取組内容/業務効率化（任意）/効果）はv1データ由来で公募要領本文に記載がなく原本未確認。review_criteriaはPDF p.34で確認済み。様式2・3の実画面での突合が必要。 → 2026-07-02 中小企業庁公式サイト ミラサポplus（source_document_id: mirasapo-guide）で確認: 経営計画4項目・補助事業計画4項目の構成、および「補助事業で行う事業名（30文字以内）」の記載が一致。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 7
+    },
+    {
+      "field_path": "deliverables.yoshiki-4",
+      "source_clauses": [
+        "target-business-002",
+        "mandatory-002"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.4・p.7・p.23（発行フロー・締切2026年12月4日）・p.27-28（商工会地区=システム内反映/商工会議所地区=PDFアップロード）で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 7
+    },
+    {
+      "field_path": "deliverables.gbiz-id",
+      "source_clauses": [
+        "mandatory-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.2（注意事項）・p.24（GビズIDプライムもしくはGビズIDメンバー、暫定GビズIDプライム不可）で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 24
+    },
+    {
+      "field_path": "deliverables.mitsumori",
+      "source_clauses": [
+        "mandatory-003",
+        "expense-cat-004",
+        "expense-cat-012"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.25（10.義務(1)、期限2028年2月29日・未提出は採択取消し）・p.13（50万円税込超は2者以上見積）・p.22（中古品は金額問わず2者以上）で確認。提出方法（アップロード先）は公募要領に明記なくupload_target=null。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 25
+    },
+    {
+      "field_path": "deliverables.denshi-shinsei",
+      "source_clauses": [
+        "mandatory-001",
+        "schedule-001"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.4「申請は、電子申請システムでのみ受け付けます。郵送での申請は一切受け付けません」・p.23-24で確認。行政書士法ガードレールにより提出操作は顧客本人が行う（p.23留意点: 社外の代理人のみでの様式4発行依頼等も不可）。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 24
+    },
+    {
+      "field_path": "deliverables.jisseki-hokoku",
+      "source_clauses": [
+        "schedule-003",
+        "schedule-002"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.26（10.義務(5): 交付規程様式第8、期日までに未提出なら交付決定取消）・p.25（第20回の提出期限2028年4月10日）で確認。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 26
+    },
+    {
+      "field_path": "deliverables.koka-hokoku",
+      "source_clauses": [
+        "report-001",
+        "target-business-004",
+        "eligibility-006"
+      ],
+      "state": "confirmed",
+      "note": "PDF p.26-27（10.義務(11): 交付規程第29条に定める事業効果等状況報告を事務局指定期限までに提出）・p.42（13.その他(15): 補助事業終了から1年後の状況について報告）で確認。期限は「補助金事務局が指定する期限」のため日付イベントは設定せずdue_event_id=null。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 26
+    },
+    {
+      "field_path": "deliverables.hojo-jigyo-keikaku.sections.hojo-jigyo-mei.max_chars",
+      "source_clauses": [
+        "review-001",
+        "form-structure-001"
+      ],
+      "state": "confirmed",
+      "note": "事業名30文字以内の制限はv1データ由来。第20回公募要領本文（全44ページ精読済み）には文字数制限の記載を確認できなかった。電子申請システムの入力画面または様式2サンプルでの確認が必要。[要確認] → 2026-07-02 中小企業庁公式サイト ミラサポplus（source_document_id: mirasapo-guide）で確認: 経営計画4項目・補助事業計画4項目の構成、および「補助事業で行う事業名（30文字以内）」の記載が一致。",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "group-table",
+      "shown_page": 34
+    }
+  ]
+}

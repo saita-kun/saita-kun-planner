@@ -1,0 +1,77 @@
+{
+  "pack_version": 1,
+  "subsidy_id": "jizokuka-20",
+  "spec_version": 3,
+  "built_at": "2026-07-10T18:01:28+09:00",
+  "built_by": "provider",
+  "spec": {
+    "path": "jizokuka-20.json",
+    "sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+  },
+  "confirmation": {
+    "path": "jizokuka-20.confirmation.json",
+    "sha256": "dadeaa14a0da0b6c26fbc84f22aff49dd4bf83ec159eac909cac8b92738903d3"
+  },
+  "notes": [
+    {
+      "path": "notes/review-lens.md",
+      "kind": "review-lens",
+      "sha256": "0b98561223dbd719c3649f18ff52d028ca13ef818d3f937c36ddc629930fea30",
+      "derived_from_spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+    },
+    {
+      "path": "notes/scoring-strategy.md",
+      "kind": "scoring-strategy",
+      "sha256": "4664c332c425528de87877c6fa74847f8ff7855221c197429f37526f190fe85a",
+      "derived_from_spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+    },
+    {
+      "path": "notes/sections/keiei-keikaku--kigyo-gaiyo.md",
+      "kind": "section-note",
+      "sha256": "0a332233f85bd4198c11a686c3ca3403bde2c91132d2795e41eedc920ad7bd5c",
+      "derived_from_spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+    },
+    {
+      "path": "notes/sections/keiei-keikaku--kokyaku-needs-shijo-doko.md",
+      "kind": "section-note",
+      "sha256": "15da4235077f399d7a1dcdaf7d7ca93db6c651f613733ac183cac5387ef3cc34",
+      "derived_from_spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+    },
+    {
+      "path": "notes/sections/keiei-keikaku--jisha-shohin-service-tsuyomi.md",
+      "kind": "section-note",
+      "sha256": "f919b3c958413d650d174d20145a12311bb6b2038ccfd9cf137e92c752537df9",
+      "derived_from_spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+    },
+    {
+      "path": "notes/sections/keiei-keikaku--keiei-hoshin-mokuhyo-plan.md",
+      "kind": "section-note",
+      "sha256": "538220845564e598d65895c96bd4fefdd9298872617a5bf064060267d5f46a9e",
+      "derived_from_spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+    },
+    {
+      "path": "notes/sections/hojo-jigyo-keikaku--hojo-jigyo-mei.md",
+      "kind": "section-note",
+      "sha256": "3a7195d645b64560dc926a43781be829080e09ebf8f4ee983e1cd353a27b9d48",
+      "derived_from_spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+    },
+    {
+      "path": "notes/sections/hojo-jigyo-keikaku--hanro-kaitaku-torikumi.md",
+      "kind": "section-note",
+      "sha256": "eaebea5ac8a17cc51672e6b4b6f51235555a7b9c6ba275cb30d211581c72a567",
+      "derived_from_spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+    },
+    {
+      "path": "notes/sections/hojo-jigyo-keikaku--gyomu-koritsuka-torikumi.md",
+      "kind": "section-note",
+      "sha256": "82fafb55815ba88c8bbf63dc2eea0cce295e689b45c7a08237f9d0cbbfb6d708",
+      "derived_from_spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+    },
+    {
+      "path": "notes/sections/hojo-jigyo-keikaku--hojo-jigyo-koka.md",
+      "kind": "section-note",
+      "sha256": "4ec40ce19606b5353e46fa790d5090d00906770225cebd04f29ace9130c3df42",
+      "derived_from_spec_sha256": "a061177f80353fc67fd5d3d8e333ed864effe678bc58ddf4ec31484ebaf6d9d8"
+    }
+  ]
+}

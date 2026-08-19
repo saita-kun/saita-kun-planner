@@ -1,0 +1,1901 @@
+{
+  "subsidy_id": "jizokuka-20",
+  "schema_version": "2.0",
+  "spec_version": 3,
+  "name": "小規模事業者持続化補助金＜一般型 通常枠＞",
+  "round": "第20回公募",
+  "portal_url": "https://www.chusho.meti.go.jp/koukai/hojyokin/kobo/2026/260527002.html",
+  "category_tags": [
+    "sales_marketing",
+    "service_industry"
+  ],
+  "status": "confirmed",
+  "registry": {
+    "origin": "bundled",
+    "fetched_at": "2026-07-02",
+    "revision": "r20-v2",
+    "supersedes": null
+  },
+  "source_documents": [
+    {
+      "document_id": "koubo-r20",
+      "title": "小規模事業者持続化補助金＜一般型 通常枠＞第20回公募 公募要領",
+      "url_or_path": "jizokuka-20_koubo.pdf",
+      "sha256": "232b62a7d7cda5910f505573bba129b84eae9c5d9981d73387eda7e0059013fc",
+      "pages": 44
+    },
+    {
+      "document_id": "mirasapo-guide",
+      "title": "中小企業庁 ミラサポplus「小規模事業者持続化補助金『経営計画・補助事業計画』の書き方」",
+      "url_or_path": "https://mirasapo-plus.go.jp/hint/6666/",
+      "sha256": null,
+      "pages": null
+    }
+  ],
+  "schedule": [
+    {
+      "event_id": "application-start",
+      "name": "申請受付開始",
+      "event_kind": "other",
+      "date": "2026-11-05",
+      "starts_at": null,
+      "ends_at": null,
+      "relative": null,
+      "time": null,
+      "timezone": "Asia/Tokyo",
+      "hard": false,
+      "phase": "application",
+      "source_clauses": [
+        "schedule-001"
+      ]
+    },
+    {
+      "event_id": "application-deadline",
+      "name": "申請受付締切（電子申請）",
+      "event_kind": "application_deadline",
+      "date": "2026-12-15",
+      "starts_at": null,
+      "ends_at": null,
+      "relative": null,
+      "time": "17:00",
+      "timezone": "Asia/Tokyo",
+      "hard": true,
+      "phase": "application",
+      "source_clauses": [
+        "schedule-001"
+      ]
+    },
+    {
+      "event_id": "yoshiki4-deadline",
+      "name": "事業支援計画書（様式4）発行の受付締切",
+      "event_kind": "support_letter_deadline",
+      "date": "2026-12-04",
+      "starts_at": null,
+      "ends_at": null,
+      "relative": null,
+      "time": null,
+      "timezone": "Asia/Tokyo",
+      "hard": true,
+      "phase": "application",
+      "source_clauses": [
+        "mandatory-002",
+        "schedule-001"
+      ]
+    },
+    {
+      "event_id": "project-period",
+      "name": "補助事業実施期間（交付決定日〜事業実施期限）",
+      "event_kind": "project_period",
+      "date": null,
+      "starts_at": null,
+      "ends_at": "2028-03-31",
+      "relative": {
+        "anchor": "交付決定日",
+        "offset_days": null,
+        "direction": null
+      },
+      "time": null,
+      "timezone": "Asia/Tokyo",
+      "hard": true,
+      "phase": "application",
+      "source_clauses": [
+        "target-business-003",
+        "schedule-002"
+      ]
+    },
+    {
+      "event_id": "estimate-deadline",
+      "name": "見積書等の提出期限（採択発表後〜交付決定まで）",
+      "event_kind": "estimate_deadline",
+      "date": "2028-02-29",
+      "starts_at": null,
+      "ends_at": null,
+      "relative": null,
+      "time": null,
+      "timezone": "Asia/Tokyo",
+      "hard": true,
+      "phase": "post_adoption",
+      "source_clauses": [
+        "mandatory-003"
+      ]
+    },
+    {
+      "event_id": "jisseki-report-deadline",
+      "name": "補助事業実績報告書提出期限（第20回受付締切分）",
+      "event_kind": "report_deadline",
+      "date": "2028-04-10",
+      "starts_at": null,
+      "ends_at": null,
+      "relative": null,
+      "time": null,
+      "timezone": "Asia/Tokyo",
+      "hard": true,
+      "phase": "post_adoption",
+      "source_clauses": [
+        "schedule-002",
+        "schedule-003"
+      ]
+    }
+  ],
+  "eligibility": {
+    "rules": [
+      {
+        "rule_id": "size-limit",
+        "kind": "mandatory",
+        "text": "小規模事業者であること（常時使用する従業員数: 商業・サービス業（宿泊業・娯楽業除く）5人以下 / サービス業のうち宿泊業・娯楽業20人以下 / 製造業その他20人以下）。",
+        "predicate": {
+          "any": [
+            {
+              "all": [
+                {
+                  "scope": "profile",
+                  "key": "industry_class",
+                  "op": "eq",
+                  "value": "商業・サービス業"
+                },
+                {
+                  "scope": "profile",
+                  "key": "employees",
+                  "op": "lte",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "scope": "profile",
+                  "key": "industry_class",
+                  "op": "eq",
+                  "value": "宿泊・娯楽"
+                },
+                {
+                  "scope": "profile",
+                  "key": "employees",
+                  "op": "lte",
+                  "value": 20
+                }
+              ]
+            },
+            {
+              "all": [
+                {
+                  "scope": "profile",
+                  "key": "industry_class",
+                  "op": "eq",
+                  "value": "製造業その他"
+                },
+                {
+                  "scope": "profile",
+                  "key": "employees",
+                  "op": "lte",
+                  "value": 20
+                }
+              ]
+            }
+          ]
+        },
+        "verification": "常時使用する従業員数の確認（会社役員・同居の親族従業員・日雇労働者等は含まない。判定基準は公募要領P.4）",
+        "source_clauses": [
+          "eligibility-001"
+        ]
+      },
+      {
+        "rule_id": "entity-type",
+        "kind": "mandatory",
+        "text": "会社および会社に準ずる営利法人（株式会社・合名会社・合資会社・合同会社・特例有限会社・企業組合・協業組合・士業法人）、個人事業主（商工業者）、または一定要件を満たす特定非営利活動法人であること。",
+        "predicate": null,
+        "verification": "登記（現在事項全部証明書等）・確定申告書・開業届等で法人格/事業形態を確認",
+        "source_clauses": [
+          "eligibility-002"
+        ]
+      },
+      {
+        "rule_id": "gbiz-id",
+        "kind": "mandatory",
+        "text": "電子申請に必要なGビズIDプライムもしくはGビズIDメンバーのアカウントを取得していること（暫定GビズIDプライムアカウントは使用不可）。",
+        "predicate": null,
+        "verification": "電子申請システムでのログイン確認",
+        "source_clauses": [
+          "mandatory-001"
+        ]
+      },
+      {
+        "rule_id": "yoshiki4-issuance",
+        "kind": "mandatory",
+        "text": "商工会・商工会議所による事業支援計画書（様式4）の発行を受けること（発行受付締切: 2026年12月4日）。",
+        "predicate": null,
+        "verification": "事業支援計画書（様式4）の電子申請システムへの反映",
+        "source_clauses": [
+          "target-business-002",
+          "mandatory-002"
+        ]
+      },
+      {
+        "rule_id": "sales-channel-development",
+        "kind": "mandatory",
+        "text": "策定した経営計画に基づく販路開拓等（または販路開拓等とあわせて行う業務効率化・生産性向上）の取組であること。",
+        "predicate": null,
+        "verification": "経営計画兼補助事業計画（様式2・3）の内容確認",
+        "source_clauses": [
+          "target-business-001"
+        ]
+      },
+      {
+        "rule_id": "period-completion",
+        "kind": "mandatory",
+        "text": "補助事業実施期間（交付決定日〜2028年3月31日）内に補助事業が終了すること。",
+        "predicate": null,
+        "verification": "実績報告書（様式8）の提出確認",
+        "source_clauses": [
+          "target-business-003"
+        ]
+      },
+      {
+        "rule_id": "sales-increase-prospect",
+        "kind": "mandatory",
+        "text": "事業効果および賃金引き上げ等状況報告書提出時の売上高・売上総利益が補助事業終了時と比較して増加することが見込める事業であること。",
+        "predicate": null,
+        "verification": "事業効果および賃金引き上げ等状況報告書（様式14）。申請時は補助事業計画（様式2）に定量的な成果（売上高・売上総利益の増加）を記載",
+        "source_clauses": [
+          "target-business-004"
+        ]
+      },
+      {
+        "rule_id": "estimate-submission",
+        "kind": "mandatory",
+        "text": "採択発表後交付決定までに、経費の価格の妥当性を証明できる見積書等（相見積含む）を提出すること（提出期限: 2028年2月29日。未提出は採択取消し）。",
+        "predicate": null,
+        "verification": "見積書等の審査",
+        "source_clauses": [
+          "mandatory-003"
+        ]
+      },
+      {
+        "rule_id": "invoice-tokurei-req",
+        "kind": "mandatory",
+        "text": "インボイス特例を選ぶ場合: 補助事業の終了時点で適格請求書発行事業者の登録を受け、かつ (1)2021年9月30日から2023年9月30日の属する課税期間で一度でも免税事業者であった、または (2)2023年10月1日以降に創業した事業者であること（終了時点で未達の場合、補助金は交付されない）。",
+        "predicate": null,
+        "verification": "適格請求書発行事業者の登録通知書の写し（またはe-Tax受信通知）、様式9の宣誓・同意、様式2画面への課税売上高入力",
+        "source_clauses": [
+          "funding-005"
+        ]
+      },
+      {
+        "rule_id": "wage-increase-tokurei-req",
+        "kind": "mandatory",
+        "text": "賃金引き上げ特例を選ぶ場合: 補助事業実施期限日（2028年3月31日）を終点とした連続する12か月とその前年同月の12か月を比較し、従業員1人あたり給与支給総額を3.0%以上増加させること（補助事業終了予定日は実施期限日に設定。未達の場合、補助金は交付されない）。",
+        "predicate": null,
+        "verification": "様式7の誓約・同意、給与支給総額基準値算出表の入力、賃金台帳・雇用条件書類の写し（採択後交付決定までおよび実績報告時）",
+        "source_clauses": [
+          "funding-006"
+        ]
+      },
+      {
+        "rule_id": "deficit-req",
+        "kind": "mandatory",
+        "text": "賃金引き上げ特例（赤字事業者・補助率3/4）を選ぶ場合: 賃金引き上げ特例に取り組む事業者のうち、直近1期または直近1年間の課税所得金額がゼロ以下であること。",
+        "predicate": null,
+        "verification": "法人: 直近1期の法人税申告書別表一・別表四の写し / 個人事業主: 直近1年の所得税および復興特別所得税の確定申告書第一表の写し",
+        "source_clauses": [
+          "funding-007"
+        ]
+      },
+      {
+        "rule_id": "excluded-industries",
+        "kind": "exclude",
+        "text": "補助対象にならない者に該当する（医師・歯科医師・助産師、系統出荷による収入のみの個人農業者（個人の林業・水産業者も同様）、協同組合等の組合（企業組合・協業組合を除く）、一般社団法人・公益社団法人、一般財団法人・公益財団法人、医療法人、宗教法人、学校法人、農事組合法人、社会福祉法人、任意団体 等）。",
+        "predicate": null,
+        "verification": "業種・法人格の確認（登記・定款・確定申告書等）。機械判定は行わず該当可能性があれば顧客確認",
+        "source_clauses": [
+          "eligibility-003"
+        ]
+      },
+      {
+        "rule_id": "not-yet-opened",
+        "kind": "exclude",
+        "text": "申請時点で開業していない創業予定者である（開業届上の開業日が申請日より後の場合を含む）。",
+        "predicate": null,
+        "verification": "開業届の開業日と申請日の比較",
+        "source_clauses": [
+          "eligibility-003"
+        ]
+      },
+      {
+        "rule_id": "npo-ineligible",
+        "kind": "exclude",
+        "text": "特定非営利活動法人で、法人税法上の収益事業（法人税法施行令第5条の34事業）を行っていない場合（収益事業を行っていても免税されて確定申告書の提出ができない場合を含む）、または認定特定非営利活動法人である場合。",
+        "predicate": null,
+        "verification": "法人税確定申告書の提出可否・認定NPO法人該当性の確認",
+        "source_clauses": [
+          "eligibility-010"
+        ]
+      },
+      {
+        "rule_id": "minashi-daikigyo",
+        "kind": "exclude",
+        "text": "資本金または出資金が5億円以上の法人に直接または間接に100%の株式を保有されている（みなし大企業・法人のみ）。",
+        "predicate": null,
+        "verification": "株主構成と親会社（直接・間接保有者）の資本金の確認",
+        "source_clauses": [
+          "eligibility-004"
+        ]
+      },
+      {
+        "rule_id": "taxable-income",
+        "kind": "exclude",
+        "text": "確定している（申告済みの）直近過去3年分の各年または各事業年度の課税所得の年平均額が15億円を超えている。",
+        "predicate": {
+          "scope": "profile",
+          "key": "taxable_income_avg_3y",
+          "op": "gt",
+          "value": 15
+        },
+        "verification": "直近過去3年分の課税所得の確認（必要に応じて納税証明書等の提出）。値の単位は億円",
+        "source_clauses": [
+          "eligibility-005"
+        ]
+      },
+      {
+        "rule_id": "yoshiki14-unreported",
+        "kind": "exclude",
+        "text": "過去に持続化補助金（一般型通常枠・コロナ特別対応型・低感染リスク型ビジネス枠・創業型）で採択・実施したが、様式第14（事業効果および賃金引き上げ等状況報告書）が未提出である（共同申請の参画事業者を含む）。",
+        "predicate": {
+          "scope": "profile",
+          "key": "past_adoption_unreported",
+          "op": "eq",
+          "value": true
+        },
+        "verification": "過去採択回の様式第14提出状況の確認",
+        "source_clauses": [
+          "eligibility-006"
+        ]
+      },
+      {
+        "rule_id": "sotsugyo-waku-past",
+        "kind": "exclude",
+        "text": "小規模事業者持続化補助金＜一般型＞において「卒業枠」で採択を受けて補助事業を実施した事業者である。",
+        "predicate": null,
+        "verification": "過去の持続化補助金採択・実施履歴の確認",
+        "source_clauses": [
+          "eligibility-007"
+        ]
+      },
+      {
+        "rule_id": "sotsugyo-katen-past",
+        "kind": "exclude",
+        "text": "小規模事業者持続化補助金＜一般型 通常枠＞において「小規模事業者卒業加点」で採択を受けて補助事業を実施した事業者である。",
+        "predicate": null,
+        "verification": "過去の持続化補助金採択・実施履歴の確認",
+        "source_clauses": [
+          "eligibility-008"
+        ]
+      },
+      {
+        "rule_id": "sogyo-gata-concurrent",
+        "kind": "exclude",
+        "text": "小規模事業者持続化補助金＜創業型＞に申請中または採択を受けている（創業型との同時申請は不可）。",
+        "predicate": {
+          "scope": "profile",
+          "key": "concurrent_applications",
+          "op": "contains",
+          "value": "小規模事業者持続化補助金＜創業型＞"
+        },
+        "verification": "申請中・採択済みの他補助金の確認",
+        "source_clauses": [
+          "eligibility-009"
+        ]
+      },
+      {
+        "rule_id": "excluded-business-duplicate-subsidy",
+        "kind": "exclude",
+        "text": "国が助成する他の制度（補助金、委託費、公的医療保険・介護保険からの診療報酬・介護報酬、固定価格買取制度等）と同一または類似内容の事業である。",
+        "predicate": null,
+        "verification": "事業内容と他制度（介護報酬・保険診療報酬等）の適用有無の確認",
+        "source_clauses": [
+          "excluded-business-001"
+        ]
+      },
+      {
+        "rule_id": "excluded-business-no-sales-prospect",
+        "kind": "exclude",
+        "text": "本事業の終了後、概ね1年以内に売上げにつながることが見込まれない事業である。",
+        "predicate": null,
+        "verification": "補助事業計画における販売見込みの確認",
+        "source_clauses": [
+          "excluded-business-002"
+        ]
+      },
+      {
+        "rule_id": "excluded-business-public-order",
+        "kind": "exclude",
+        "text": "事業内容が射幸心をそそるおそれがある、公の秩序もしくは善良の風俗を害するおそれがある、または公的な支援を行うことが適当でないと認められるものである（マージャン店・パチンコ店・ゲームセンター店・性風俗関連特殊営業等）。",
+        "predicate": null,
+        "verification": "事業内容・業態の確認",
+        "source_clauses": [
+          "excluded-business-003"
+        ]
+      }
+    ]
+  },
+  "funding": {
+    "base_award": {
+      "name": "通常枠（基本）",
+      "max_amount": 50,
+      "subsidy_rate": 0.6667,
+      "source_clauses": [
+        "funding-001"
+      ]
+    },
+    "add_ons": [
+      {
+        "addon_id": "invoice",
+        "name": "インボイス特例",
+        "max_amount_delta": 50,
+        "required_rules": [
+          "invoice-tokurei-req"
+        ],
+        "rate_override": null,
+        "source_clauses": [
+          "funding-002",
+          "funding-005"
+        ]
+      },
+      {
+        "addon_id": "wage-increase",
+        "name": "賃金引き上げ特例",
+        "max_amount_delta": 150,
+        "required_rules": [
+          "wage-increase-tokurei-req"
+        ],
+        "rate_override": null,
+        "source_clauses": [
+          "funding-003",
+          "funding-006"
+        ]
+      },
+      {
+        "addon_id": "wage-increase-deficit",
+        "name": "賃金引き上げ特例（赤字事業者・補助率3/4）",
+        "max_amount_delta": 150,
+        "required_rules": [
+          "wage-increase-tokurei-req",
+          "deficit-req"
+        ],
+        "rate_override": 0.75,
+        "source_clauses": [
+          "funding-003",
+          "funding-007",
+          "funding-001"
+        ]
+      }
+    ],
+    "combinations": [
+      {
+        "addon_ids": [
+          "invoice",
+          "wage-increase"
+        ],
+        "max_amount_total": 250,
+        "source_clauses": [
+          "funding-004"
+        ]
+      }
+    ],
+    "eligible_expenses": [
+      {
+        "category": "機械装置等費",
+        "notes": "補助事業の遂行に必要な機械装置等の購入経費。単なる取替え更新は対象外。単価50万円（税抜き）以上は処分制限財産。発注総額50万円（税込）超は2者以上の見積が必要",
+        "cap_amount": null,
+        "source_clauses": [
+          "expense-cat-002",
+          "expense-cat-003",
+          "expense-cat-004"
+        ]
+      },
+      {
+        "category": "広報費",
+        "notes": "補助金交付申請額の上限30万円（税込）。広報費のみによる申請は不可（他の経費と一緒に申請）",
+        "cap_amount": 30,
+        "source_clauses": [
+          "expense-cat-002",
+          "expense-cat-005"
+        ]
+      },
+      {
+        "category": "ウェブサイト関連費",
+        "notes": "補助金交付申請額の上限30万円（税込）。ウェブサイト関連費のみによる申請は不可（他の経費と一緒に申請）",
+        "cap_amount": 30,
+        "source_clauses": [
+          "expense-cat-002",
+          "expense-cat-006"
+        ]
+      },
+      {
+        "category": "展示会等出展費（オンラインによる展示会・商談会等を含む）",
+        "notes": "出展料に加え関連する運搬費（レンタカー代・ガソリン代・駐車場代等は除く）・通訳料・翻訳料も対象",
+        "cap_amount": null,
+        "source_clauses": [
+          "expense-cat-002",
+          "expense-cat-007"
+        ]
+      },
+      {
+        "category": "旅費",
+        "notes": "補助事業計画（様式2）に基づく販路開拓等のための旅費。国の旅費支給基準を踏まえた基準で算出。公共交通機関の最も経済的・合理的な経路の実費",
+        "cap_amount": null,
+        "source_clauses": [
+          "expense-cat-002",
+          "expense-cat-008"
+        ]
+      },
+      {
+        "category": "新商品開発費",
+        "notes": "試作品・包装パッケージの試作開発にともなう原材料・設計・デザイン・製造・改良・加工費。原材料は必要最小限、補助事業終了時に使い切ること",
+        "cap_amount": null,
+        "source_clauses": [
+          "expense-cat-002",
+          "expense-cat-009"
+        ]
+      },
+      {
+        "category": "借料",
+        "notes": "補助事業遂行に直接必要な機器・設備等のリース料・レンタル料。事務所等の家賃は原則対象外（新たな販路開拓の一環で新規賃借する場合は対象となる場合あり）",
+        "cap_amount": null,
+        "source_clauses": [
+          "expense-cat-002",
+          "expense-cat-010"
+        ]
+      },
+      {
+        "category": "委託・外注費",
+        "notes": "他の区分に該当しない、補助事業遂行に必要な業務の一部の第三者委託・外注費（自ら実行することが困難な業務に限る）",
+        "cap_amount": null,
+        "source_clauses": [
+          "expense-cat-002",
+          "expense-cat-011"
+        ]
+      }
+    ]
+  },
+  "bonus_items": [
+    {
+      "bonus_id": "wage-increase-deficit-bonus",
+      "name": "赤字賃上げ加点（重点政策加点）",
+      "description": "賃金引き上げ特例に申請する事業者のうち赤字である事業者に対する加点。賃金引き上げ特例（赤字事業者）を希望した場合に自動的に適用（政策加点の賃金引上げ加点も自動適用）。",
+      "evidence_needed": "賃金引き上げ特例（赤字事業者）の選択（法人は直近1期の法人税申告書別表一・別表四の写し）",
+      "source_clauses": [
+        "bonus-002",
+        "funding-007"
+      ]
+    },
+    {
+      "bonus_id": "business-environment-change-bonus",
+      "name": "事業環境変化加点（重点政策加点）",
+      "description": "ウクライナ情勢や原油価格・LPガス価格等の高騰、米国による相互関税の影響を受けている事業者に対する加点。",
+      "evidence_needed": "様式2の「2.事業環境変化加点」を選択し、物価高騰等の影響を受けている内容を入力",
+      "source_clauses": [
+        "bonus-003"
+      ]
+    },
+    {
+      "bonus_id": "great-east-japan-earthquake-bonus",
+      "name": "東日本大震災加点（重点政策加点）",
+      "description": "福島第一原発事故により避難指示等の対象となった福島県12市町村所在の事業者、またはALPS処理水の風評影響克服に取り組む太平洋沿岸部（北海道・青森・岩手・宮城・福島・茨城・千葉県）の水産仲買業者・水産加工業者に対する加点。",
+      "evidence_needed": "様式2の「3-1」または「3-2」を選択。食品衛生法に基づく営業許可証もしくは届出書（受領印押印済み）の写し",
+      "source_clauses": [
+        "bonus-004"
+      ]
+    },
+    {
+      "bonus_id": "kurumin-eruboshi-bonus",
+      "name": "くるみん・えるぼし加点（重点政策加点）",
+      "description": "次世代育成支援対策推進法に基づく「くるみん認定」または女性活躍推進法に基づく「えるぼし認定」を受けている事業者に対する加点。政策加点の一般事業主行動計画策定加点にも該当し選択されている場合は重点政策加点分のみ加点。",
+      "evidence_needed": "様式2の「4.くるみん・えるぼし加点」を選択。基準適合一般事業主認定通知書の写し",
+      "source_clauses": [
+        "bonus-005"
+      ]
+    },
+    {
+      "bonus_id": "kenko-keiei-bonus",
+      "name": "健康経営優良法人加点（重点政策加点）",
+      "description": "「健康経営優良法人」の認定を受けている事業者に対する加点。GビズIDに登録された情報と認定情報を基に自動判定。",
+      "evidence_needed": "様式2の「5.健康経営優良法人加点」を選択（GビズID登録情報による自動判定のため申請前に登録内容を確認）",
+      "source_clauses": [
+        "bonus-009"
+      ]
+    },
+    {
+      "bonus_id": "wage-increase-bonus",
+      "name": "賃金引き上げ加点（政策加点）",
+      "description": "2027年4月1日から補助事業実施期限日（2028年3月31日）までの期間と前年同月の12か月を比べ、従業員1人あたり給与支給総額が年平均2.0%以上増加した事業者に対する加点。要件未達の場合は交付決定後でも補助金は交付されない。",
+      "evidence_needed": "様式2の「1.賃金引上げ加点」を選択、様式7の誓約・同意。採択後交付決定までに給与支給総額基準値算出表の入力、賃金台帳・雇用条件書類の写し",
+      "source_clauses": [
+        "bonus-001"
+      ]
+    },
+    {
+      "bonus_id": "chiho-sosei-bonus",
+      "name": "地方創生型加点（政策加点）",
+      "description": "地域資源型（地域資源等を活用し地域外への販売や新規事業の立ち上げを行う計画）または地域コミュニティ型（地域の課題解決や暮らしの実需に応えるサービスを提供する小規模事業者による地域内の需要喚起を目的とした取組等を行う計画）の事業計画を策定している事業者に対する加点。",
+      "evidence_needed": "様式2の「2-1.地方創生型加点（地域資源型）」もしくは「2-2.地方創生型加点（地域コミュニティ型）」を選択し、取組を行う計画を入力",
+      "source_clauses": [
+        "bonus-010"
+      ]
+    },
+    {
+      "bonus_id": "keieiryoku-kojo-bonus",
+      "name": "経営力向上計画加点（政策加点）",
+      "description": "各受付締切回の基準日までに中小企業等経営強化法に基づく「経営力向上計画」の認定を受けている事業者に対する加点。基準日より後の認定・認定申請中は対象外。",
+      "evidence_needed": "様式2の「3.経営力向上計画加点」を選択。「認定書」の写しを提出（提出がない場合は加点対象外）",
+      "source_clauses": [
+        "bonus-011"
+      ]
+    },
+    {
+      "bonus_id": "jigyo-shokei-bonus",
+      "name": "事業承継加点（政策加点）",
+      "description": "各受付締切回の基準日時点の代表者の年齢が満60歳以上の事業者で、かつ後継者候補が補助事業を中心になって行う場合の加点。",
+      "evidence_needed": "様式2の「4.事業承継加点」を選択。事業承継診断票（様式10。様式4発行依頼と同時に発行依頼）、代表者の生年月日が確認できる公的書類の写し、後継者候補の実在確認書類",
+      "source_clauses": [
+        "bonus-006"
+      ]
+    },
+    {
+      "bonus_id": "kaso-chiiki-bonus",
+      "name": "過疎地域加点（政策加点）",
+      "description": "「過疎地域の持続的発展の支援に関する特別措置法」に定める過疎地域に所在し、地域経済の持続的発展につながる取組を行う事業者に対する加点。",
+      "evidence_needed": "様式2の「5.過疎地域加点」を選択",
+      "source_clauses": [
+        "bonus-012"
+      ]
+    },
+    {
+      "bonus_id": "action-plan-bonus",
+      "name": "一般事業主行動計画策定加点（政策加点）",
+      "description": "従業員100人以下の事業者で「女性の活躍推進企業データベース」に女性活躍推進法に基づく一般事業主行動計画を公表、もしくは「両立支援のひろば」に次世代法に基づく一般事業主行動計画を公表している事業者に対する加点。計画期間に公募締切日および事業者が設定した補助事業終了予定日がいずれも含まれることが必要。くるみん・えるぼし加点にも該当し選択されている場合は重点政策加点分のみ加点。",
+      "evidence_needed": "様式2の「6.一般事業主行動計画策定加点」を選択し、計画が掲載されているデータベースのURLを入力",
+      "source_clauses": [
+        "bonus-013"
+      ]
+    },
+    {
+      "bonus_id": "kokeisha-shien-bonus",
+      "name": "後継者支援加点（政策加点）",
+      "description": "申請時において「アトツギ甲子園」のファイナリストまたは準ファイナリストになった事業者に対する加点。過去の持続化補助金「後継者支援枠」で採択・実施した事業者は対象外（ただし異なる年度で要件を満たす場合は対象となり得る）。",
+      "evidence_needed": "様式2の「7.後継者支援加点」を選択し、選出された年度を入力",
+      "source_clauses": [
+        "bonus-014"
+      ]
+    },
+    {
+      "bonus_id": "sotsugyo-bonus",
+      "name": "小規模事業者卒業加点（政策加点）",
+      "description": "補助事業の終了時点において常時使用する従業員数が小規模事業者の定義を超えること（商業・サービス業6人以上、宿泊業・娯楽業21人以上、製造業その他21人以上）。要件未達の場合は交付決定後でも補助金の交付は行われない。",
+      "evidence_needed": "様式2の「8.小規模事業者卒業加点」を選択、誓約・同意書（様式8）のチェック、労働基準法に基づく最新の労働者名簿（常時使用する従業員分のみ）の提出",
+      "source_clauses": [
+        "bonus-007"
+      ]
+    },
+    {
+      "bonus_id": "bcp-bonus",
+      "name": "事業継続力強化計画策定加点（政策加点）",
+      "description": "申請受付締切日までに中小企業等経営強化法に基づく「事業継続力強化計画」または「連携事業継続力強化計画」の認定を受けており、実施期間が終了していない認定事業者に対する加点。",
+      "evidence_needed": "様式2の「9.事業継続力強化計画策定加点」を選択し、受付番号・実施期間開始期及び終期を入力",
+      "source_clauses": [
+        "bonus-008"
+      ]
+    },
+    {
+      "bonus_id": "noto-jishin-bonus",
+      "name": "令和6年能登半島地震等に伴う加点（政策加点）",
+      "description": "令和6年能登半島地震等に起因する直接被害（事業用資産の損壊等）または間接被害（売上20%以上減少）を受けた、石川県・富山県・新潟県・福井県内に補助事業実施場所がある事業者に対する加点。災害支援枠で採択済み・申請中の場合の制限あり。",
+      "evidence_needed": "様式2の「10.令和6年能登半島地震等に伴う加点」を選択。直接被害: 罹災（被災）証明書等の写し / 間接被害: 売上20%以上減少を行政機関が証した書面の写し",
+      "source_clauses": [
+        "bonus-015"
+      ]
+    },
+    {
+      "bonus_id": "min-wage-raise-bonus",
+      "name": "地域別最低賃金引上げ加点（政策加点）",
+      "description": "直近からひとつ前の地域別最低賃金改定以降直近の改定までの期間で、直近の改定での地域別最低賃金額以下で雇用していた従業員（連続した3か月以上）がいる事業者に対する加点。改定前から事業場内最低賃金が改定後の地域別最低賃金以上の場合は対象外。",
+      "evidence_needed": "様式2の「11.地域別最低賃金引上げ加点」を選択、事業場内最低賃金算出表を入力、該当従業員の連続3か月分の賃金台帳の写し、雇用条件が記載された書類の写し",
+      "source_clauses": [
+        "bonus-016"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "deliverable_id": "keiei-keikaku",
+      "name": "経営計画（様式2相当・電子申請システム直接入力）",
+      "type": "form_input",
+      "phase": "application",
+      "produced_by": "ai_draftable",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "format": "電子申請システムに直接入力（様式2 経営計画兼補助事業計画①）",
+      "upload_target": "電子申請システム（経営計画 入力欄。添付不要）",
+      "due_event_id": "application-deadline",
+      "sections": [
+        {
+          "section_id": "kigyo-gaiyo",
+          "name": "経営計画：企業概要",
+          "kind": "prose",
+          "max_chars": null,
+          "max_pages": null,
+          "guidance": "電子申請システム（様式2相当）に直接入力。事業内容・沿革・代表者・従業員数・主要商品/サービス・売上構成を簡潔に記載する。",
+          "review_criteria": [],
+          "source_clauses": [
+            "form-structure-001"
+          ]
+        },
+        {
+          "section_id": "kokyaku-needs-shijo-doko",
+          "name": "経営計画：顧客ニーズと市場の動向",
+          "kind": "prose",
+          "max_chars": null,
+          "max_pages": null,
+          "guidance": "対象市場（商圏）や顧客のニーズを客観的に記載する。",
+          "review_criteria": [
+            "対象市場・顧客ニーズを適切に捉えているか"
+          ],
+          "source_clauses": [
+            "review-002"
+          ]
+        },
+        {
+          "section_id": "jisha-shohin-service-tsuyomi",
+          "name": "経営計画：自社や自社の提供する商品・サービスの強み",
+          "kind": "prose",
+          "max_chars": null,
+          "max_pages": null,
+          "guidance": "自社の経営状況分析を踏まえ、製品・サービスの強み（弱みも適切に把握した上で）を記載する。",
+          "review_criteria": [
+            "自社の経営状況・強み弱みを適切に把握していること"
+          ],
+          "source_clauses": [
+            "review-002"
+          ]
+        },
+        {
+          "section_id": "keiei-hoshin-mokuhyo-plan",
+          "name": "経営計画：経営方針・目標と今後のプラン",
+          "kind": "prose",
+          "max_chars": null,
+          "max_pages": null,
+          "guidance": "強み・弱みと市場動向を踏まえた経営方針・目標・今後のプランを記載する。",
+          "review_criteria": [
+            "売上高・売上総利益の増加を目指すものとなっているか"
+          ],
+          "source_clauses": [
+            "review-002"
+          ]
+        }
+      ],
+      "evidence_needed": null,
+      "depends_on": [],
+      "source_clauses": [
+        "target-business-001",
+        "review-002"
+      ]
+    },
+    {
+      "deliverable_id": "hojo-jigyo-keikaku",
+      "name": "補助事業計画（様式2・3相当・電子申請システム直接入力）",
+      "type": "form_input",
+      "phase": "application",
+      "produced_by": "ai_draftable",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "format": "電子申請システムに直接入力（様式2 経営計画兼補助事業計画① / 様式3 補助事業計画②）",
+      "upload_target": "電子申請システム（補助事業計画 入力欄。添付不要）",
+      "due_event_id": "application-deadline",
+      "sections": [
+        {
+          "section_id": "hojo-jigyo-mei",
+          "name": "補助事業計画：補助事業で行う事業名",
+          "kind": "field",
+          "max_chars": 30,
+          "max_pages": null,
+          "guidance": "30文字以内で補助事業の内容を端的に表す事業名を記載する。",
+          "review_criteria": [],
+          "source_clauses": [
+            "form-structure-001"
+          ]
+        },
+        {
+          "section_id": "hanro-kaitaku-torikumi",
+          "name": "補助事業計画：販路開拓等（生産性向上）の取組内容",
+          "kind": "prose",
+          "max_chars": null,
+          "max_pages": null,
+          "guidance": "販路開拓等の具体的な取組内容を記載する。",
+          "review_criteria": [
+            "技術・ノウハウ・アイディアに基づきターゲット顧客・市場にとって新たな価値を生み出す取組か",
+            "デジタル技術を有効に活用する取組があるか"
+          ],
+          "source_clauses": [
+            "review-003"
+          ]
+        },
+        {
+          "section_id": "gyomu-koritsuka-torikumi",
+          "name": "補助事業計画：業務効率化（生産性向上）の取組内容（任意）",
+          "kind": "prose",
+          "optional": true,
+          "max_chars": null,
+          "max_pages": null,
+          "guidance": "業務効率化の取組を行う場合のみ記載（任意項目）。",
+          "review_criteria": [],
+          "source_clauses": [
+            "form-structure-001"
+          ]
+        },
+        {
+          "section_id": "hojo-jigyo-koka",
+          "name": "補助事業計画：補助事業の効果",
+          "kind": "prose",
+          "max_chars": null,
+          "max_pages": null,
+          "guidance": "※経費明細表・資金調達方法（様式3相当）は電子申請システムで別途入力（本散文ドラフトの対象外。積算は事業実施に必要なものに限り正確・明確に計上すること）。",
+          "review_criteria": [
+            "効果は客観的事実に基づいた目標設定がされており、売上高・売上総利益の増加を目指すものか",
+            "補助事業により取得した資産を事業終了後も継続使用し事業展開に役立てることが明確か"
+          ],
+          "source_clauses": [
+            "review-003"
+          ]
+        }
+      ],
+      "evidence_needed": null,
+      "depends_on": [
+        "keiei-keikaku"
+      ],
+      "source_clauses": [
+        "target-business-001",
+        "review-003"
+      ]
+    },
+    {
+      "deliverable_id": "yoshiki-4",
+      "name": "事業支援計画書（様式4）",
+      "type": "document",
+      "phase": "application",
+      "produced_by": "external",
+      "issuer": "商工会・商工会議所",
+      "required": true,
+      "required_if": null,
+      "format": "様式4（商工会・商工会議所が発行）",
+      "upload_target": "商工会地区: 電子申請システム内で発行依頼→発行されるとシステムに反映 / 商工会議所地区: 発行を受けたPDFファイルを電子申請システムへアップロード",
+      "due_event_id": "yoshiki4-deadline",
+      "sections": [],
+      "evidence_needed": null,
+      "depends_on": [
+        "keiei-keikaku",
+        "hojo-jigyo-keikaku"
+      ],
+      "source_clauses": [
+        "target-business-002",
+        "mandatory-002"
+      ]
+    },
+    {
+      "deliverable_id": "gbiz-id",
+      "name": "GビズIDプライムアカウントの取得",
+      "type": "procedure",
+      "phase": "application",
+      "produced_by": "human_only",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "format": "GビズIDプライムもしくはGビズIDメンバー（暫定GビズIDプライムアカウントは使用不可）",
+      "upload_target": null,
+      "due_event_id": "application-deadline",
+      "sections": [],
+      "evidence_needed": null,
+      "depends_on": [],
+      "source_clauses": [
+        "mandatory-001"
+      ]
+    },
+    {
+      "deliverable_id": "mitsumori",
+      "name": "見積書等（相見積含む）",
+      "type": "attachment",
+      "phase": "post_adoption",
+      "produced_by": "human_only",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "format": null,
+      "upload_target": null,
+      "due_event_id": "estimate-deadline",
+      "sections": [],
+      "evidence_needed": "経費の価格の妥当性を証明できる見積書等。発注総額50万円（税込）超は2者以上の見積、中古品は金額に関わらず2者以上の見積が必須",
+      "depends_on": [],
+      "source_clauses": [
+        "mandatory-003",
+        "expense-cat-004",
+        "expense-cat-012"
+      ]
+    },
+    {
+      "deliverable_id": "denshi-shinsei",
+      "name": "電子申請システムでの入力・送信",
+      "type": "procedure",
+      "phase": "application",
+      "produced_by": "human_only",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "format": "申請は電子申請システムでのみ受付（郵送不可）。提出操作は顧客本人が行う",
+      "upload_target": null,
+      "due_event_id": "application-deadline",
+      "sections": [],
+      "evidence_needed": null,
+      "depends_on": [
+        "keiei-keikaku",
+        "hojo-jigyo-keikaku",
+        "yoshiki-4",
+        "gbiz-id"
+      ],
+      "source_clauses": [
+        "mandatory-001",
+        "schedule-001"
+      ]
+    },
+    {
+      "deliverable_id": "jisseki-hokoku",
+      "name": "実績報告書（交付規程様式第8）",
+      "type": "document",
+      "phase": "post_adoption",
+      "produced_by": "human_only",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "format": "実績報告書（交付規程様式第8）および支出内容の分かる関係書類等",
+      "upload_target": null,
+      "due_event_id": "jisseki-report-deadline",
+      "sections": [],
+      "evidence_needed": "支出内容の分かる関係書類等（証憑資料）",
+      "depends_on": [],
+      "source_clauses": [
+        "schedule-003",
+        "schedule-002"
+      ]
+    },
+    {
+      "deliverable_id": "koka-hokoku",
+      "name": "事業効果および賃金引き上げ等状況報告書（交付規程様式第14）",
+      "type": "document",
+      "phase": "post_adoption",
+      "produced_by": "human_only",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "format": "交付規程第29条に定める事業効果等状況報告（交付規程様式第14）",
+      "upload_target": null,
+      "due_event_id": null,
+      "sections": [],
+      "evidence_needed": null,
+      "depends_on": [
+        "jisseki-hokoku"
+      ],
+      "source_clauses": [
+        "report-001",
+        "target-business-004",
+        "eligibility-006"
+      ]
+    }
+  ],
+  "clauses": [
+    {
+      "clause_id": "eligibility-001",
+      "section": "補助対象者",
+      "text": "「商工会及び商工会議所による小規模事業者の支援に関する法律」において、業種ごとに従業員数で小規模事業者であるか否かを判断しています。商業・サービス業(宿泊業・娯楽業除く)は常時使用する従業員の数5人以下、サービス業のうち宿泊業・娯楽業は常時使用する従業員の数20人以下、製造業その他は常時使用する従業員の数20人以下。",
+      "raw_text": "「商工会及び商工会議所による小規模事業者の支援に関する法律」において、業種ごとに従業員数で小規模事業者であるか否かを判断しています。\n商業・サービス業（宿泊業・娯楽業除く）\t常時使用する従業員の数\t5人以下\nサービス業のうち宿泊業・娯楽業\t常時使用する従業員の数\t20人以下\n製造業その他\t常時使用する従業員の数\t20人以下",
+      "source_document_id": "koubo-r20",
+      "page": 5,
+      "source_offset": null,
+      "topic_tags": [
+        "規模制限",
+        "対象事業者"
+      ]
+    },
+    {
+      "clause_id": "eligibility-002",
+      "section": "補助対象者",
+      "text": "補助対象となりうる者: 会社および会社に準ずる営利法人(株式会社、合名会社、合資会社、合同会社、特例有限会社、企業組合・協業組合、士業法人(弁護士・税理士等))、個人事業主(商工業者であること)、一定の要件を満たした特定非営利活動法人(※1)",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 5,
+      "source_offset": null,
+      "topic_tags": [
+        "対象事業者"
+      ]
+    },
+    {
+      "clause_id": "eligibility-003",
+      "section": "補助対象者",
+      "text": "補助対象にならない者: 医師、歯科医師、助産師、系統出荷による収入のみである個人農業者(個人の林業・水産業者についても同様)(※2)、協同組合等の組合(企業組合・協業組合を除く)、一般社団法人、公益社団法人、一般財団法人、公益財団法人、医療法人、宗教法人、学校法人、農事組合法人、社会福祉法人、申請時点で開業していない創業予定者(例えば、既に税務署に開業届を提出していても、開業届上の開業日が申請日よりも後の場合は対象外)(※3)、任意団体 等",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 5,
+      "source_offset": null,
+      "topic_tags": [
+        "業種除外",
+        "対象事業者"
+      ]
+    },
+    {
+      "clause_id": "eligibility-004",
+      "section": "補助対象者",
+      "text": "資本金又は出資金が5億円以上の法人に直接又は間接(※)に100%の株式を保有されていないこと(法人のみ)",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 6,
+      "source_offset": null,
+      "topic_tags": [
+        "規模制限",
+        "みなし大企業"
+      ]
+    },
+    {
+      "clause_id": "eligibility-005",
+      "section": "補助対象者",
+      "text": "確定している(申告済みの)直近過去3年分の「各年」又は「各事業年度」の課税所得の年平均額が15億円を超えていないこと",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 6,
+      "source_offset": null,
+      "topic_tags": [
+        "規模制限"
+      ]
+    },
+    {
+      "clause_id": "eligibility-006",
+      "section": "補助対象外となる事業者",
+      "text": "下記4つの事業において、採択を受けて、補助事業を実施した場合、各事業の交付規程で定める様式第14「小規模模事業者持続化補助金に係る事業効果および賃金引き上げ等状況報告書」が未提出である事業者(先行する受付締切回で採択された共同申請の参画事業者を含む): 1小規模事業者持続化補助金<一般型 通常枠>(第1回〜第16回「小規模事業者持続化補助金<一般型>」を含む。)、2小規模事業者持続化補助金<コロナ特別対応型>、3小規模事業者持続化補助金<低感染リスク型ビジネス枠>、4小規模事業者持続化補助金<創業型>",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 6,
+      "source_offset": null,
+      "topic_tags": [
+        "業種除外",
+        "過去採択"
+      ]
+    },
+    {
+      "clause_id": "eligibility-007",
+      "section": "補助対象外となる事業者",
+      "text": "小規模事業者持続化補助金<一般型>において、「卒業枠」で採択を受けて、補助事業を実施した事業者。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 7,
+      "source_offset": null,
+      "topic_tags": [
+        "業種除外",
+        "過去採択"
+      ]
+    },
+    {
+      "clause_id": "eligibility-008",
+      "section": "補助対象外となる事業者",
+      "text": "小規模事業者持続化補助金<一般型 通常枠>において、「小規模事業者卒業加点」で採択を受けて、補助事業を実施した事業者",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 7,
+      "source_offset": null,
+      "topic_tags": [
+        "業種除外",
+        "過去採択"
+      ]
+    },
+    {
+      "clause_id": "eligibility-009",
+      "section": "補助対象外となる事業者",
+      "text": "小規模事業者持続化補助金<創業型>に申請中または採択を受けている事業者。※小規模事業者持続化補助金<創業型>と同時に申請できません。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 7,
+      "source_offset": null,
+      "topic_tags": [
+        "業種除外",
+        "重複申請禁止"
+      ]
+    },
+    {
+      "clause_id": "eligibility-010",
+      "section": "補助対象者",
+      "text": "特定非営利活動法人は、以下(ア)(イ)の要件を満たす場合に限り、補助対象となり得ます。(ア)法人税法上の収益事業(法人税法施行令第5条に規定される34事業)を行っていること。なお、収益事業を行っていても、免税されて確定申告書の提出ができない場合は補助対象外です。(イ)認定特定非営利活動法人でないこと。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 6,
+      "source_offset": null,
+      "topic_tags": [
+        "対象事業者",
+        "NPO要件"
+      ]
+    },
+    {
+      "clause_id": "target-business-001",
+      "section": "補助対象事業",
+      "text": "策定した「経営計画」に基づいて実施する、販路開拓等のための取組であること。あるいは、販路開拓等の取組とあわせて行う業務効率化(生産性向上)のための取組であること",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 7,
+      "source_offset": null,
+      "topic_tags": [
+        "対象事業",
+        "販路開拓",
+        "業務効率化"
+      ]
+    },
+    {
+      "clause_id": "target-business-002",
+      "section": "補助対象事業",
+      "text": "商工会・商工会議所の支援を受けながら取り組む事業であること。「商工会・商工会議所の支援を受けながら取り組む」とは、商工会・商工会議所による事業支援計画書(様式4)の発行及び補助事業実施における助言等の支援を受けながら事業を実施することです。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 7,
+      "source_offset": null,
+      "topic_tags": [
+        "対象事業",
+        "必須要件"
+      ]
+    },
+    {
+      "clause_id": "target-business-003",
+      "section": "補助対象事業",
+      "text": "補助事業実施期間内に補助事業が終了すること。補助金のお支払いをするためには、補助事業実施期間内に終了する補助事業であることが必要です。(補助事業実施期間:交付決定日から事業実施期限(2028年3月31日(金)まで)",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 8,
+      "source_offset": null,
+      "topic_tags": [
+        "対象事業",
+        "必須要件",
+        "期間制限"
+      ]
+    },
+    {
+      "clause_id": "target-business-004",
+      "section": "補助対象事業",
+      "text": "事業効果および賃金引き上げ等状況報告書提出時の売上高・売上総利益が補助事業終了時と比較し増加することが見込める事業であること",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 8,
+      "source_offset": null,
+      "topic_tags": [
+        "対象事業",
+        "業績要件"
+      ]
+    },
+    {
+      "clause_id": "excluded-business-001",
+      "section": "補助対象外となる事業",
+      "text": "国が助成(国以外の機関が、国から受けた補助金等により実施する場合を含む)する他の制度(補助金、委託費、公的医療保険・介護保険からの診療報酬・介護報酬、固定価格買取制度等)と同一又は類似内容の事業。例)デイサービス・介護タクシー等の居宅介護サービス事業者で介護報酬が適用されるサービス、薬局・整骨院等の保険診療報酬が適用されるサービス",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 8,
+      "source_offset": null,
+      "topic_tags": [
+        "対象外事業",
+        "重複禁止"
+      ]
+    },
+    {
+      "clause_id": "excluded-business-002",
+      "section": "補助対象外となる事業",
+      "text": "本事業の終了後、概ね1年以内に売上げにつながることが見込まれない事業。例)機械を導入して試作品開発を行うのみであり、本事業の取組が直接販売の見込みにつながらない、想定されていない事業",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 8,
+      "source_offset": null,
+      "topic_tags": [
+        "対象外事業"
+      ]
+    },
+    {
+      "clause_id": "excluded-business-003",
+      "section": "補助対象外となる事業",
+      "text": "事業内容が射幸心をそそるおそれがあること、または公の秩序もしくは善良の風俗を害することとなるおそれがあるもの、公的な支援を行うことが適当でないと認められるもの。例)マージャン店・パチンコ店・ゲームセンター店等、性風俗関連特殊営業等",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 8,
+      "source_offset": null,
+      "topic_tags": [
+        "対象外事業",
+        "業種除外"
+      ]
+    },
+    {
+      "clause_id": "funding-001",
+      "section": "補助率、補助上限額等",
+      "text": "補助率: 2/3(賃金引き上げ特例のうち赤字事業者は3/4)、補助上限: 50万円。補助事業終了時点で一定要件を満たす必要があり、満たさない場合、補助金交付は行いません。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 8,
+      "source_offset": null,
+      "topic_tags": [
+        "補助率",
+        "補助上限"
+      ]
+    },
+    {
+      "clause_id": "funding-002",
+      "section": "補助率、補助上限額等",
+      "text": "インボイス特例: 50万円上乗せ(※インボイス特例の要件(P.8参照)を満たしている場合に限る)",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 8,
+      "source_offset": null,
+      "topic_tags": [
+        "補助上限",
+        "インボイス特例"
+      ]
+    },
+    {
+      "clause_id": "funding-003",
+      "section": "補助率、補助上限額等",
+      "text": "賃金引き上げ特例: 150万円上乗せ(※賃金引き上げ特例の要件(P.9参照)を満たしている場合に限る)",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 8,
+      "source_offset": null,
+      "topic_tags": [
+        "補助上限",
+        "賃金引き上げ特例"
+      ]
+    },
+    {
+      "clause_id": "funding-004",
+      "section": "補助率、補助上限額等",
+      "text": "上記特例の要件をともに満たす事業者: 200万円上乗せ(※両特例要件(P.11参照)を満たしている場合に限る)",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 9,
+      "source_offset": null,
+      "topic_tags": [
+        "補助上限",
+        "インボイス特例",
+        "賃金引き上げ特例"
+      ]
+    },
+    {
+      "clause_id": "funding-005",
+      "section": "補助率、補助上限額等（インボイス特例の適用要件）",
+      "text": "補助事業の終了時点で「適格請求書発行事業者」の登録を受け、かつ以下12のいずれかに当てはまる事業者。12021年9月30日から2023年9月30日の属する課税期間で一度でも免税事業者であった事業者、22023年10月1日以降に創業した事業者。ただし、補助事業の終了時点でこの要件を満たさない場合、補助金は交付されません。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 9,
+      "source_offset": null,
+      "topic_tags": [
+        "インボイス特例",
+        "適用要件"
+      ]
+    },
+    {
+      "clause_id": "funding-006",
+      "section": "補助率、補助上限額等（賃金引き上げ特例の適用要件）",
+      "text": "補助事業実施期限日を終点とした連続する12か月とその前年同月の12か月を比較し、従業員1人あたり給与支給総額を3.0%以上増加させること。補助事業終了予定日は補助事業実施期限日(2028年3月31日(金))に設定してください。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 10,
+      "source_offset": null,
+      "topic_tags": [
+        "賃金引き上げ特例",
+        "適用要件"
+      ]
+    },
+    {
+      "clause_id": "funding-007",
+      "section": "補助率、補助上限額等（賃金引き上げ特例・赤字事業者）",
+      "text": "「賃金引き上げ特例」に取り組む事業者のうち、直近1期または直近1年間の課税所得金額※がゼロ以下である事業者。(法人の場合)直近1期分の法人税申告書の別表一・別表四「所得金額又は欠損金額」欄の金額。(個人事業主の場合)直近1年間の「所得税および復興特別所得税」の確定申告書第一表の「課税される所得金額」欄の金額。この事業者については補助率が2/3から3/4に引き上がる。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 12,
+      "source_offset": null,
+      "topic_tags": [
+        "賃金引き上げ特例",
+        "補助率",
+        "赤字事業者"
+      ]
+    },
+    {
+      "clause_id": "mandatory-001",
+      "section": "申請手続",
+      "text": "本事業の申請に際しては、電子申請システムをご利用ください。電子申請システムを利用するにはGビズIDプライムもしくはGビズIDメンバーのアカウント取得が必要です。暫定GビズIDプライムアカウントは使用できません。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 24,
+      "source_offset": null,
+      "topic_tags": [
+        "必須要件",
+        "電子申請"
+      ]
+    },
+    {
+      "clause_id": "mandatory-002",
+      "section": "補助対象事業",
+      "text": "事業支援計画書(様式4)について、受付締切以降の発行依頼は、いかなる理由があってもできません。また、補助対象者の要件を満たしていないと判断される場合も発行はできません。(事業支援計画書(様式4)発行の受付締切:2026年12月4日(金))",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 4,
+      "source_offset": null,
+      "topic_tags": [
+        "必須要件",
+        "書類期限"
+      ]
+    },
+    {
+      "clause_id": "mandatory-003",
+      "section": "補助事業者の義務",
+      "text": "採択発表後交付決定までに、経費の価格の妥当性を証明できる見積書等(相見積含む)の提出が必要です。支出内容が不明確なものは認められません。見積書等の提出期限は2028年2月29日(火)。提出期限までに見積書等の提出がなされていない場合は、採択取消しとします。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 25,
+      "source_offset": null,
+      "topic_tags": [
+        "必須要件",
+        "書類期限"
+      ]
+    },
+    {
+      "clause_id": "mandatory-004",
+      "section": "補助事業者の義務",
+      "text": "「補助金交付決定通知書」の受領前は、補助対象となる経費支出等はできません。補助金の対象となる経費の発注・契約・支出行為は、「補助金交付決定通知書」に記載された交付決定日から可能です。交付決定日前に行われた発注・契約・支出行為は、補助対象外です。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 25,
+      "source_offset": null,
+      "topic_tags": [
+        "必須要件",
+        "経費要件"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-001",
+      "section": "補助対象経費",
+      "text": "補助対象となる経費は、次の1〜3の条件をすべて満たすものとなります。1使用目的が本事業の遂行に必要なものと明確に特定できる経費、2交付決定日以降に発生し補助事業期間中に支払いが完了した経費、3証憑資料等によって支払金額が確認できる経費",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 13,
+      "source_offset": null,
+      "topic_tags": [
+        "経費要件"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-002",
+      "section": "補助対象経費",
+      "text": "補助対象となる経費は、次に掲げる経費であり、これ以外の経費は本事業の補助対象外です。1機械装置等費、2広報費、3ウェブサイト関連費、4展示会等出展費(オンラインによる展示会・商談会等を含む)、5旅費、6新商品開発費、7借料、8委託・外注費",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 13,
+      "source_offset": null,
+      "topic_tags": [
+        "経費要件",
+        "経費区分"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-003",
+      "section": "補助対象経費（機械装置等費）",
+      "text": "機械装置等費: 補助事業の遂行に必要な機械装置等の購入に要する経費。通常の事業活動のための費用、単なる取替え更新の機械装置等の購入は補助対象外です。単価50万円(税抜き)以上の機械装置等の購入は「処分制限財産」に該当し、補助事業が終了し補助金の支払いを受けた後であっても、一定の期間において処分(補助事業目的外での使用、譲渡、担保提供、廃棄等)が制限されます。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 13,
+      "source_offset": null,
+      "topic_tags": [
+        "経費区分",
+        "機械装置"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-004",
+      "section": "補助対象経費（機械装置等費）",
+      "text": "発注総額(1件あたり)が50万円(税込)超の機械装置等の購入をする場合、価格の妥当性を確認するため、2者以上からの見積が必要です。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 13,
+      "source_offset": null,
+      "topic_tags": [
+        "経費区分",
+        "機械装置",
+        "相見積"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-005",
+      "section": "補助対象経費（広報費）",
+      "text": "広報費: パンフレット・ポスター・チラシ・インターネット広告・SNS広告等を作成および広報媒体等を活用するために支払われる経費。広報費のみによる申請はできません。必ず、ほかの経費と一緒に申請してください。当経費の補助金交付申請額の上限は30万円(税込)です。補助事業計画に基づく商品・サービスの広報を目的としたものが補助対象であり、単なる会社のPRや営業活動に活用される広報費は補助対象外です。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 14,
+      "source_offset": null,
+      "topic_tags": [
+        "経費区分",
+        "広報費",
+        "上限金額"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-006",
+      "section": "補助対象経費（ウェブサイト関連費）",
+      "text": "ウェブサイト関連費: 販路開拓等を行うためのウェブサイトやECサイト、システム(オフライン含む)等の開発、構築、更新、改修、運用をするために要する経費。ウェブサイト関連費のみによる申請はできません。必ず、ほかの経費と一緒に申請してください。当経費の補助金交付申請額の上限は30万円(税込)です。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 15,
+      "source_offset": null,
+      "topic_tags": [
+        "経費区分",
+        "ウェブサイト",
+        "上限金額"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-007",
+      "section": "補助対象経費（展示会等出展費）",
+      "text": "展示会等出展費(オンラインによる展示会・商談会等を含む): 新商品等を展示会等に出展または商談会に参加するために要する経費。展示会出展の出展料等に加えて、関連する運搬費(レンタカー代、ガソリン代、駐車場代等は除く)・通訳料・翻訳料も補助対象となります。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 16,
+      "source_offset": null,
+      "topic_tags": [
+        "経費区分",
+        "展示会"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-008",
+      "section": "補助対象経費（旅費）",
+      "text": "旅費: 補助事業計画(様式2)に基づく販路開拓(展示会・商談会等の会場との往復を含む。)等を行うための旅費。補助事業計画に基づく販路開拓を行うための出張である旨を記載した出張報告の作成等により、必要性が確認できるものが補助対象となります。補助対象経費は国が定める旅費の支給基準を踏まえた基準により算出します。移動に要する経費については、公共交通機関を用いた最も経済的および合理的な経路により算出された実費となります。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 16,
+      "source_offset": null,
+      "topic_tags": [
+        "経費区分",
+        "旅費"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-009",
+      "section": "補助対象経費（新商品開発費）",
+      "text": "新商品開発費: 新商品の試作品や包装パッケージの試作開発にともなう原材料、設計、デザイン、製造、改良、加工するために支払われる経費。購入する原材料等の数量はサンプルとして使用する必要最小限にとどめ、補助事業終了時には使い切ることが必要です(実際に使用したもののみが補助対象です)。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 17,
+      "source_offset": null,
+      "topic_tags": [
+        "経費区分",
+        "新商品開発"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-010",
+      "section": "補助対象経費（借料）",
+      "text": "借料: 補助事業遂行に直接必要な機器・設備等のリース料・レンタル料として支払われる経費。自主事業など補助事業以外にも使用するもの、通常の生産活動のために使用するものは補助対象外です。事務所等に係る家賃は補助対象となりません。ただし、既存の事務所賃料ではなく、新たな販路開拓の取組の一環として新たに事務所等を賃借する場合は、対象となる場合があります。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 17,
+      "source_offset": null,
+      "topic_tags": [
+        "経費区分",
+        "借料"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-011",
+      "section": "補助対象経費（委託・外注費）",
+      "text": "委託・外注費: 上記1から7に該当しない経費であって、補助事業遂行に必要な業務の一部を第三者に委託(委任)・外注するために支払われる経費(自ら実行することが困難な業務に限ります。)デザイン会社によるデザインの外注など、補助事業者が通常事業として実施している業務については、自ら実行することが困難な業務に含まれません。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 18,
+      "source_offset": null,
+      "topic_tags": [
+        "経費区分",
+        "委託・外注"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-012",
+      "section": "補助対象経費（発注先選定の相見積）",
+      "text": "補助事業における発注先(委託先)の選定にあたっては、発注総額(1件あたり)が50万円超(税込)を要するものについては、2者以上から見積もりを取り、より安価な発注先(委託先)を選んでください。中古品の購入については、金額に関わらず、すべて2者以上からの見積が必須となります。この場合、理由書の提出による随意契約での購入は、一切認められません。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 22,
+      "source_offset": null,
+      "topic_tags": [
+        "経費要件",
+        "相見積"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-013",
+      "section": "補助対象経費（補助対象外となる経費）",
+      "text": "交付決定前に発注・契約・購入、支払い(前払い含む)等を実施したもの(※展示会等への出展の申込みについてのみ、交付決定前の申込みでも補助対象となります(ただし、請求書の発行が交付決定日以後でなければ補助対象外です))",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 20,
+      "source_offset": null,
+      "topic_tags": [
+        "経費要件",
+        "対象外経費"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-014",
+      "section": "補助対象経費（補助対象外となる経費）",
+      "text": "社内の役員・従業員や代表者・役員の親族(3親等以内)へ発注しているもの、あるいは代表者・役員の親族(3親等以内)が代表または役員に就いている事業者へ発注しているもの。財務諸表等規則第8条で定義されている親会社、子会社、関連会社および関係会社へ発注しているもの。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 20,
+      "source_offset": null,
+      "topic_tags": [
+        "経費要件",
+        "対象外経費"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-015",
+      "section": "補助対象経費（補助対象外となる経費）",
+      "text": "1取引10万円(税抜き)を超える現金支払。補助対象経費の支払方法は銀行振込が大原則です。補助金執行の適正性確保のため、旅費や現金決済のみの取引(代金引換限定のサービス等)を除き、1取引10万円超(税抜き)の支払は、現金支払いは認められません。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 22,
+      "source_offset": null,
+      "topic_tags": [
+        "経費要件",
+        "対象外経費"
+      ]
+    },
+    {
+      "clause_id": "expense-cat-016",
+      "section": "補助対象経費（補助対象外となる経費）",
+      "text": "補助事業期間内に支出が完了していないもの(分割払い、クレジットカード決済、リボルビング支払等の場合、金融機関等からの引き落としが補助事業期間内に完了していることが必要。)",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 21,
+      "source_offset": null,
+      "topic_tags": [
+        "経費要件",
+        "対象外経費"
+      ]
+    },
+    {
+      "clause_id": "bonus-001",
+      "section": "加点審査（政策加点：賃金引き上げ加点）",
+      "text": "2027年4月1日から補助事業実施期限日(2028年3月31日(金))までの期間と前年同月の12か月を比べ、従業員(非常勤を含む。代表者、役員及び専従者は含まない。以下同じ。)1人あたり給与支給総額が年平均2.0%以上増加した事業者に対し、採択審査時に政策的観点から加点(=賃金引き上げ加点)を行います。本要件を満たさない場合は、交付決定後であっても、補助金は交付されません。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 36,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "賃金要件"
+      ]
+    },
+    {
+      "clause_id": "bonus-002",
+      "section": "加点審査（重点政策加点：赤字賃上げ加点）",
+      "text": "賃金引き上げ特例に申請する事業者のうち、赤字である事業者(P.11の「業績が赤字の事業者に対する追加要件」をご確認ください)に対して、採択審査時に政策的観点から加点(=赤字賃上げ加点)を行います。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 35,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "赤字事業者"
+      ]
+    },
+    {
+      "clause_id": "bonus-003",
+      "section": "加点審査（重点政策加点：事業環境変化加点）",
+      "text": "ウクライナ情勢や原油価格、LPガス価格等の高騰、米国による相互関税の影響を受けている事業者に対して、採択審査時に政策的観点から加点(=事業環境変化加点)を行います。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 35,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目"
+      ]
+    },
+    {
+      "clause_id": "bonus-004",
+      "section": "加点審査（重点政策加点：東日本大震災加点）",
+      "text": "東京電力福島第一原子力発電所の事故により避難指示等の対象となった福島県12市町村(田村市、南相馬市、川俣町、広野町、楢葉町、富岡町、川内村、大熊町、双葉町、浪江町、葛尾村及び飯舘村)に補助事業実施場所が所在する事業者、またはALPS処理水の処分に伴う風評影響を克服するための新たな販路開拓等に取り組む太平洋沿岸部(北海道、青森県、岩手県、宮城県、福島県、茨城県及び千葉県)に所在する水産仲買業者及び水産加工業者に対して、政策的観点から加点(=東日本大震災加点)を行います。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 35,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "地域制限"
+      ]
+    },
+    {
+      "clause_id": "bonus-005",
+      "section": "加点審査（重点政策加点：くるみん・えるぼし加点）",
+      "text": "次世代育成支援対策推進法(次世代法)に基づく「くるみん認定」を受けている事業者、もしくは女性の職業生活における活躍の推進に関する法律(女性活躍推進法)に基づく「えるぼし認定」を受けている事業者に対して、採択審査時に政策的観点から加点(=くるみん・えるぼし加点)を行います。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 35,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目"
+      ]
+    },
+    {
+      "clause_id": "bonus-006",
+      "section": "加点審査（政策加点：事業承継加点）",
+      "text": "各受付締切回の基準日(詳細は後日公開する別紙「参考資料」を参照)時点の代表者の年齢が満60歳以上の事業者で、かつ、後継者候補が補助事業を中心になって行う場合、採択審査時に政策的観点から加点(=事業承継加点)を行います。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 38,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "事業承継"
+      ]
+    },
+    {
+      "clause_id": "bonus-007",
+      "section": "加点審査（政策加点：小規模事業者卒業加点）",
+      "text": "補助事業の終了時点において、常時使用する従業員の数(※1)が小規模事業者として定義する従業員数を超えていること(※2)。ただし、この要件を満たさない場合は、交付決定後であっても、補助金の交付は行いません。※2: 小規模事業者として定義する従業員を超えた数とは、商業・サービス業(宿泊業・娯楽業除く)6人以上、サービス業のうち宿泊業・娯楽業21人以上、製造業その他21人以上。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 39,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "規模制限"
+      ]
+    },
+    {
+      "clause_id": "bonus-008",
+      "section": "加点審査（政策加点：事業継続力強化計画策定加点）",
+      "text": "申請受付締切日までに、中小企業等経営強化法に基づく「事業継続力強化計画」または「連携事業継続力強化計画」の認定を受けており、実施期間が終了していない認定事業者に対して、採択審査時に政策的観点から加点(=事業継続力強化計画策定加点)を行います。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 40,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目"
+      ]
+    },
+    {
+      "clause_id": "review-001",
+      "section": "採択審査（基礎審査）",
+      "text": "次の要件を全て満たすものであること。要件を満たさない場合には、その提案は失格とします。1必要な提出資料がすべて提出されていること、2「2. 補助対象者」(P.4)・「4. 補助対象事業」(P.6)・「6. 補助率、補助上限額等」(P.7)・「7. 補助対象経費」(P.11)の要件及び記載内容に合致すること、3補助事業を遂行するために必要な能力を有すること、4小規模事業者が主体的に活動し、その技術やノウハウ等を基にした取組であること",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 34,
+      "source_offset": null,
+      "topic_tags": [
+        "審査基準",
+        "基礎審査"
+      ]
+    },
+    {
+      "clause_id": "review-002",
+      "section": "採択審査（計画審査）",
+      "text": "経営計画・補助事業計画について、以下の項目に基づき加点審査を行い、総合的な評価が高いものから順に採択を行います。1自社の経営状況分析の妥当性(自社の経営状況を適切に把握し、自社の製品・サービスや強み・弱みも適切に把握しているか)、2経営方針・目標と今後のプランの適切性、3補助事業計画の有効性、4積算の透明・適切性",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 34,
+      "source_offset": null,
+      "topic_tags": [
+        "審査基準",
+        "計画審査"
+      ]
+    },
+    {
+      "clause_id": "review-003",
+      "section": "採択審査（計画審査）",
+      "text": "補助事業計画には、技術やノウハウ、アイディアに基づき、ターゲットとする顧客や市場にとって、新たな価値を生み出す商品、サービス、又はそれらの提供方法を有しており、客観的事実に基づいた売上高・売上総利益の増加を見込める取組となっているか。補助事業計画には、デジタル技術を有効に活用する取組が見られるか。補助事業により取得した資産について、補助事業終了後も継続して使用し事業展開に役立てることが明確になっているか。",
+      "raw_text": null,
+      "source_document_id": "koubo-r20",
+      "page": 34,
+      "source_offset": null,
+      "topic_tags": [
+        "審査基準",
+        "計画審査"
+      ]
+    },
+    {
+      "clause_id": "bonus-009",
+      "section": "加点審査（重点政策加点：健康経営優良法人加点）",
+      "text": "5健康経営優良法人加点健康経営に関し、特に優良な取組を実践しているとして「健康経営優良法人」の認定を受けている事業者に対して、採択審査時に政策的観点から加点(=健康経営優良法人加点)※を行います。※本加点は、GビズIDに登録された情報と「健康経営優良法人」の認定情報を基に自動判定します。GビズIDの登録情報に不備や未連携がある場合でも、個別対応は行いませんので、申請前に登録内容をご確認ください。",
+      "raw_text": "⑤健康経営優良法人加点\n\n    健康経営に関し、特に優良な取組を実践しているとして「健康経営優良法人」の認定を受けている\n    事業者に対して、採択審査時に政策的観点から加点（＝健康経営優良法人加点）※を行います。\n※本加点は、G ビズ ID に登録された情報と「健康経営優良法人」の認定情報を基に自動判定しま\n す。G ビズ ID の登録情報に不備や未連携がある場合でも、個別対応は行いませんので、申請前\n に登録内容をご確認ください。",
+      "source_document_id": "koubo-r20",
+      "page": 36,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "認定制度"
+      ]
+    },
+    {
+      "clause_id": "bonus-010",
+      "section": "加点審査（政策加点：地方創生型加点）",
+      "text": "2地方創生型加点以下の類型に即した事業計画を策定している事業者に対して、政策的観点から加点を行います。○地域資源型地域資源等を活用し、良いモノ・サービスを高く提供し、付加価値向上を図るため、地域外への販売や新規事業の立ち上げを行う計画○地域コミュニティ型地域の課題解決や暮らしの実需に応えるサービスを提供する小規模事業者による、地域内の需要喚起を目的とした取組等を行う計画",
+      "raw_text": "②地方創生型加点\n 以下の類型に即した事業計画を策定している事業者に対して、政策的観点から加点を行います。\n\n ○地域資源型\n  地域資源等を活用し、良いモノ・サービスを高く提供し、付加価値向上を図るため、地域外への販\n  売や新規事業の立ち上げを行う計画\n\n ○地域コミュニティ型\n  地域の課題解決や暮らしの実需に応えるサービスを提供する小規模事業者による、地域内の需\n  要喚起を目的とした取組等を行う計画",
+      "source_document_id": "koubo-r20",
+      "page": 37,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "地域"
+      ]
+    },
+    {
+      "clause_id": "bonus-011",
+      "section": "加点審査（政策加点：経営力向上計画加点）",
+      "text": "3経営力向上計画加点各受付締切回の基準日(詳細は後日公開する別紙「参考資料」を参照)までに、中小企業等経営強化法に基づく「経営力向上計画」の認定を受けている事業者に対して、採択審査時に政策的観点から加点(=経営力向上計画加点)を行います。<必要な手続>✓希望する特例及び加点項目(様式2)の「3.経営力向上計画加点」を選択。✓「認定書」の写しを提出(「認定書」の写しの提出がない場合は、加点対象になりません)。基準日までに認定を受けていることが必要です。基準日よりも後に認定を受けた事業者や、認定申請中の事業者は対象となりません。",
+      "raw_text": "③経営力向上計画加点\n 各受付締切回の基準日（詳細は後日公開する別紙「参考資料」を参照）までに、中小企業等経営強\n 化法に基づく「経営力向上計画」の認定を受けている事業者に対して、採択審査時に政策的観点か\n ら加点（＝経営力向上計画加点）を行います。\n\n ＜必要な手続＞\n✓ 希望する特例及び加点項目（様式 2）の「3．経営力向上計画加点」を選択。\n✓ 「認定書」の写しを提出（「認定書」の写しの提出がない場合は、加点対象になりません）。基準日ま\n  でに認定を受けていることが必要です。基準日よりも後に認定を受けた事業者や、認定申請中の\n  事業者は対象となりません。",
+      "source_document_id": "koubo-r20",
+      "page": 38,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "認定計画"
+      ]
+    },
+    {
+      "clause_id": "bonus-012",
+      "section": "加点審査（政策加点：過疎地域加点）",
+      "text": "5過疎地域加点過疎地域という極めて厳しい経営環境の中で販路開拓等に取り組む事業者を重点支援する観点から、「過疎地域の持続的発展の支援に関する特別措置法」に定める過疎地域に所在し、地域経済の持続的発展につながる取組を行う事業者に対して、採択審査時に政策的観点から加点(=過疎地域加点)を行います。",
+      "raw_text": "⑤過疎地域加点\n 過疎地域という極めて厳しい経営環境の中で販路開拓等に取り組む事業者を重点支援する観点\n から、「過疎地域の持続的発展の支援に関する特別措置法」に定める過疎地域に所在し、地域経済\n の持続的発展につながる取組を行う事業者に対して、採択審査時に政策的観点から加点（＝過疎\n 地域加点）を行います。",
+      "source_document_id": "koubo-r20",
+      "page": 38,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "地域制限"
+      ]
+    },
+    {
+      "clause_id": "bonus-013",
+      "section": "加点審査（政策加点：一般事業主行動計画策定加点）",
+      "text": "6一般事業主行動計画策定加点従業員100人以下の事業者で「女性の活躍推進企業データベース」に女性活躍推進法に基づく一般事業主行動計画を公表している事業者、もしくは従業員100人以下の事業者で「両立支援のひろば」に次世代法に基づく一般事業主行動計画を公表している事業者に対して、採択審査時に政策的観点から加点(=一般事業主行動計画策定加点)を行います。計画期間に「公募締切日」及び「事業者が設定した補助事業終了予定日」がいずれも含まれている場合に加点の対象となります。重点政策加点の4くるみん・えるぼし加点にも該当し選択されている場合は、重点政策加点分のみ加点されますのでご注意ください。",
+      "raw_text": "⑥一般事業主行動計画策定加点\n 従業員 100 人以下の事業者で「女性の活躍推進企業データベース」に女性活躍推進法に基づく一\n 般事業主行動計画を公表している事業者、もしくは従業員 100 人以下の事業者で「両立支援のひ\n ろば」に次世代法に基づく一般事業主行動計画を公表している事業者に対して、採択審査時に政\n 策的観点から加点（＝一般事業主行動計画策定加点）を行います。\n 計画期間に「公募締切日」及び「事業者が設定した補助事業終了予定日」がいずれも含まれている\n 場合に加点の対象となります。\n 重点政策加点の④くるみん・えるぼし加点にも該当し選択されている場合は、重点政策加点分のみ\n 加点されますのでご注意ください。",
+      "source_document_id": "koubo-r20",
+      "page": 39,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目"
+      ]
+    },
+    {
+      "clause_id": "bonus-014",
+      "section": "加点審査（政策加点：後継者支援加点）",
+      "text": "7後継者支援加点将来的に事業承継を行う予定があり、新たな取組を行う後継者候補として、「アトツギ甲子園」のファイナリスト等になった事業者を対象に政策支援をするため、以下の要件を満たす事業者に対して加点を行います。申請時において、「アトツギ甲子園(※1)」のファイナリスト又は準ファイナリスト(※2)になった事業者であること。※1:詳細は後日公開する別紙「参考資料」をご参照ください。※2:準ファイナリストとは、地方予選大会出場者のうち、ファイナリスト以外であって、特に優秀と認められ、経済産業省HPで公表された者。(注)過去の持続化補助金の「後継者支援枠」で採択され事業を実施した事業者は、対象外です。ただし異なる年度において、上記要件を満たす場合は、補助対象となり得ます。",
+      "raw_text": "⑦後継者支援加点\n 将来的に事業承継を行う予定があり、新たな取組を行う後継者候補として、「アトツギ甲子園」のファ\n  イナリスト等になった事業者を対象に政策支援をするため、以下の要件を満たす事業者に対して加\n  点を行います。\n 申請時において、「アトツギ甲子園（※1）」のファイナリスト又は準ファイナリスト（※2）になった事業\n 者であること。\n ※1：詳細は後日公開する別紙「参考資料」をご参照ください。\n ※2:準ファイナリストとは、地方予選大会出場者のうち、ファイナリスト以外であって、特に優秀と認\n   められ、経済産業省ＨＰで公表された者。\n （注）過去の持続化補助金の「後継者支援枠」で採択され事業を実施した事業者は、対象外です。た\n   だし異なる年度において、上記要件を満たす場合は、補助対象となり得ます。",
+      "source_document_id": "koubo-r20",
+      "page": 39,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "事業承継"
+      ]
+    },
+    {
+      "clause_id": "bonus-015",
+      "section": "加点審査（政策加点：令和6年能登半島地震等に伴う加点）",
+      "text": "10令和6年能登半島地震等に伴う加点令和6年能登半島地震等に起因して、自社の事業用資産に損壊等の直接的な被害(直接被害)や売上減少の間接的な被害(間接被害)を受けた事業者に対し、政策的観点から加点を行います。※「小規模事業者持続化補助金<一般型災害支援枠(令和6年能登半島地震等)>(<災害支援枠(令和6年能登半島地震)>含む。)」において、既に採択を受けて補助事業を実施している場合、本加点の対象外です。ただし、地震により被害を受けた小規模事業者等が採択を受けて補助事業を実施した場合には、豪雨被害での令和6年能登半島地震等に伴う加点の選択は可能です。※「小規模事業者持続化補助金<一般型災害支援枠(令和6年能登半島地震等)>」に申請中の場合は令和6年能登半島地震等に伴う加点の選択はできません。【直接被害の場合】〇石川県、富山県、新潟県、福井県内に補助事業の実施場所が所在し、かつ、地震被害または豪雨被害に伴う自社の事業用資産に損壊等の直接的な被害を受けたことが地方自治体により発行された証明書等により確認できる事業者については、政策的観点から加点(令和6年能登半島地震等に伴う加点)を行います。【間接被害の場合】〇石川県、富山県、新潟県、福井県内に補助事業の実施場所が所在し、かつ、地震被害の場合、令和6年1月から令和8年11月までの任意の1か月間の売上、または、豪雨被害のみの場合、令和6年9月から令和8年11月までの任意の1か月間の売上が前年同期または令和2年1月28日以前の同期と比較して20%以上減少したことが、地方自治体により発行された証明書等により確認できる事業者については、政策的観点から加点(=令和6年能登半島地震等に伴う加点)を行います。",
+      "raw_text": "⑩令和 6 年能登半島地震等に伴う加点\n 令和 6 年能登半島地震等に起因して、自社の事業用資産に損壊等の直接的な被害（直接被害）や\n 売上減少の間接的な被害（間接被害）を受けた事業者に対し、政策的観点から加点を行います。\n ※「小規模事業者持続化補助金＜一般型 災害支援枠（令和６年能登半島地震等）＞（＜災害支援\n  枠（令和 6 年能登半島地震）＞含む。）」において、既に採択を受けて補助事業を実施している場\n  合、本加点の対象外です。ただし、地震により被害を受けた小規模事業者等が採択を受けて補助\n  事業を実施した場合には、豪雨被害での令和 6 年能登半島地震等に伴う加点の選択は可能で\n  す。\n ※「小規模事業者持続化補助金＜一般型 災害支援枠（令和 6 年能登半島地震等）＞」に申請中\n   の場合は令和 6 年能登半島地震等に伴う加点の選択はできません。\n\n 【直接被害の場合】\n 〇石川県、富山県、新潟県、福井県内に補助事業の実施場所が所在し、かつ、地震被害または豪雨\n   被害に伴う自社の事業用資産に損壊等の直接的な被害を受けたことが地方自治体により発行さ\n   れた証明書等により確認できる事業者については、政策的観点から加点（令和 6 年能登半島地\n   震等に伴う加点）を行います。\n\n\n 【間接被害の場合】\n 〇石川県、富山県、新潟県、福井県内に補助事業の実施場所が所在し、かつ、地震被害の場合、令\n   和 6 年 1 月から令和 8 年 11 月までの任意の 1 か月間の売上、または、豪雨被害のみの場合、\n   令和 6 年 9 月から令和 8 年 11 月までの任意の 1 か月間の売上が前年同期または令和 2 年 1\n   月２８日以前の同期と比較して 20％以上減少したことが、地方自治体により発行された証明書\n   等により確認できる事業者については、政策的観点から加点（＝令和 6 年能登半島地震等に伴\n   う加点）を行います。",
+      "source_document_id": "koubo-r20",
+      "page": 40,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "地域制限",
+        "災害"
+      ]
+    },
+    {
+      "clause_id": "bonus-016",
+      "section": "加点審査（政策加点：地域別最低賃金引上げ加点）",
+      "text": "11地域別最低賃金引上げ加点すでに実施された地域別最低賃金の改定において、直近からひとつ前の改定以降直近の改定までの期間で、直近の改定での地域別最低賃金額以下で雇用していた従業員(連続した3か月以上)がいる事業者に対して、政策的観点から加点(地域別最低賃金引上げ加点)を行います。※直近の改定の際、改定前から事業場内最低賃金が改定後の地域別最低賃金以上となっていた場合は、本加点の対象外です。【対象期間(連続した3か月)の考え方例】●所在する地域が申請受付開始日時点で当年の最低賃金改定済の場合前年の最低賃金改定後から当年の改定前までの期間のうち、連続する3か月●所在する地域が申請受付開始日時点で当年の最低賃金未改定の場合前々年の最低賃金改定後から前年の改定前までの期間のうち、連続する3か月",
+      "raw_text": "⑪地域別最低賃金引上げ加点\n すでに実施された地域別最低賃金の改定において、直近からひとつ前の改定以降直近の改定まで\n の期間で、直近の改定での地域別最低賃金額以下で雇用していた従業員（連続した３か月以上）が\n いる事業者に対して、政策的観点から加点（地域別最低賃金引上げ加点）を行います。\n ※直近の改定の際、改定前から事業場内最低賃金が改定後の地域別最低賃金以上となっていた\n   場合は、本加点の対象外です。\n\n 【対象期間（連続した 3 か月）の考え方 例】\n  ●所在する地域が申請受付開始日時点で当年の最低賃金改定済の場合\n   前年の最低賃金改定後から当年の改定前までの期間のうち、連続する 3 か月\n\n  ●所在する地域が申請受付開始日時点で当年の最低賃金未改定の場合\n   前々年の最低賃金改定後から前年の改定前までの期間のうち、連続する 3 か月",
+      "source_document_id": "koubo-r20",
+      "page": 41,
+      "source_offset": null,
+      "topic_tags": [
+        "加点項目",
+        "賃金要件"
+      ]
+    },
+    {
+      "clause_id": "schedule-001",
+      "section": "申請手続（受付開始及び締切）",
+      "text": "(1)受付開始及び締切○公募要領公開: 2026年5月27日(水)○申請受付開始: 2026年11月5日(木)○申請受付締切: 2026年12月15日(木)17:00(事業支援計画書(様式4)発行の受付締切2026年12月4日(金))※予定は変更する場合があります。",
+      "raw_text": "（1）受付開始及び締切\n ○公募要領公開：     2026 年 5 月 27 日（水）\n ○申請受付開始：     2026 年 11 月 5 日（木）\n ○申請受付締切：     2026 年 12 月 15 日（木）17:00\n              （事業支援計画書（様式 4）発行の受付締切 2026 年 12 月 4 日（金））\n              ※予定は変更する場合があります。",
+      "source_document_id": "koubo-r20",
+      "page": 23,
+      "source_offset": null,
+      "topic_tags": [
+        "申請期限"
+      ]
+    },
+    {
+      "clause_id": "schedule-002",
+      "section": "補助事業実施期間等",
+      "text": "各回で予定する「補助事業実施期間」「補助事業実績報告書提出期限」は次のとおりです。受付締切補助事業実施期間補助事業実績報告書提出期限第17回受付締切分交付決定日より2026年7月31日(金)まで2026年8月10日(月)第18回受付締切分交付決定日より2027年2月26日(金)まで2027年3月10日(水)第19回受付締切分交付決定日より2027年6月30日(水)まで2027年7月10日(土)第20回受付締切分交付決定日より2028年3月31日(金)まで2028年4月10日(月)※上記実施期間の途中で、補助事業が終了(補助対象経費の支払いまで含みます)したときは、その日から起算して30日を経過した日、または上記「補助事業実績報告書提出期限」のいずれか早い日までに実施事業内容および経費内容を取りまとめ、提出しなければなりません。",
+      "raw_text": "各回で予定する「補助事業実施期間」「補助事業実績報告書提出期限」は次のとおりです。\n   受付締切               補助事業実施期間               補助事業実績報告書提出期限\n第 17 回受付締切分   交付決定日より 2026 年 7 月 31 日（金）まで    2026 年 8 月 10 日（月）\n第 18 回受付締切分   交付決定日より 2027 年 2 月 26 日（金）まで    2027 年 3 月 10 日（水）\n第 19 回受付締切分   交付決定日より 2027 年 6 月 30 日（水）まで    2027 年 7 月 10 日（土）\n第 20 回受付締切分   交付決定日より 2028 年 3 月 31 日（金）まで    2028 年 4 月 10 日（月）\n※上記実施期間の途中で、補助事業が終了（補助対象経費の支払いまで含みます）したときは、その日か\n ら起算して 30 日を経過した日、または上記「補助事業実績報告書提出期限」のいずれか早い日までに\n 実施事業内容および経費内容を取りまとめ、提出しなければなりません。",
+      "source_document_id": "koubo-r20",
+      "page": 25,
+      "source_offset": null,
+      "topic_tags": [
+        "期間制限",
+        "実績報告"
+      ]
+    },
+    {
+      "clause_id": "schedule-003",
+      "section": "補助事業者の義務（実績報告書の提出）",
+      "text": "(5)定められた期日までに実績報告書等を提出しなければなりません。補助事業の終了後、実績報告書(交付規程様式第8)および支出内容の分かる関係書類等を、定められた期日までに補助金事務局に提出しなければなりません。定められた期日までに実績報告書等の提出が補助金事務局で確認できなかった場合、交付決定を取り消します。",
+      "raw_text": "（5）定められた期日までに実績報告書等を提出しなければなりません。\n  補助事業の終了後、実績報告書（交付規程様式第 8）および支出内容の分かる関係書類等を、定めら\n  れた期日までに補助金事務局に提出しなければなりません。定められた期日までに実績報告書等の\n  提出が補助金事務局で確認できなかった場合、交付決定を取り消します。",
+      "source_document_id": "koubo-r20",
+      "page": 26,
+      "source_offset": null,
+      "topic_tags": [
+        "実績報告",
+        "必須要件"
+      ]
+    },
+    {
+      "clause_id": "report-001",
+      "section": "補助事業者の義務（事業効果等状況報告）",
+      "text": "(11)補助事業実施後の「事業効果等状況報告」のご提出が必要です。補助事業者は、補助事業終了から1年後の状況について、交付規程第29条に定める「事業効果等状況報告」を、補助事業実施後、補助金事務局が指定する期限までに必ず行うことが必要です。提出していない事業者、および提出が完了してから1年間が経過していない事業者には補助金申請に際し、制限が課されます。詳細は「3.補助対象外となる事業者」をご確認ください。",
+      "raw_text": "（11）補助事業実施後の「事業効果等状況報告」のご提出が必要です。\n  補助事業者は、補助事業終了から 1 年後の状況について、交付規程第 29 条に定める「事業効果等\n    状況報告」を、補助事業実施後、補助金事務局が指定する期限までに必ず行うことが必要です。提出\n    していない事業者、および提出が完了してから 1 年間が経過していない事業者には補助金申請に際\n    し、制限が課されます。詳細は「3．補助対象外となる事業者」をご確認ください。",
+      "source_document_id": "koubo-r20",
+      "page": 26,
+      "source_offset": null,
+      "topic_tags": [
+        "事業効果報告",
+        "必須要件"
+      ]
+    },
+    {
+      "clause_id": "form-structure-001",
+      "section": "経営計画・補助事業計画の書き方（ミラサポplus）",
+      "text": "補助事業で行う事業名（30文字以内）",
+      "raw_text": "補助事業で行う事業名（30文字以内）",
+      "source_document_id": "mirasapo-guide",
+      "page": null,
+      "source_offset": null,
+      "topic_tags": [
+        "様式",
+        "文字数制限"
+      ]
+    }
+  ],
+  "parsed_at": "2026-07-02T18:03:37+09:00",
+  "parsed_by": "ai"
+}

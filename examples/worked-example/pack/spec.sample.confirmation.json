@@ -1,0 +1,131 @@
+{
+  "spec_path": "examples/worked-example/pack/spec.sample.json",
+  "spec_version": 1,
+  "spec_sha256": "32b54f12c01303468a820c25bb2b34e7ba536eac34945be7b487348aa0a0b7c0",
+  "confirmed_by": "provider",
+  "confirmed_at": "2026-07-02T12:34:56+09:00",
+  "items": [
+    {
+      "field_path": "schedule.application-deadline",
+      "source_clauses": [
+        "clause-deadline"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で schedule.application-deadline を確認済み。"
+    },
+    {
+      "field_path": "schedule.project-period",
+      "source_clauses": [
+        "clause-period"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で schedule.project-period を確認済み。"
+    },
+    {
+      "field_path": "eligibility.rules.rule-small-business",
+      "source_clauses": [
+        "clause-eligibility"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で eligibility.rules.rule-small-business を確認済み。",
+      "predicate_state": "encoded"
+    },
+    {
+      "field_path": "eligibility.rules.rule-no-prior-contract",
+      "source_clauses": [
+        "clause-prior-contract"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で eligibility.rules.rule-no-prior-contract を確認済み。",
+      "predicate_state": "not_encodable"
+    },
+    {
+      "field_path": "eligibility.rules.rule-wage-plan",
+      "source_clauses": [
+        "clause-wage"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で eligibility.rules.rule-wage-plan を確認済み。"
+    },
+    {
+      "field_path": "funding.base_award",
+      "source_clauses": [
+        "clause-funding"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で funding.base_award を確認済み。"
+    },
+    {
+      "field_path": "funding.add_ons.wage-up",
+      "source_clauses": [
+        "clause-wage"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で funding.add_ons.wage-up を確認済み。"
+    },
+    {
+      "field_path": "funding.eligible_expenses.機械装置費",
+      "source_clauses": [
+        "clause-expenses"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で funding.eligible_expenses.機械装置費 を確認済み。"
+    },
+    {
+      "field_path": "funding.eligible_expenses.ソフトウェア利用料",
+      "source_clauses": [
+        "clause-expenses"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で funding.eligible_expenses.ソフトウェア利用料 を確認済み。"
+    },
+    {
+      "field_path": "bonus_items.bonus-effect-measurement",
+      "source_clauses": [
+        "clause-review"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で bonus_items.bonus-effect-measurement を確認済み。"
+    },
+    {
+      "field_path": "deliverables.plan-doc",
+      "source_clauses": [
+        "clause-plan"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で deliverables.plan-doc を確認済み。"
+    },
+    {
+      "field_path": "deliverables.plan-doc.sections.current-challenge.max_chars",
+      "source_clauses": [
+        "clause-plan"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で deliverables.plan-doc.sections.current-challenge.max_chars を確認済み。"
+    },
+    {
+      "field_path": "deliverables.plan-doc.sections.short-summary.max_chars",
+      "source_clauses": [
+        "clause-plan"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で deliverables.plan-doc.sections.short-summary.max_chars を確認済み。"
+    },
+    {
+      "field_path": "deliverables.estimate-attachment",
+      "source_clauses": [
+        "clause-attachments"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で deliverables.estimate-attachment を確認済み。"
+    },
+    {
+      "field_path": "deliverables.support-letter",
+      "source_clauses": [
+        "clause-attachments"
+      ],
+      "state": "confirmed",
+      "note": "架空要項サンプル上で deliverables.support-letter を確認済み。"
+    }
+  ]
+}
