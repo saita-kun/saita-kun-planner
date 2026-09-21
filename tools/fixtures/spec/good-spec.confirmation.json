@@ -1,0 +1,66 @@
+{
+  "spec_path": "tools/fixtures/spec/good-spec.json",
+  "spec_version": 1,
+  "spec_sha256": "1b919dc4f1671074196b5e806e9ba5bac6557ad838ff06c81fe09579f49c1c09",
+  "confirmed_by": "provider",
+  "confirmed_at": "2026-07-02",
+  "items": [
+    {
+      "field_path": "schedule.application-deadline",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for schedule.application-deadline."
+    },
+    {
+      "field_path": "eligibility.rules.rule-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for eligibility.rules.rule-1.",
+      "predicate_state": "not_encodable"
+    },
+    {
+      "field_path": "funding.base_award",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for funding.base_award."
+    },
+    {
+      "field_path": "funding.eligible_expenses.広報費",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for funding.eligible_expenses.広報費."
+    },
+    {
+      "field_path": "deliverables.deliverable-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.deliverable-1."
+    },
+    {
+      "field_path": "deliverables.deliverable-1.sections.section-1.max_chars",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.deliverable-1.sections.section-1.max_chars."
+    },
+    {
+      "field_path": "deliverables.deliverable-1.sections.section-2.max_chars",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.deliverable-1.sections.section-2.max_chars."
+    }
+  ]
+}

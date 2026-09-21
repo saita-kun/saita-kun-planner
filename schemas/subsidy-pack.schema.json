@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/saita-kun-planner/subsidy-pack.schema.json",
+  "title": "Subsidy pack manifest",
+  "description": "補助金パックの pack.json スキーマ。spec + confirmation + 書き方メモ(notes)を同一ディレクトリに束ね、各ファイルの sha256 と notes の derived_from_spec_sha256 で stale を検知する。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pack_version",
+    "subsidy_id",
+    "spec_version",
+    "built_at",
+    "built_by",
+    "spec",
+    "confirmation",
+    "notes"
+  ],
+  "properties": {
+    "pack_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "subsidy_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "spec_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "built_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}[+-][0-9]{2}:[0-9]{2}$",
+      "description": "offset 付き ISO8601。例: 2026-07-05T00:00:00+09:00"
+    },
+    "built_by": {
+      "type": "string",
+      "enum": [
+        "provider",
+        "applicant"
+      ]
+    },
+    "spec": {
+      "$ref": "#/$defs/listedFile"
+    },
+    "confirmation": {
+      "$ref": "#/$defs/listedFile"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "kind",
+          "sha256",
+          "derived_from_spec_sha256"
+        ],
+        "properties": {
+          "path": {
+            "$ref": "#/$defs/relativePath"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "review-lens",
+              "scoring-strategy",
+              "section-note",
+              "examples"
+            ]
+          },
+          "sha256": {
+            "$ref": "#/$defs/sha256"
+          },
+          "derived_from_spec_sha256": {
+            "$ref": "#/$defs/sha256"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(^|/)\\.\\.(/|$))(?!.*(^|/)\\.(/|$))[^\\\\]+$",
+      "description": "パックディレクトリからの正規化済み相対パスのみ。絶対パス、..、.、バックスラッシュは禁止"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "listedFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    }
+  }
+}

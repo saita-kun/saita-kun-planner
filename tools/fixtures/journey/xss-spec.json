@@ -1,0 +1,59 @@
+{
+  "subsidy_id": "fixture-xss",
+  "schema_version": "2.0",
+  "spec_version": 1,
+  "name": "Fixture <script>alert('name')</script> subsidy",
+  "round": "第1回 <script>alert('round')</script>",
+  "status": "confirmed",
+  "schedule": [
+    {
+      "event_id": "application-deadline",
+      "name": "申請締切",
+      "event_kind": "application_deadline",
+      "date": "2026-12-31",
+      "time": "17:00",
+      "hard": true,
+      "phase": "application",
+      "source_clauses": ["clause-1"]
+    }
+  ],
+  "deliverables": [
+    {
+      "deliverable_id": "evil-doc",
+      "name": "<script>alert('deliverable')</script>証明書",
+      "type": "document",
+      "phase": "application",
+      "produced_by": "external",
+      "issuer": "\"><img src=x onerror=alert('issuer')>窓口",
+      "required": true,
+      "required_if": null,
+      "due_event_id": "application-deadline",
+      "sections": [],
+      "depends_on": [],
+      "source_clauses": ["clause-1"]
+    },
+    {
+      "deliverable_id": "evil-draft",
+      "name": "計画書<script>alert('draft')</script>",
+      "type": "form_input",
+      "phase": "application",
+      "produced_by": "ai_draftable",
+      "issuer": null,
+      "required": true,
+      "required_if": null,
+      "due_event_id": "application-deadline",
+      "sections": [],
+      "depends_on": [],
+      "source_clauses": ["clause-1"]
+    }
+  ],
+  "clauses": [
+    {
+      "clause_id": "clause-1",
+      "section": "fixture",
+      "text": "fixture clause",
+      "source_document_id": "doc-1",
+      "page": 1
+    }
+  ]
+}

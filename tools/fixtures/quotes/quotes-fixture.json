@@ -1,0 +1,22 @@
+{
+  "spec_version": 1,
+  "subsidy_id": "quotes-fixture",
+  "status": "confirmed",
+  "clauses": [
+    {
+      "clause_id": "clause-1",
+      "source_document_id": "doc-1",
+      "text": "補助上限額は50万円とする。"
+    },
+    {
+      "clause_id": "clause-2",
+      "source_document_id": "doc-1",
+      "text": "補助率は対象経費の3分の2以内とする。"
+    },
+    {
+      "clause_id": "clause-3",
+      "source_document_id": "doc-1",
+      "text": "申請書は様式1により提出すること。"
+    }
+  ]
+}

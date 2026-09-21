@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Application Record (育成層)",
+  "description": "1 回の申請イベントの記録。/retrospect が knowledge/records/<subsidy_id>-<round>.json に書く。制度定義（subsidy-spec）とは分離する。次回の /draft-section・/review が knowledge/lessons/ と合わせて参照する。将来の result-report（任意提出）は本 record からの抜粋 export として定義する（未実装）。",
+  "type": "object",
+  "required": ["record_id", "subsidy_id", "spec_version", "result"],
+  "additionalProperties": false,
+  "properties": {
+    "record_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "subsidy_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "spec_version": { "type": "integer" },
+    "round": { "type": ["string", "null"] },
+    "chosen_addons": { "type": "array", "items": { "type": "string" } },
+    "submitted_at": { "type": ["string", "null"], "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "result": { "type": "string", "enum": ["adopted", "rejected", "not_submitted", "pending"] },
+    "score": { "type": ["number", "null"], "description": "採点（入手できた場合）" },
+    "feedback_text": { "type": ["string", "null"], "description": "講評・不採択理由（入手できた場合）" },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["lesson_id", "phase", "text"],
+        "additionalProperties": false,
+        "properties": {
+          "lesson_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "phase": { "type": "string", "enum": ["intake", "fit", "draft", "verify", "finalize"] },
+          "text": { "type": "string" },
+          "applies_to": { "type": ["string", "null"], "description": "関連する section_id / rule_id（あれば）" }
+        }
+      }
+    },
+    "next_actions": { "type": "array", "items": { "type": "string" } },
+    "created_at": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "spec_path": "tools/fixtures/spec/provider-missing-item-confirmed-at.json",
+  "spec_version": 1,
+  "spec_sha256": "cce5dd07d6fc6dc81f0356dc51fb103a0f92ee084a41b9953722b01e4fe1718f",
+  "confirmed_by": "provider",
+  "confirmed_at": "2026-07-17T12:00:00+09:00",
+  "items": [
+    {
+      "field_path": "schedule.application-deadline",
+      "state": "confirmed",
+      "source_clauses": ["clause-1"],
+      "note": "Fixture confirmation."
+    },
+    {
+      "field_path": "eligibility.rules.rule-1",
+      "state": "confirmed",
+      "source_clauses": ["clause-1"],
+      "note": "Fixture confirmation.",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-17"
+    },
+    {
+      "field_path": "funding.base_award",
+      "state": "confirmed",
+      "source_clauses": ["clause-1"],
+      "note": "Fixture confirmation.",
+      "confirmed_at": "2026-07-17"
+    },
+    {
+      "field_path": "deliverables.deliverable-1",
+      "state": "confirmed",
+      "source_clauses": ["clause-1"],
+      "note": "Fixture confirmation.",
+      "confirmed_at": "2026-07-17"
+    }
+  ]
+}

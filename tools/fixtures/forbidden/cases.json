@@ -1,0 +1,67 @@
+{
+  "fixture_version": 1,
+  "positive_cases": [
+    {"id": "adopted-polite", "text": "採択されます。"},
+    {"id": "adopted-plain", "text": "採択される。"},
+    {"id": "cause-adoption", "text": "採択させます。"},
+    {"id": "certain-adoption", "text": "必ず採択。"},
+    {"id": "absolute-pass", "text": "絶対に通り。"},
+    {"id": "sure-acceptance", "text": "確実に受かり。"},
+    {"id": "will-pass", "text": "通ります。"},
+    {"id": "will-be-accepted", "text": "受かります。"},
+    {"id": "guarantee-polite", "text": "保証します。"},
+    {"id": "guarantee-humble", "text": "保証いたします。"},
+    {"id": "guarantee-adoption", "text": "採択を保証。"},
+    {"id": "all-automatic", "text": "全自動。"},
+    {"id": "fully-automatic", "text": "完全自動。"},
+    {"id": "auto-create", "text": "自動で作成。"},
+    {"id": "auto-complete", "text": "自動で完成。"},
+    {"id": "auto-apply", "text": "自動で申請。"},
+    {"id": "auto-submit", "text": "自動で提出。"},
+    {"id": "drafting-agency", "text": "作成代行。"},
+    {"id": "proxy-submit", "text": "代理提出。"},
+    {"id": "proxy-apply", "text": "代理申請。"},
+    {"id": "ghostwriting", "text": "代筆。"},
+    {"id": "success-fee", "text": "成功報酬。"}
+  ],
+  "negation_cases": [
+    {"term": "ません", "text": "採択を保証という表現は使いません。"},
+    {"term": "しません", "text": "採択を保証しません。"},
+    {"term": "いたしません", "text": "採択を保証いたしません。"},
+    {"term": "行いません", "text": "代理申請は行いません。"},
+    {"term": "ではありません", "text": "作成代行ではありません。"},
+    {"term": "ではない", "text": "作成代行ではない。"},
+    {"term": "ではなく", "text": "作成代行ではなく、本人が作成します。"},
+    {"term": "しない", "text": "完全自動化しない。"},
+    {"term": "行わない", "text": "代理申請は行わない。"},
+    {"term": "できません", "text": "代理提出はできません。"},
+    {"term": "できない", "text": "代理提出はできない。"},
+    {"term": "禁止", "text": "代理申請は禁止。"},
+    {"term": "不可", "text": "代理提出は不可。"}
+  ],
+  "boundary_cases": [
+    {
+      "id": "japanese-stop",
+      "text": "必ず採択されます。ただし保証はしません。",
+      "expected": "fail"
+    },
+    {
+      "id": "newline",
+      "text": "必ず採択されます\nただし保証はしません。",
+      "expected": "fail"
+    }
+  ],
+  "english_positive_cases": [
+    {"id": "guaranteed-approval", "text": "guaranteed approval"},
+    {"id": "guarantee-of-adoption", "text": "guarantee of adoption"},
+    {"id": "we-file-on-behalf", "text": "we file on your behalf"},
+    {"id": "we-submit-on-behalf", "text": "we submit on your behalf"},
+    {"id": "on-behalf", "text": "on your behalf"},
+    {"id": "fully-automated-filing", "text": "fully automated filing"},
+    {"id": "fully-automated-submission", "text": "fully automated submission"},
+    {"id": "automatically-files", "text": "automatically files"},
+    {"id": "automatically-submits", "text": "automatically submits"},
+    {"id": "certain-success", "text": "100% success"},
+    {"id": "certain-approval", "text": "100% approval"}
+  ]
+}

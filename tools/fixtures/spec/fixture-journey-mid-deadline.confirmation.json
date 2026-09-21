@@ -1,0 +1,82 @@
+{
+  "spec_path": "tools/fixtures/spec/fixture-journey-mid-deadline.json",
+  "spec_version": 1,
+  "spec_sha256": "8613f8908a02c4906a37f93c1142d7528974a2747aea78682bb44081f9b56ec7",
+  "confirmed_by": "applicant",
+  "confirmed_at": "2026-07-25T00:00:00+09:00",
+  "items": [
+    {
+      "field_path": "schedule.draft-interim",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for schedule.draft-interim."
+    },
+    {
+      "field_path": "schedule.submit-interim",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for schedule.submit-interim."
+    },
+    {
+      "field_path": "schedule.application-deadline",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for schedule.application-deadline."
+    },
+    {
+      "field_path": "eligibility.rules.rule-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for eligibility.rules.rule-1.",
+      "predicate_state": "not_encodable"
+    },
+    {
+      "field_path": "funding.base_award",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for funding.base_award."
+    },
+    {
+      "field_path": "funding.eligible_expenses.広報費",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for funding.eligible_expenses.広報費."
+    },
+    {
+      "field_path": "deliverables.draft-plan",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.draft-plan."
+    },
+    {
+      "field_path": "deliverables.draft-plan.sections.overview.max_chars",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.draft-plan.sections.overview.max_chars."
+    },
+    {
+      "field_path": "deliverables.portal-procedure",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.portal-procedure."
+    }
+  ]
+}

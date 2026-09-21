@@ -1,0 +1,154 @@
+{
+  "base_flow_version": 1,
+  "comment": "キット標準の申請工程（共通言語）。制度固有の工程・機関名・様式番号は置かない。補助金固有の工程は journey_map.py derive が confirmed spec から生成する。",
+  "lanes": [
+    { "lane_id": "owner", "label": "経営者（あなた）" },
+    { "lane_id": "claude", "label": "Claude Code との作業" },
+    { "lane_id": "external", "label": "外部の窓口" }
+  ],
+  "steps": [
+    {
+      "step_id": "consult",
+      "label": "補助金申請について相談する",
+      "description": "申請したい補助金や気になることを話し、全体の流れをつかみます。",
+      "lane": "claude",
+      "kind": "process",
+      "human_gate": false,
+      "next": ["workspace-consent"],
+      "branches": []
+    },
+    {
+      "step_id": "workspace-consent",
+      "label": "作業の約束ごとを確認して同意する",
+      "description": "利用条件とデータの扱いを読み、自分で同意します。",
+      "lane": "owner",
+      "kind": "process",
+      "human_gate": true,
+      "next": ["env-setup"],
+      "branches": []
+    },
+    {
+      "step_id": "env-setup",
+      "label": "作業環境を整える",
+      "description": "作業に必要な道具がそろっているかを確認します。",
+      "lane": "claude",
+      "kind": "process",
+      "human_gate": false,
+      "next": ["get-guidelines"],
+      "branches": []
+    },
+    {
+      "step_id": "get-guidelines",
+      "label": "公式の公募要領を手に入れる",
+      "description": "申請したい補助金の公募要領を公式サイトから入手します。",
+      "lane": "owner",
+      "kind": "process",
+      "human_gate": false,
+      "next": ["ingest-guidelines"],
+      "branches": []
+    },
+    {
+      "step_id": "ingest-guidelines",
+      "label": "公募要領を読み込んで整理する",
+      "description": "締切・条件・提出物などの内容を読み取り、整理します。",
+      "lane": "claude",
+      "kind": "process",
+      "human_gate": false,
+      "next": ["confirm-guidelines"],
+      "branches": []
+    },
+    {
+      "step_id": "confirm-guidelines",
+      "label": "読み取った内容を原本と突き合わせて確認する",
+      "description": "整理した内容が公募要領の原本と合っているか、自分の目で確かめます。",
+      "lane": "owner",
+      "kind": "process",
+      "human_gate": true,
+      "next": ["fit-check"],
+      "branches": []
+    },
+    {
+      "step_id": "fit-check",
+      "label": "要件との突合結果を確認する",
+      "description": "会社の状況と公募要領の条件の突合結果を並べます。適否の判断はご本人が行います（本キットは適格性を判定しません / DR-003）。",
+      "lane": "owner",
+      "kind": "decision",
+      "human_gate": true,
+      "next": [],
+      "branches": [
+        { "label": "確認して進む", "next": "intake" },
+        { "label": "別候補を検討する", "next": "other-subsidy" }
+      ]
+    },
+    {
+      "step_id": "other-subsidy",
+      "label": "別の補助金を検討する",
+      "description": "今回の補助金は見送り、条件に合う別の補助金を探します。",
+      "lane": "owner",
+      "kind": "terminal",
+      "human_gate": false,
+      "next": [],
+      "branches": []
+    },
+    {
+      "step_id": "intake",
+      "label": "会社と事業の情報を整理する",
+      "description": "会社概要・売上・取り組みたい投資などの実情報を整理します。",
+      "lane": "claude",
+      "kind": "process",
+      "human_gate": false,
+      "next": ["draft"],
+      "branches": []
+    },
+    {
+      "step_id": "draft",
+      "label": "計画書の下書きを作る",
+      "description": "審査の観点に沿って、計画書の下書きを作ります。",
+      "lane": "claude",
+      "kind": "process",
+      "human_gate": false,
+      "next": ["review"],
+      "branches": []
+    },
+    {
+      "step_id": "review",
+      "label": "下書きを点検して直す",
+      "description": "根拠の不足や言い過ぎがないかを点検し、納得できるまで手直しを繰り返します。",
+      "lane": "claude",
+      "kind": "process",
+      "human_gate": false,
+      "next": ["finalize"],
+      "branches": []
+    },
+    {
+      "step_id": "finalize",
+      "label": "内容を自分で確認して仕上げる",
+      "description": "下書きの内容を最後まで自分で読み、仕上げます。",
+      "lane": "owner",
+      "kind": "process",
+      "human_gate": true,
+      "next": ["submit"],
+      "branches": []
+    },
+    {
+      "step_id": "submit",
+      "label": "自分で提出する",
+      "description": "提出の操作は自分の手で行います。",
+      "lane": "owner",
+      "kind": "process",
+      "human_gate": true,
+      "next": ["result"],
+      "branches": []
+    },
+    {
+      "step_id": "result",
+      "label": "採択の発表を確認する",
+      "description": "採択結果の発表を確認します。",
+      "lane": "owner",
+      "kind": "milestone",
+      "human_gate": false,
+      "next": [],
+      "branches": []
+    }
+  ]
+}

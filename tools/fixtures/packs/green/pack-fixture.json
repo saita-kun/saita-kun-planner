@@ -1,0 +1,129 @@
+{
+  "subsidy_id": "pack-fixture",
+  "schema_version": "2.0",
+  "spec_version": 1,
+  "name": "合成補助金 pack checker fixture",
+  "round": "合成テスト",
+  "portal_url": null,
+  "category_tags": [],
+  "status": "confirmed",
+  "registry": null,
+  "source_documents": [
+    {
+      "document_id": "doc-1",
+      "title": "合成募集要項",
+      "url_or_path": "synthetic-guideline.md",
+      "sha256": null,
+      "extract_path": null,
+      "pages": null
+    }
+  ],
+  "schedule": [
+    {
+      "event_id": "application-deadline",
+      "name": "申請締切",
+      "event_kind": "application_deadline",
+      "date": "2026-12-31",
+      "starts_at": null,
+      "ends_at": null,
+      "relative": null,
+      "time": "17:00",
+      "timezone": "Asia/Tokyo",
+      "hard": true,
+      "phase": "application",
+      "source_clauses": [
+        "clause-1"
+      ]
+    }
+  ],
+  "eligibility": {
+    "rules": [
+      {
+        "rule_id": "rule-1",
+        "kind": "mandatory",
+        "text": "対象者は合成事業者であること。",
+        "predicate": null,
+        "verification": "合成確認書類",
+        "source_clauses": [
+          "clause-1"
+        ]
+      }
+    ]
+  },
+  "funding": {
+    "base_award": {
+      "name": "通常枠",
+      "max_amount": 50,
+      "subsidy_rate": 0.5,
+      "source_clauses": [
+        "clause-2"
+      ]
+    },
+    "add_ons": [],
+    "combinations": [],
+    "eligible_expenses": [
+      {
+        "category": "広報費",
+        "notes": null,
+        "cap_amount": null,
+        "source_clauses": [
+          "clause-2"
+        ]
+      }
+    ]
+  },
+  "deliverables": [
+    {
+      "deliverable_id": "plan",
+      "name": "事業計画書",
+      "produced_by": "ai_draftable",
+      "required": true,
+      "due_event_id": "application-deadline",
+      "depends_on": [],
+      "source_clauses": [
+        "clause-3"
+      ],
+      "sections": [
+        {
+          "section_id": "overview",
+          "title": "事業概要",
+          "kind": "prose",
+          "required": true,
+          "optional": false,
+          "max_chars": 400,
+          "max_pages": null,
+          "guidance": "事業の目的、顧客、実施内容を募集要項の観点に沿って説明する。",
+          "review_criteria": [
+            "制度要件と事業内容の接続が明確であること"
+          ],
+          "source_clauses": [
+            "clause-3"
+          ]
+        }
+      ]
+    }
+  ],
+  "bonus_items": [],
+  "clauses": [
+    {
+      "clause_id": "clause-1",
+      "source_document_id": "doc-1",
+      "page": 1,
+      "text": "申請締切は2026年12月31日17時以内とする。"
+    },
+    {
+      "clause_id": "clause-2",
+      "source_document_id": "doc-1",
+      "page": 2,
+      "text": "通常枠の補助上限は50万円、補助率は50%とする。"
+    },
+    {
+      "clause_id": "clause-3",
+      "source_document_id": "doc-1",
+      "page": 3,
+      "text": "事業計画書には事業概要を記載する。"
+    }
+  ],
+  "parsed_at": "2026-07-05T00:00:00+09:00",
+  "parsed_by": "fixture"
+}

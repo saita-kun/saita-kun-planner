@@ -1,0 +1,54 @@
+{
+  "spec_path": "tools/fixtures/spec/verbatim-match.json",
+  "spec_version": 1,
+  "spec_sha256": null,
+  "confirmed_by": "applicant",
+  "confirmed_at": null,
+  "items": [
+    {
+      "field_path": "schedule.application-deadline",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "verbatim fixture",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "individual",
+      "shown_page": 1
+    },
+    {
+      "field_path": "eligibility.rules.rule-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "verbatim fixture",
+      "predicate_state": "not_encodable",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "individual",
+      "shown_page": 1
+    },
+    {
+      "field_path": "funding.base_award",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "verbatim fixture",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "individual",
+      "shown_page": 1
+    },
+    {
+      "field_path": "deliverables.deliverable-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "verbatim fixture",
+      "confirmed_at": "2026-07-05",
+      "confirmed_via": "individual",
+      "shown_page": 1
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "flow_version": 1,
+  "subsidy_id": "fixture-good",
+  "subsidy_name": "Fixture subsidy spec",
+  "round": null,
+  "spec_path": "tools/fixtures/spec/good-spec.json",
+  "spec_version": 1,
+  "lanes": [
+    { "lane_id": "owner", "label": "経営者（あなた）" },
+    { "lane_id": "claude", "label": "Claude Code との作業" },
+    { "lane_id": "external", "label": "外部の窓口" }
+  ],
+  "steps": [
+    {
+      "step_id": "kit-consult",
+      "origin": "kit",
+      "base_step_id": "consult",
+      "description": null,
+      "lane": "claude",
+      "zone": "application",
+      "kind": "process",
+      "human_gate": false,
+      "deliverable_ids": [],
+      "event_ids": [],
+      "clause_ids": [],
+      "deadline": null,
+      "deadline_time": null,
+      "issuer": null,
+      "next": [],
+      "branches": [],
+      "unexpected_key": true
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+name: "ADOPTERS 掲載申告"
+description: "saita-kun-planner の利用・派生事例を ADOPTERS.md に掲載するための申告フォームです。canonical repo（saita-kun/saita-kun-planner）でのみ受け付けます。"
+title: "[adopter] 掲載申告"
+labels: ["adopters"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 投稿前に必ずお読みください
+
+        - このフォームは **canonical repo（saita-kun/saita-kun-planner）でのみ受け付けます**。あなたがテンプレートから複製した自分の repo でこのフォームを開いている場合は、本家 <https://github.com/saita-kun/saita-kun-planner/issues/new?template=adopter-entry.yml> から投稿してください。
+        - **投稿した GitHub アカウントは Issue 上で公開されます**。掲載時の表示名にはアカウント名と別の名称を指定できますが、投稿アカウント自体は公開されます。
+        - **機密情報を書かないでください**: 制度の正式名称・公募回・年度・地域 / 申請中の情報 / 申請本文・事業計画の具体的内容 / 売上等の具体的数値 / 顧客・第三者の特定につながる情報 / 個人情報。
+        - 投稿後に掲載を削除しても、GitHub の公開履歴・通知・複製からは完全には消えません。
+        - 掲載規定の全文は [ADOPTERS.md](https://github.com/saita-kun/saita-kun-planner/blob/main/ADOPTERS.md) を参照してください。
+  - type: input
+    id: display-name
+    attributes:
+      label: 表示名
+      description: ADOPTERS.md に掲載する名称。GitHub アカウント名と別の名称でかまいません。
+      placeholder: 例) 地方の小さな製造業 / ○○デザイン事務所
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: 属性
+      options:
+        - 事業者（自分の申請に使った）
+        - 支援者（支援先との作業に使った）
+        - 開発者（派生・接続プロジェクトを作った）
+    validations:
+      required: true
+  - type: dropdown
+    id: subsidy-category
+    attributes:
+      label: 補助金カテゴリ（任意）
+      description: 粗い分類のみ選べます。制度の正式名称・公募回・年度・地域は書かないでください。
+      options:
+        - 持続化
+        - ものづくり
+        - IT導入
+        - 事業再構築
+        - 自治体系
+        - その他
+        - 非公開
+    validations:
+      required: false
+  - type: textarea
+    id: comment
+    attributes:
+      label: 一言
+      description: 使ってみた感想・派生プロジェクトの紹介など。機密情報・具体的数値・採否は書かないでください。
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: 同意事項（すべて必須）
+      options:
+        - label: ADOPTERS.md に掲載されることに同意します
+          required: true
+        - label: 投稿した GitHub アカウントが公開されることを了解しています
+          required: true
+        - label: 申告内容の体裁編集と、OSS（Apache-2.0 配布物）への収載を許諾します
+          required: true
+        - label: 私は本人または掲載の権限を持つ者です
+          required: true
+        - label: ADOPTERS.md の掲載規定に従います
+          required: true

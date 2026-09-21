@@ -1,0 +1,130 @@
+{
+  "spec_path": "tools/fixtures/spec/fixture-journey-post-submit.json",
+  "spec_version": 1,
+  "spec_sha256": "a9efc15efd20556a15784d95cfdb621411e265ec5c70582e3ea452f7acc00271",
+  "confirmed_by": "applicant",
+  "confirmed_at": "2026-07-25T00:00:00+09:00",
+  "items": [
+    {
+      "field_path": "schedule.draft-interim",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for schedule.draft-interim."
+    },
+    {
+      "field_path": "schedule.submit-interim",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for schedule.submit-interim."
+    },
+    {
+      "field_path": "schedule.application-deadline",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for schedule.application-deadline."
+    },
+    {
+      "field_path": "schedule.oral-exam-window",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for schedule.oral-exam-window."
+    },
+    {
+      "field_path": "schedule.extra-docs-window",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for schedule.extra-docs-window."
+    },
+    {
+      "field_path": "eligibility.rules.rule-1",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for eligibility.rules.rule-1.",
+      "predicate_state": "not_encodable"
+    },
+    {
+      "field_path": "funding.base_award",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for funding.base_award."
+    },
+    {
+      "field_path": "funding.eligible_expenses.広報費",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for funding.eligible_expenses.広報費."
+    },
+    {
+      "field_path": "deliverables.draft-plan",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.draft-plan."
+    },
+    {
+      "field_path": "deliverables.draft-plan.sections.overview",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.draft-plan.sections.overview."
+    },
+    {
+      "field_path": "deliverables.draft-plan.sections.overview.max_chars",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.draft-plan.sections.overview.max_chars."
+    },
+    {
+      "field_path": "deliverables.account-prep",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.account-prep."
+    },
+    {
+      "field_path": "deliverables.portal-procedure",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.portal-procedure."
+    },
+    {
+      "field_path": "deliverables.oral-exam",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.oral-exam."
+    },
+    {
+      "field_path": "deliverables.extra-docs",
+      "source_clauses": [
+        "clause-1"
+      ],
+      "state": "confirmed",
+      "note": "Fixture confirmation for deliverables.extra-docs."
+    }
+  ]
+}

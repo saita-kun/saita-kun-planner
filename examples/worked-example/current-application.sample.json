@@ -1,0 +1,17 @@
+{
+  "subsidy_id": "worked-sample",
+  "spec_path": "examples/worked-example/pack/spec.sample.json",
+  "spec_version": 1,
+  "chosen_funding": {
+    "base": true,
+    "addon_ids": [
+      "wage-up"
+    ]
+  },
+  "state": "verified",
+  "drafts_dir": "examples/worked-example/drafts-sample",
+  "verify_report_path": "examples/worked-example/verify-report.sample.md",
+  "draft_bodies_sha256": "8a742dd87950d18efe6e98cf163c9a0286d9aee1a9a849f12d1fbfa6f4127b0d",
+  "verified_at": "2026-07-02T12:34:56+09:00",
+  "updated_at": "2026-07-02T12:34:56+09:00"
+}

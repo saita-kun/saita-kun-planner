@@ -1,0 +1,8 @@
+{
+  "pack_version": 1,
+  "subsidy_id": "freshness-stale-sha",
+  "spec": {
+    "path": "freshness-stale-sha.json",
+    "sha256": null
+  }
+}
