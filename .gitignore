@@ -1,0 +1,6 @@
+input/*
+!input/.gitkeep
+.ralph/
+.ralph/logs/
+.DS_Store
+__pycache__/

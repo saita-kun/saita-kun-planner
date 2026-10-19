@@ -1,0 +1,13 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "saita-kun-planner",
+  "description": "Free open-source GitHub template that helps Japanese small businesses draft subsidy (hojokin) business plans with their own Claude Code, backed by structured specs of official guidelines and mechanical validators.",
+  "folders": [],
+  "excludeFolders": ["node_modules", ".git", ".ralph", "input", "knowledge"],
+  "excludeFiles": [],
+  "rules": [
+    "Users keep their own company data in a private repository created via 'Use this template'; never push it to the public template.",
+    "Start from README, then run /setup and /start inside Claude Code, confirm the spec with either /select-subsidy or the sequence /ingest-guidelines -> /confirm-spec, and continue with /build-pack and /intake.",
+    "The kit drafts documents; the applicant remains the author and is responsible for the submission."
+  ]
+}
