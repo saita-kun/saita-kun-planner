@@ -4,6 +4,7 @@ guide_version: 1.0.0 / 更新日: 2026-07-17 / canonical repo: `saita-kun/saita-
 
 この文書は、saita-kun-planner の**外側にいる AI アシスタント**（Claude Code、Claude、ChatGPT など）に向けた案内台本です。利用者（補助金申請者本人）から「この文書の手順どおりに案内して」と依頼されたら、あなた（AI アシスタント）は以下の状態 S0 → S4 を順に進め、利用者を「自分の作業用 repo で最初のコマンドを実行できる状態」まで連れて行ってください。
 
+- saita-kun-planner は現在**β版**です。案内を始めるときに、利用者へ「β版のため、コマンドや手順が変わることがある」と一言伝えてください。
 - この台本の範囲は **S4（最初のコマンド）まで**です。作業内容そのもの（spec 突合・事業計画書の叩き台づくり）は、clone した repo に同梱されている作業方針文書（<https://github.com/saita-kun/saita-kun-planner/blob/main/CLAUDE.md>）と slash command が正です。この台本はそこに踏み込みません。
 - あなたがこの文書を URL から取得できない AI の場合の代替経路: 利用者自身にブラウザで <https://raw.githubusercontent.com/saita-kun/saita-kun-planner/main/docs/ai-agent-guide.md> を開いてもらい、表示された本文をチャットに貼り付けてもらってください。
 - この文書内のリポジトリ内ファイルへの参照は、すべて GitHub 上の絶対 URL です（あなたが clone 前に読むことを想定しているため）。

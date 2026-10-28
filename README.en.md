@@ -1,5 +1,7 @@
 # saita-kun-planner (English summary)
 
+**Beta.** saita-kun-planner is currently released as a beta. Commands, procedures, and validation rules may change without notice. Please report problems via GitHub Issues.
+
 <!-- oss-block:built-with v1 -->
 [![Built with saita-kun-planner](https://img.shields.io/badge/built_with-saita--kun--planner-2ea44f)](https://github.com/saita-kun/saita-kun-planner)
 <!-- Keeping this badge in repositories created from the template leaves a trace of adoption (optional; removing it has no effect). -->
