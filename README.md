@@ -1,6 +1,7 @@
 # saita-kun-planner
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![status: beta](https://img.shields.io/badge/status-%CE%B2%E7%89%88%20(beta)-orange.svg)](#)
 [![validate](https://github.com/saita-kun/saita-kun-planner/actions/workflows/validate.yml/badge.svg)](https://github.com/saita-kun/saita-kun-planner/actions/workflows/validate.yml)
 <!-- validate CI バッジは public repo と workflow が存在した後に描画されます。公開前は 404 になることがあります。 -->
 <!-- oss-block:built-with v1 -->
@@ -15,6 +16,8 @@ saita-kun-planner とは、中小企業・個人事業主が自分の Claude Cod
 中小企業・個人事業主が、自分の Claude Code で補助金申請用の事業計画書の叩き台を作るためのキットです。キット本体は無料の OSS（Apache-2.0）ですが、利用には Claude Code の契約環境が必要です。申請代行ではありません。
 
 小規模事業者持続化補助金などの公式公募要領を一次情報として、構造化 spec、検証器、手順、テンプレートを組み合わせた GitHub テンプレート repo です。事業計画書のテンプレートを無料で埋めるだけの雛形集ではなく、公募要領との突合・自社情報の整理・叩き台づくり・機械検証までを、申請者本人が作成主体のまま進められる作業環境です。
+
+**β版です。** saita-kun-planner は現在β版として公開しています。コマンド・手順・検証の仕様は予告なく変わることがあります。不具合や分かりにくい点は GitHub の Issues でお知らせください。
 
 姉妹プロジェクト: 補助金の新着情報配信を支援する [saita-kun-feeder](https://github.com/saita-kun/saita-kun-feeder)（セルフホスト配信キット）。feeder が「見つける・届く」、planner が「申請する」を受け持ちます。
 
