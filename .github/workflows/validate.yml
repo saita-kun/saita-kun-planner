@@ -1,0 +1,65 @@
+# CI の実走検証は GitHub 上（private repo push 後、設計書 §4.2 手順4）でのみ可能です。
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  validate:
+    # 重いジョブ（validate / export-regression）は、リポジトリ変数 HEAVY_RUNS_ON
+    # （ランナーのラベルの JSON 配列）があればそのランナーで、なければ ubuntu-latest で動かす。
+    # 公開リポジトリでは HEAVY_RUNS_ON に self-hosted runner を指定しない（fork の PR のコードがそのマシンで動くため）。
+    runs-on: ${{ fromJSON(vars.HEAVY_RUNS_ON || '"ubuntu-latest"') }}
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Run structural validation
+        run: bash tools/validate.sh
+
+  export-regression:
+    # 1回約40分かかるため PR では走らせず、main への push でのみ実行する（Actions 分数の節約）。
+    # merge 前に確かめたいときは手元で `bash tools/release/test-export.sh --ci` を実行する。
+    # リポジトリ変数 EXPORT_REGRESSION_NIGHTLY が true のリポジトリでは push でも走らせない（夜間にまとめて実行する）。
+    if: github.event_name == 'push' && vars.EXPORT_REGRESSION_NIGHTLY != 'true'
+    runs-on: ${{ fromJSON(vars.HEAVY_RUNS_ON || '"ubuntu-latest"') }}
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Run internal export regression tests
+        shell: bash
+        run: |
+          if [ -f .ralph/public-scrub-sentinel-words.txt ]; then
+            bash tools/release/test-export.sh --ci
+          else
+            echo "SKIP: internal export regression tests"
+          fi
+
+  python-compat:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.7", "3.8"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+
+      - name: Check Python compatibility
+        run: PLANNER_PYTHON=python3 bash tools/test-python-compat.sh

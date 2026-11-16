@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/saita-kun-planner/spec-confirmation.schema.json",
+  "title": "Subsidy spec confirmation",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "spec_path",
+    "spec_version",
+    "spec_sha256",
+    "confirmed_by",
+    "confirmed_at",
+    "items"
+  ],
+  "properties": {
+    "ingest_mode": {
+      "enum": ["human_spot_check", "ai_only"],
+      "description": "実際に行った取込工程。人間の目視スポットチェックは human_spot_check、AI 単独工程は ai_only。原本との人間突合は別途必要"
+    },
+    "extract_sha256": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "description": "document_id ごとの extract ファイルのバイト列の SHA-256。ai_only では全 source_documents 分が必須。原本用の source_documents[].sha256 とは別に記録する"
+    },
+    "spec_path": {
+      "type": "string"
+    },
+    "spec_version": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "spec_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confirmed_by": {
+      "enum": [
+        "applicant",
+        "provider",
+        null
+      ]
+    },
+    "confirmed_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "field_path",
+          "source_clauses",
+          "state",
+          "note"
+        ],
+        "properties": {
+          "field_path": {
+            "type": "string"
+          },
+          "source_clauses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "state": {
+            "enum": [
+              "confirmed",
+              "open",
+              "na"
+            ]
+          },
+          "note": {
+            "type": "string"
+          },
+          "predicate_state": {
+            "enum": [
+              "encoded",
+              "not_encodable",
+              "pending"
+            ]
+          },
+          "confirmed_at": {
+            "type": "string"
+          },
+          "confirmed_via": {
+            "enum": [
+              "group-table",
+              "individual"
+            ]
+          },
+          "shown_page": {
+            "type": [
+              "integer",
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

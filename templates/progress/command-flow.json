@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "guide_commands": ["start", "journey-map"],
+  "lanes": [{"lane_id": "owner", "label": "経営者（あなた）"}, {"lane_id": "claude", "label": "Claude Code との作業"}, {"lane_id": "external", "label": "外部の窓口"}],
+  "steps": [
+    {"step_id": "setup", "label": "作業環境を整えて約束ごとを確認する", "lane": "claude", "commands": ["setup"], "optional": false, "human_gate": true},
+    {"step_id": "spec-entry", "guidance": "案内: 初めての場合や、どちらを選ぶか迷う場合は /start（全体の流れと選び方の案内）", "label": "補助金のデータを用意する", "lane": "claude", "commands": ["select-subsidy", "ingest-guidelines"], "optional": false, "human_gate": false},
+    {"step_id": "confirm-spec", "label": "読み取った内容を原本と突き合わせて確認する", "lane": "owner", "commands": ["confirm-spec"], "optional": false, "human_gate": true},
+    {"step_id": "build-pack", "label": "書き方メモを作る", "lane": "claude", "commands": ["build-pack"], "optional": true, "human_gate": false},
+    {"step_id": "intake", "label": "会社と事業の情報を整理する", "lane": "claude", "commands": ["intake"], "optional": false, "human_gate": false},
+    {"step_id": "subsidy-fit", "label": "要件と照らし合わせて狙う枠を決める", "lane": "owner", "commands": ["subsidy-fit"], "optional": false, "human_gate": true},
+    {"step_id": "plan-deliverables", "label": "提出物と期限を整理する", "lane": "claude", "commands": ["plan-deliverables"], "optional": false, "human_gate": false},
+    {"step_id": "draft-section", "label": "計画書の叩き台を作る", "lane": "claude", "commands": ["draft-section"], "optional": false, "human_gate": false},
+    {"step_id": "review", "label": "叩き台を点検する", "lane": "claude", "commands": ["review"], "optional": false, "human_gate": false},
+    {"step_id": "verify", "label": "機械検査にかける", "lane": "claude", "commands": ["verify"], "optional": false, "human_gate": false},
+    {"step_id": "finalize", "label": "提出前の最終確認をする", "lane": "owner", "commands": ["finalize"], "optional": false, "human_gate": true},
+    {"step_id": "submit", "label": "自分で提出する", "lane": "owner", "commands": [], "optional": false, "human_gate": true},
+    {"step_id": "retrospect", "label": "結果を振り返って次に活かす", "lane": "claude", "commands": ["retrospect"], "optional": false, "human_gate": false}
+  ]
+}

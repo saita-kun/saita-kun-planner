@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Subsidy Category Taxonomy",
+  "description": "補助金カテゴリ enum 真実源（saita-kun backend docs/taxonomy/categories.json 由来のコピー、taxonomy v1）。subsidy-spec の category_tags 検証に使う。",
+  "taxonomy_version": "v1",
+  "introduced_at": "2026-05-07",
+  "categories": [
+    {
+      "id": "equipment_investment",
+      "label_ja": "設備投資・機械導入",
+      "description": "工場機械・生産設備・業務用機器の購入・更新"
+    },
+    {
+      "id": "digital_transformation",
+      "label_ja": "デジタル化・IT 導入",
+      "description": "業務システム / クラウド / 自動化ツール導入、IT 導入補助金 系統"
+    },
+    {
+      "id": "sales_marketing",
+      "label_ja": "販路開拓・マーケティング",
+      "description": "EC・展示会・広告・ブランディング、持続化補助金 一般枠 系統"
+    },
+    {
+      "id": "overseas_expansion",
+      "label_ja": "海外展開・輸出",
+      "description": "輸出商談・越境 EC・現地法人設立"
+    },
+    {
+      "id": "rd_innovation",
+      "label_ja": "研究開発・技術革新",
+      "description": "新技術 / 新製品 / 試作開発、ものづくり補助金 系統"
+    },
+    {
+      "id": "succession_ma",
+      "label_ja": "事業承継・M&A",
+      "description": "親族内承継・第三者承継・株式譲渡、事業承継補助金 系統"
+    },
+    {
+      "id": "startup",
+      "label_ja": "創業・スタートアップ",
+      "description": "創業時設備・運転資金、創業補助金 系統"
+    },
+    {
+      "id": "hr_development",
+      "label_ja": "人材育成・人材確保",
+      "description": "教育研修・採用支援・スキル習得、人材開発支援助成金 系統"
+    },
+    {
+      "id": "labor_environment",
+      "label_ja": "雇用・労働環境改善",
+      "description": "賃金引上げ・働き方改革・職場環境整備、業務改善助成金 系統"
+    },
+    {
+      "id": "decarbonization",
+      "label_ja": "省エネ・脱炭素・GX",
+      "description": "省エネ機器・再エネ設備・カーボンニュートラル"
+    },
+    {
+      "id": "intellectual_property",
+      "label_ja": "知的財産・特許",
+      "description": "特許出願・商標登録・海外権利化"
+    },
+    {
+      "id": "tourism_inbound",
+      "label_ja": "観光・インバウンド",
+      "description": "宿泊施設改修・多言語対応・観光資源開発"
+    },
+    {
+      "id": "food_agriculture",
+      "label_ja": "食品・農業・水産",
+      "description": "六次産業化・農業 IT 化・食品加工"
+    },
+    {
+      "id": "manufacturing",
+      "label_ja": "製造業・ものづくり",
+      "description": "製造プロセス改善・品質向上・生産性向上（業種特化）"
+    },
+    {
+      "id": "service_industry",
+      "label_ja": "商業・サービス業",
+      "description": "小売・飲食・サービス業向け（業種特化）"
+    },
+    {
+      "id": "medical_welfare",
+      "label_ja": "医療・福祉・介護",
+      "description": "医療機器・福祉用具・介護人材"
+    },
+    {
+      "id": "environment",
+      "label_ja": "環境保全・再エネ",
+      "description": "環境負荷低減・廃棄物・自然保護（脱炭素より広い）"
+    },
+    {
+      "id": "regional_revitalization",
+      "label_ja": "地域活性化・コミュニティ",
+      "description": "地域資源活用・空き家対策・移住定住"
+    },
+    {
+      "id": "bcp_disaster",
+      "label_ja": "災害対策・BCP",
+      "description": "事業継続計画・防災設備・備蓄"
+    },
+    {
+      "id": "business_restructuring",
+      "label_ja": "事業再構築・業態転換",
+      "description": "新分野進出・業態転換、事業再構築補助金 系統"
+    }
+  ],
+  "migration_notes": {
+    "v0_to_v1": "v0 = taxonomy_version 未付与の既存データ。scripts/migrate-taxonomy.sh で v1 に backfill。category_tags が空の場合は空配列のまま、推論しない（手動付与 or AI suggest 経路で別途付与）。"
+  }
+}

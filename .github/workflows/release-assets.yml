@@ -1,0 +1,26 @@
+name: release-assets
+on:
+  release:
+    types: [published]
+permissions:
+  contents: write
+jobs:
+  upload-source-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build source zip from the release tag
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          set -euo pipefail
+          name="${GITHUB_REPOSITORY##*/}-${TAG//\//-}"
+          git archive --format=zip --prefix="${name}/" -o "${name}.zip" "refs/tags/${TAG}"
+          sha256sum "${name}.zip" > "${name}.zip.sha256"
+      - name: Upload assets to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "${TAG}" ./*.zip ./*.zip.sha256 --clobber
