@@ -1,0 +1,35 @@
+{
+  "pack_version": 1,
+  "subsidy_id": "pack-fixture",
+  "spec_version": 1,
+  "built_at": "2026-07-05T00:00:00+09:00",
+  "built_by": "provider",
+  "spec": {
+    "path": "pack-fixture.json",
+    "sha256": "fd5ed9abcf93930994696f2b96c68b641477f76fc6ae424483664a87d0bd8501"
+  },
+  "confirmation": {
+    "path": "pack-fixture.confirmation.json",
+    "sha256": "a4814a8a58d12ce755680269c14d9ad8adcb85061c816a632a6b44b191108ecb"
+  },
+  "notes": [
+    {
+      "path": "notes/review-lens.md",
+      "kind": "review-lens",
+      "sha256": "4afe8008a19de0a979d5d8fd33ad23adb18a7c13423698455bd4e062ca9fc11f",
+      "derived_from_spec_sha256": "fd5ed9abcf93930994696f2b96c68b641477f76fc6ae424483664a87d0bd8501"
+    },
+    {
+      "path": "notes/scoring-strategy.md",
+      "kind": "scoring-strategy",
+      "sha256": "45850097f629546eacbaac19c59a77933563d023731bb45470932f60b6e67795",
+      "derived_from_spec_sha256": "fd5ed9abcf93930994696f2b96c68b641477f76fc6ae424483664a87d0bd8501"
+    },
+    {
+      "path": "notes/sections/plan--overview.md",
+      "kind": "section-note",
+      "sha256": "3a491c5bbebb61986930266798fa7f06a7932ea755c06e766d0f2de5b41f82e3",
+      "derived_from_spec_sha256": "fd5ed9abcf93930994696f2b96c68b641477f76fc6ae424483664a87d0bd8501"
+    }
+  ]
+}

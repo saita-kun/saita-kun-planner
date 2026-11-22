@@ -1,0 +1,8 @@
+{
+  "pack_version": 1,
+  "subsidy_id": "resolver-pack-duplicate",
+  "spec": {
+    "path": "two.json",
+    "sha256": null
+  }
+}

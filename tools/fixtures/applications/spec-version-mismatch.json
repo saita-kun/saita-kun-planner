@@ -1,0 +1,13 @@
+{
+  "subsidy_id": "predicate-application-scope",
+  "spec_path": "tools/fixtures/spec/predicate-application-scope.json",
+  "spec_version": 2,
+  "chosen_funding": {
+    "base": true,
+    "addon_ids": [
+      "wage-up"
+    ]
+  },
+  "state": "fit_done",
+  "updated_at": "2026-07-02T12:34:56+09:00"
+}

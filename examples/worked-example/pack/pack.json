@@ -1,0 +1,23 @@
+{
+  "pack_version": 1,
+  "subsidy_id": "worked-sample",
+  "spec_version": 1,
+  "built_at": "2026-07-05T00:00:00+09:00",
+  "built_by": "provider",
+  "spec": {
+    "path": "spec.sample.json",
+    "sha256": "4a5fea06f3645a0eb76ee5f357faed860e64888ada1038806a236f914afd0ef6"
+  },
+  "confirmation": {
+    "path": "spec.sample.confirmation.json",
+    "sha256": "1f87ea0362d7a2fc2e6ede76d54cbdd3f6368afda36e60c2ffcd800412bc322c"
+  },
+  "notes": [
+    {
+      "path": "notes/review-lens.md",
+      "kind": "review-lens",
+      "sha256": "30f791b8d4500eb5251273bb19391163ed1bf0d6a6b5850afe7aad2da63c159e",
+      "derived_from_spec_sha256": "4a5fea06f3645a0eb76ee5f357faed860e64888ada1038806a236f914afd0ef6"
+    }
+  ]
+}

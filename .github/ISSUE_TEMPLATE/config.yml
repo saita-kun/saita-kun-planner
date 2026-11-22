@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: セキュリティ脆弱性の私的報告
+    url: https://github.com/saita-kun/saita-kun-planner/security/policy
+    about: SECURITY.md の Private Vulnerability Reporting または info@subsidy-support.tech から報告してください。

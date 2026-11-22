@@ -1,0 +1,21 @@
+{
+  "fixture_version": 1,
+  "cases": [
+    {
+      "id": "unrelated-denial-after-stop",
+      "text": "必ず採択されます。ただし保証はしません。"
+    },
+    {
+      "id": "unrelated-denial-after-newline",
+      "text": "作成代行を提供します。\n提出判断は行いません。"
+    },
+    {
+      "id": "automatic-claim-before-denial",
+      "text": "完全自動で申請します。代理提出はしません。"
+    },
+    {
+      "id": "guarantee-before-unrelated-prohibition",
+      "text": "採択を保証。数値の推測は禁止。"
+    }
+  ]
+}
